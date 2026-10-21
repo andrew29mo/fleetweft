@@ -1,4 +1,4 @@
-Current three-node authenticated MVP evidence: [reviews/mvp-audit](mvp-audit/README.md).
+Current three-node authenticated MVP evidence: [reviews/mit](mit/README.md).
 
 The following is historical exploration evidence from an earlier source revision.
 

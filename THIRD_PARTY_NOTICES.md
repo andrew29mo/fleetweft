@@ -1,8 +1,9 @@
 # Third-party tools and source status
 
-Fleetweft authored source currently has no selected license. No LICENSE file is
-included and no open-source licensing claim is made. The GitHub repository is
-Private; no project license has been selected for the MVP either.
+Fleetweft-authored code and documentation are licensed under the [MIT License](LICENSE),
+Copyright (c) 2026 Andrew Yuan. The repository remains Private. This license does
+not relicense external tools, libraries, operating-system packages or reference
+projects; their original terms continue to apply.
 
 Runtime uses the Python standard library only. Python retains its PSF license;
 the SQLite engine distributed with Python has its own public-domain dedication.
@@ -23,3 +24,32 @@ committed here.
 
 Reference links in docs/RESEARCH.md informed protocol choices; no Mender,
 hawkBit, Greengrass, TUF or Shiftstead implementation is vendored in this project.
+
+## License scope check
+
+The wheel distributes Fleetweft's own Python modules, distribution metadata and
+its MIT license. Generated first-party sample app payloads also retain the full
+MIT notice as Python comments before signing; arbitrary caller-supplied apps keep
+their own licensing requirements. No third-party implementation, model, dataset, interpreter,
+cryptographic binary or OS/VM image is bundled. The declared Python runtime
+package dependency list is empty. Installed build-tool metadata was checked for
+these versions; no dependency source or license notice was removed or replaced.
+This distribution boundary presents no identified dependency-license conflict
+with licensing Fleetweft itself under MIT. Bundling external binaries or libraries
+in a future distribution requires a separate review of their actual notices.
+
+Primary references checked:
+
+- [MIT license text](https://opensource.org/license/mit).
+- [Python history and licenses](https://docs.python.org/3/license.html).
+- [SQLite public-domain dedication](https://sqlite.org/copyright.html).
+- [OpenSSL license by release](https://openssl-library.org/source/license/index.html):
+  OpenSSL 3.x uses Apache-2.0; earlier releases have their original OpenSSL/SSLeay
+  terms. The invoked system binary is external, not redistributed here.
+- [LibreSSL portable licensing notices](https://github.com/libressl/portable/blob/master/COPYING):
+  the macOS command is external; component notices are not replaced by MIT.
+
+Linux, systemd, iproute2, nftables, Colima and Lima are deployed/tested as separately
+installed tools. No claim is made that their licenses are MIT or that this check
+licenses an entire VM image. Historical review records stating “no selected
+license” describe those earlier commits and remain historical evidence.

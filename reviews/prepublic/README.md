@@ -1,3 +1,5 @@
+Historical pre-MIT review; current status is in [license adoption](../../docs/LICENSE_ADOPTION.md).
+
 # Pre-publication checks
 
 [Review scope and findings](../../docs/PREPUBLIC_REVIEW.md) · [Fresh macOS unit receipt](native-unit.json)

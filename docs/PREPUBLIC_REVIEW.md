@@ -1,5 +1,10 @@
 # Pre-publication review — 2026-10-21
 
+Historical review at commit 9084a8b: the license was unselected then. Fleetweft
+now uses MIT; see [license adoption](LICENSE_ADOPTION.md) for current licensing
+and refreshed package/validation evidence. The original findings below retain
+their review-time scope.
+
 Reviewed base commit: `2a2d5be6cb32a51accfc64dd84e2388ce9b8f517`.
 Runtime/test/service/tool fingerprint:
 `aaabf9003e084bab1582e8812dc89e6124c3849f7ff602df351bb6505a893423`.

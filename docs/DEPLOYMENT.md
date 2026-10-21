@@ -117,3 +117,12 @@ invalidate the historical canary result. Admission can continue when another fre
 healthy node satisfies the configured policy. Separate monitoring and an operator
 pause/rollback are needed for faults outside the current operation's observation
 and settlement window; no continuous canary guardian is implemented.
+
+## Application artifact licensing
+
+The first-party sample fixture prepends Fleetweft's full MIT notice as Python
+comments inside app.py before signing. This preserves the notice without changing
+the strict three-entry bundle format. The generic bundle command preserves the
+application supplied by its caller; it does not grant MIT rights to unrelated
+applications. Include the application's applicable license notices when preparing
+its single-file payload.

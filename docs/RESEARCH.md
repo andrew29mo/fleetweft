@@ -2,8 +2,8 @@
 
 These are reference materials, not claims that Fleetweft reproduces the guarantees
 of the referenced products. No third-party implementation was copied into this
-standard-library Python runtime (with external system OpenSSL for signatures). Tool/package licenses remain separate; an authored-source
-license has not been chosen.
+standard-library Python runtime (with external system OpenSSL for signatures). Fleetweft-authored code is MIT-licensed; external tool/package licenses remain
+separate (see THIRD_PARTY_NOTICES.md).
 
 | Primary material | Decision informed |
 |---|---|

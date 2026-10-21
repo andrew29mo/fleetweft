@@ -1,0 +1,33 @@
+{
+  "license_expression": "MIT",
+  "license_file": "LICENSE",
+  "copyright": "Copyright (c) 2026 Andrew Yuan",
+  "wheel": "fleetweft-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "7f162e08fef8a875086a29b70325a9f9bb5100b66e9b7584f004729f954d91a7",
+  "wheel_entries": [
+    "fleetweft/__init__.py",
+    "fleetweft/agent.py",
+    "fleetweft/artifacts.py",
+    "fleetweft/client.py",
+    "fleetweft/coordinator.py",
+    "fleetweft/core.py",
+    "fleetweft/mvp.py",
+    "fleetweft/net.py",
+    "fleetweft/node.py",
+    "fleetweft/service.py",
+    "fleetweft/store.py",
+    "fleetweft/tls.py",
+    "fleetweft/worker.py",
+    "fleetweft-0.1.0.dist-info/licenses/LICENSE",
+    "fleetweft-0.1.0.dist-info/METADATA",
+    "fleetweft-0.1.0.dist-info/WHEEL",
+    "fleetweft-0.1.0.dist-info/entry_points.txt",
+    "fleetweft-0.1.0.dist-info/top_level.txt",
+    "fleetweft-0.1.0.dist-info/RECORD"
+  ],
+  "license_matches_repository": true,
+  "runtime_requires_dist": [],
+  "sdist": "fleetweft-0.1.0.tar.gz",
+  "sdist_sha256": "30faae389ac91d0d1b9c383cd316b60f55f68c63c1b4c2c28a03f93f3a2c366d",
+  "sdist_license_matches_repository": true
+}

@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "name": "stale-incarnation",
+      "test": "tests.test_core.Contracts.test_old_incarnation_cannot_settle",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "wrong-canary-data",
+      "test": "tests.test_core.Contracts.test_duplicate_and_wrong_data_are_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "expired-challenge",
+      "test": "tests.test_core.Contracts.test_expired_challenge_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "commit-bypass",
+      "test": "tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "forget-reconciliation",
+      "test": "tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "skip-request-drain",
+      "test": "tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "fleet-canary-bypass",
+      "test": "tests.test_mvp.FleetTests.test_canary_must_settle_before_other_nodes",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "lost-node-identity",
+      "test": "tests.test_mvp.FleetTests.test_lost_node_state_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "restart-auto-resume",
+      "test": "tests.test_mvp.FleetTests.test_controller_restart_requires_reconciliation",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "signature-bypass",
+      "test": "tests.test_mvp.ArtifactTests.test_wrong_key_with_matching_digest_is_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "non-atomic-settlement",
+      "test": "tests.test_mvp.AtomicFleetTests.test_settlement_error_keeps_durable_grant",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "lost-authorized-decision",
+      "test": "tests.test_audit.AuditContracts.test_authorized_reply_loss_then_pause_replays_exact_decision",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "reordered-poll",
+      "test": "tests.test_audit.AuditContracts.test_reordered_poll_cannot_change_captured_rollback_baseline",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "ignore-terminal-probe",
+      "test": "tests.test_audit.AuditContracts.test_terminal_commit_with_failed_probe_settles_but_never_promotes",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "unverified-compensation",
+      "test": "tests.test_audit.AuditContracts.test_unverified_restoration_keeps_occupancy_until_probe_succeeds",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    }
+  ],
+  "source": {
+    "LICENSE": "0a5f48c5847660a83b6372cf47ef20c88bc20a0ae051dcc623707d081d8ad504",
+    "deploy/fleetweft-controller.service": "bfeb55a3f2c9e29cb32051205d7ec2b8eac8ee2f4b7afbd5884b17f0bf3edbdf",
+    "deploy/fleetweft-node@.service": "7876330562a15b9f6e8d86baacd0b2e4926fe2773017721066ddd62b65d06f79",
+    "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+    "fleetweft/agent.py": "a800efca41f8f6ac60cad625ca44f88fa9fd61c142f3c6dc99d2b936fb1675be",
+    "fleetweft/artifacts.py": "dc9f2e5950bfa57c127963a9b6b6a0b922a48894a08a22005279c283aed70501",
+    "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+    "fleetweft/coordinator.py": "878d7f1f294d2081d26022fb5d9637aa3508a33fa88250553888dad2a60471d7",
+    "fleetweft/core.py": "906242b7299a7a03cb21d457ec4c91cad5c3ba816ab32078445f6b73b675117d",
+    "fleetweft/mvp.py": "79e63339d93f7d129fc47ad99c66ca500747b1f1bd03ea2461eb85d85e9c9c21",
+    "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+    "fleetweft/node.py": "96a5a3883bc39ab9998a4ff2ec4b2ac0d6f09211f5791981ff5f44eedc845c79",
+    "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
+    "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+    "fleetweft/tls.py": "9074ad1b212df7ce25dbeb685d211261fe08da7559219b4cdedfbcaf9ec8694f",
+    "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
+    "pyproject.toml": "afb140311e59f7e9797e051f4515591e75032ce2caba790210cb76f452ef379e",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_audit.py": "41abb896b94bd58d1ba67f3cb1f79552f889e4dc5566a0396bc62b3f33103274",
+    "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tests/test_fixture_ownership.py": "5eee288bda6e9c1a3c7de0728c3a96fb1e3b413589829411f17a0f743e7c0636",
+    "tests/test_mvp.py": "0a542bc06e1dabb58a2724b87a381d8301c5c34025b8776bbabcc05f35dae44d",
+    "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+    "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
+    "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+    "tools/evidence.py": "9242953ccb48f492722d184049ebd4fff09d09accf94a4265698d75e50389e05",
+    "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+    "tools/mutations.py": "a8dc69dc15392c4b8117f8fc52ffcbfa87176ede1f57758636f4401d1a0bd7b0",
+    "tools/mvp_fault_proxy.py": "5ba57dd908e4994d5e75e92c785fde57535fd4ab5fabbed23d5f2ac140fbf520",
+    "tools/mvp_fixture.py": "f1092f49f1cb59ea5ccb792b90facdca4287dfc6e9fd9af8de2e8f056d0f75bd",
+    "tools/mvp_guest.py": "c1896287b6da51c593a40dc995adf8808cccfc1f65cef51d36d6771e1c0afc10",
+    "tools/mvp_ownership.py": "f9c4ab1e53eeca720ad8e870989de31e3c4605e99ea54b05c2deefcd6007c92e",
+    "tools/mvp_report.py": "a1b98c725b7015f774d956fabbcf919b564bc37672e48707721519036865aabd",
+    "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
+    "tools/unit.py": "7480cea5a71ac5a56d24db1ea8683dd84bb900857785023fa46305d22a9f5688",
+    "tools/validate_mvp.py": "e1b8567fa3d6cf4921451d9846ee748b56dee0251106b3392e8a7edc313e2756",
+    "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+  }
+}

@@ -24,8 +24,10 @@ def bundles(root, signing_key):
     app=Path(__file__).resolve().parents[1]/'fleetweft/worker.py'
     source=app.read_bytes().replace(b'import argparse',b'import argparse\nimport os')
     source=source.replace(b"a.release == 'bad'",b"(a.release == 'bad' or (a.release == 'badb' and os.environ.get('FLEETWEFT_NODE')=='b'))")
+    notice=''.join('# '+line+'\n' for line in (app.parent.parent/'LICENSE').read_text().splitlines()).encode()
     catalog={}
     for release in ('v1','v2','v3','bad','badb','crash'):
-        raw=build(b'raise RuntimeError("startup failure fixture")\n' if release=='crash' else source,release,signing_key); sha=digest(raw); catalog[release]=sha
+        payload=b'raise RuntimeError("startup failure fixture")\n' if release=='crash' else source
+        raw=build(notice+payload,release,signing_key); sha=digest(raw); catalog[release]=sha
         (root/(sha+'.zip')).write_bytes(raw)
     return catalog

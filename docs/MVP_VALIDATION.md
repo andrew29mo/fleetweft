@@ -1,18 +1,18 @@
-# MVP validation — 2026-10-21
+# MVP validation — MIT snapshot
 
-Final run: `e746ebafc9d228b4`.
-Executable/unit/shipping-unit/tool source SHA-256:
-`aaabf9003e084bab1582e8812dc89e6124c3849f7ff602df351bb6505a893423`.
+Final run: `06663f42a7edc9a0`.
+Source/package/license/unit/service/tool SHA-256:
+`9ceff8e59cdad02b944a6f58dd6ce3b7296ede9d7f9a3f00527b14d8a91706fd`.
 Documentation and receipts are outside that source manifest. No runtime changes
 were made after the final snapshot was taken.
 
-[Complete JSON](../reviews/mvp-audit/evidence.json) · [Matching HTML](../reviews/mvp-audit/report.html)
-· [macOS unit receipt](../reviews/mvp-audit/native-unit.json) · [Linux unit receipt](../reviews/mvp-audit/linux-unit.json)
-· [Mutation receipt](../reviews/mvp-audit/mutations.json) · [All MVP attempts](../reviews/mvp-audit/attempts.json)
+[Complete JSON](../reviews/mit/evidence.json) · [Matching HTML](../reviews/mit/report.html)
+· [macOS unit receipt](../reviews/mit/native-unit.json) · [Linux unit receipt](../reviews/mit/linux-unit.json)
+· [Mutation receipt](../reviews/mit/mutations.json) · [All MVP attempts](../reviews/mit/attempts.json)
 
 ## Verification result
 
-- **68/68 macOS and 68/68 Linux portable tests**, identical IDs and source hashes;
+- **69/69 macOS and 69/69 Linux portable tests**, identical IDs and source hashes;
   zero failures, errors or skips. The worker-readiness test uses a real subprocess
   with a synthetic process identity on both platforms; actual Linux identities and
   route recovery are separately exercised in the VM.
@@ -74,10 +74,10 @@ One final controlled run, not an SLO or capacity estimate:
 | Observation | Result | Definition |
 |---|---:|---|
 | Request success | 30/30 | Fixed A/B/C round-robin sequence, x=7, expected result 14 and release v2; no discarded failure |
-| Median request latency | 11.74 ms | One persistent driver; each request includes a new mTLS connection, node gateway, worker execution and full JSON response read |
-| p95 request latency | 24.31 ms | Nearest-rank p95 of all 30 measurements, not repeated-run confidence |
-| Maximum request latency | 28.30 ms | Maximum of this small sequential sample |
-| Agent SIGKILL → observed new-incarnation v2 response | 1.352 s | Starts before sending systemctl kill; includes polling/client launch overhead; not a recovery-time upper bound |
+| Median request latency | 11.10 ms | One persistent driver; each request includes a new mTLS connection, node gateway, worker execution and full JSON response read |
+| p95 request latency | 28.31 ms | Nearest-rank p95 of all 30 measurements, not repeated-run confidence |
+| Maximum request latency | 28.75 ms | Maximum of this small sequential sample |
+| Agent SIGKILL → observed new-incarnation v2 response | 1.201 s | Starts before sending systemctl kill; includes polling/client launch overhead; not a recovery-time upper bound |
 
 Driver/netns startup is outside individual request latency. The driver issues no
 concurrent load; no saturation throughput, speedup, WAN latency or statistical
@@ -88,12 +88,12 @@ RSS is `/proc/<pid>/status` VmRSS at one post-request observation, in KiB:
 
 | Process | RSS KiB |
 |---|---:|
-| Controller | 23,604 |
-| Agent A | 49,288 |
-| Agent B | 48,376 |
-| Agent C | 47,552 |
-| App worker A | 18,576 |
-| App worker B | 18,572 |
+| Controller | 23,848 |
+| Agent A | 49,172 |
+| Agent B | 47,544 |
+| Agent C | 48,380 |
+| App worker A | 18,580 |
+| App worker B | 18,580 |
 | App worker C | 18,576 |
 
 These are VM process RSS snapshots, not peak memory, PSS, cgroup/VM memory or a
@@ -106,7 +106,7 @@ Use the dedicated stopped VM command in README, then:
 
 ```sh
 .venv/bin/python -m tools.mvp_report results/fresh-mvp-run --current-source
-.venv/bin/python -m tools.mvp_report reviews/mvp-audit --current-source
+.venv/bin/python -m tools.mvp_report reviews/mit --current-source
 ```
 
 The verifier checks stage outcomes/timeouts, source hashes, installed wheel,
@@ -117,15 +117,19 @@ regenerated HTML. A PASS flag by itself cannot render a passing incomplete repor
 must be reproduced with their matching historical revision/tooling; they predate
 this MVP and have different source and mutation manifests.
 
-All four audit attempts are retained. Attempts 1/2 stopped before upload because
-real systemd no-match and template-query semantics differed from the mock; exact
-read-only query output is retained. Attempt 3 passed the fifteen live service
-scenarios, then the Linux unit suite caught a synthetic test reading the real
-namespace directory. That run remained failed; it never reached VM reboot. The
-test now injects its own namespace directory and has a filesystem-collision
-regression. Attempt 4 passed the complete pipeline. Cleanup/final VM status and
-all failed-attempt categories remain in the ledger; no partial run is merged into
-the final pass. The initial pre-audit MVP receipts remain archived in reviews/mvp.
+Both MIT-era attempts passed; the final snapshot also retains the full MIT notice
+in each generated first-party signed app and tests that preservation. Its source
+manifest includes LICENSE and MIT packaging metadata. Product runtime modules and
+shipping units match the preceding audit snapshot; the unit suite adds one license
+propagation contract. This run refreshes provenance
+and packaging evidence; differences from older one-run timing/RSS values are not
+claimed as performance improvements.
+
+The [earlier four audit attempts](../reviews/mvp-audit/attempts.json) remain
+historical. Those include two preflight rejections before upload and a Linux mock
+isolation failure after live scenarios. They were not converted to passes or
+merged into this run. Original pre-MIT MVP/exploration evidence and its own source
+fingerprints remain available in reviews/mvp and reviews/ respectively.
 
 ## Not tested / not established
 

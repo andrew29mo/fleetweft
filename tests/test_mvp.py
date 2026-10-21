@@ -36,6 +36,16 @@ class ArtifactTests(unittest.TestCase):
         with p.open('wb') as stream: stream.truncate(2*1024*1024)
         with self.assertRaisesRegex(ValueError,'Oversized'): a.path('v1')
 
+    def test_first_party_fixture_retains_mit_notice(self):
+        from tools.mvp_fixture import bundles
+        root=self.cache/'bundles'; catalog=bundles(root,self.root/'sign.key')
+        verifier=Artifacts(self.cache/'verified',self.root/'sign.pub',catalog)
+        license_text=Path(__file__).resolve().parents[1]/'LICENSE'
+        notice=''.join('# '+line+'\n' for line in license_text.read_text().splitlines()).encode()
+        for release,sha in catalog.items():
+            app=verifier.verify((root/(sha+'.zip')).read_bytes(),release)
+            self.assertTrue(app.startswith(notice),release)
+
     def test_wrong_key_with_matching_digest_is_rejected(self):
         raw=build(b'print(1)','v1',self.root/'other.key')
         with self.assertRaisesRegex(ValueError,'signature'): self.store(raw).install(raw,'v1')

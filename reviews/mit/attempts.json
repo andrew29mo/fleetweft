@@ -1,0 +1,20 @@
+[
+  {
+    "attempt": 1,
+    "run_id": "1ff766a48aa0b20c",
+    "source_sha256": "e89f837f83c1fef844accd594f50d0d9133b26a5e647ad8d58a94af1d38e549a",
+    "passed": true,
+    "snapshot_removed": true,
+    "vm_final": "Stopped",
+    "note": "Passed; superseded by retaining full MIT notice in generated first-party app payloads."
+  },
+  {
+    "attempt": 2,
+    "run_id": "06663f42a7edc9a0",
+    "source_sha256": "9ceff8e59cdad02b944a6f58dd6ce3b7296ede9d7f9a3f00527b14d8a91706fd",
+    "passed": true,
+    "snapshot_removed": true,
+    "vm_final": "Stopped",
+    "note": "Final MIT snapshot with signed-payload notice test; complete verification passed."
+  }
+]

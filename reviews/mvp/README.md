@@ -13,5 +13,5 @@ Final run `f519bcdfd6cd873a`; source
 41 portable tests on each platform, 11 assertion-catching mutations, ten VM
 service scenarios, orderly VM stop/start and 14 report-corruption controls passed.
 Each category has its own meaning. All planned measurement requests are retained.
-Test keys, databases, wheels and private logs are excluded. No project license has
-been selected. No power-loss, zero-downtime or physical-fleet claim is made.
+Test keys, databases, wheels and private logs are excluded. At that historical revision no project license had
+been selected; the current project uses [MIT](../../LICENSE). No power-loss, zero-downtime or physical-fleet claim is made.

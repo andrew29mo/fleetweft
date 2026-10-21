@@ -5,7 +5,8 @@ It rolls out a signed stateless Python HTTP application through a designated
 canary, pauses on failed business checks, and restores captured per-node baselines
 through new, fenced operations.
 
-**Private MVP; no project license selected.** This is not production qualification.
+**MIT-licensed MVP; repository remains Private.** See [LICENSE](LICENSE) and
+[third-party notices](THIRD_PARTY_NOTICES.md). This is not production qualification.
 
 ## What it implements
 
