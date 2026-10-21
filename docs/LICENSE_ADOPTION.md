@@ -1,8 +1,9 @@
 # MIT license adoption
 
 Fleetweft-authored source and documentation now use the [MIT License](../LICENSE),
-Copyright (c) 2026 Andrew Yuan. The repository remains **Private**; adopting a
-license does not authorize changing repository visibility or adding collaborators.
+Copyright (c) 2026 Andrew Yuan. The repository was Private when this licensing
+snapshot was verified. It is now Public following explicit owner authorization;
+see [publication checks](PUBLICATION.md). Licensing alone does not change access.
 
 README, THIRD_PARTY_NOTICES and pyproject agree on MIT. The package declares
 `license = "MIT"` and includes `LICENSE` in both wheel and source distribution.

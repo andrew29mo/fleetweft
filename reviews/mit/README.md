@@ -9,7 +9,9 @@ Run `06663f42a7edc9a0`, source fingerprint
 `9ceff8e59cdad02b944a6f58dd6ce3b7296ede9d7f9a3f00527b14d8a91706fd`:
 69 tests per platform, 15 production mutations, 15 VM service scenarios,
 orderly VM stop/start and 22 report controls passed. MIT applies to first-party
-code; external dependency notices remain separate. Repository stays Private.
+code; external dependency notices remain separate. This snapshot was verified
+while Private; the repository is now Public. See
+[publication checks](../../docs/PUBLICATION.md).
 
 ```sh
 .venv/bin/python -m tools.mvp_report reviews/mit --current-source

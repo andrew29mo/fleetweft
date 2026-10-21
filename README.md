@@ -5,7 +5,7 @@ It rolls out a signed stateless Python HTTP application through a designated
 canary, pauses on failed business checks, and restores captured per-node baselines
 through new, fenced operations.
 
-**MIT-licensed MVP; repository remains Private.** See [LICENSE](LICENSE) and
+**Public, MIT-licensed MVP.** See [LICENSE](LICENSE) and
 [third-party notices](THIRD_PARTY_NOTICES.md). This is not production qualification.
 
 ## What it implements
@@ -73,6 +73,8 @@ it does not run the Linux agent backend.
 - [MVP audit and regressions](docs/MVP_AUDIT.md)
 - [Earlier exploration audit](docs/AUDIT.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
+- [Publication checks](docs/PUBLICATION.md)
+- [Security policy](SECURITY.md)
 
 ```sh
 python3.12 -m venv .venv
