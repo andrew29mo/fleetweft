@@ -1,0 +1,1656 @@
+<!doctype html><meta charset="utf-8"><title>Fleetweft explorations</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>PASS</h1><p>Isolated Linux VM, unprivileged installed services. Protocol explorations only; no complete fleet scheduler, TLS/signature, VM reboot or sudden power-loss claim.</p><pre>{
+  &quot;passed&quot;: true,
+  &quot;run_id&quot;: &quot;765bd7248cef5f62&quot;,
+  &quot;recorded_at_utc&quot;: &quot;2026-10-21T11:36:14.007071+00:00&quot;,
+  &quot;source&quot;: {
+    &quot;fleetweft/__init__.py&quot;: &quot;ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25&quot;,
+    &quot;fleetweft/client.py&quot;: &quot;cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9&quot;,
+    &quot;fleetweft/core.py&quot;: &quot;39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e&quot;,
+    &quot;fleetweft/net.py&quot;: &quot;66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205&quot;,
+    &quot;fleetweft/node.py&quot;: &quot;003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1&quot;,
+    &quot;fleetweft/service.py&quot;: &quot;c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067&quot;,
+    &quot;fleetweft/store.py&quot;: &quot;9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e&quot;,
+    &quot;fleetweft/worker.py&quot;: &quot;78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74&quot;,
+    &quot;pyproject.toml&quot;: &quot;0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb&quot;,
+    &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tests/test_core.py&quot;: &quot;0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f&quot;,
+    &quot;tools/__init__.py&quot;: &quot;4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23&quot;,
+    &quot;tools/evidence.py&quot;: &quot;a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288&quot;,
+    &quot;tools/guest.py&quot;: &quot;83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653&quot;,
+    &quot;tools/mutations.py&quot;: &quot;981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c&quot;,
+    &quot;tools/report.py&quot;: &quot;22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96&quot;,
+    &quot;tools/unit.py&quot;: &quot;d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232&quot;,
+    &quot;tools/validate_vm.py&quot;: &quot;4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5&quot;
+  },
+  &quot;source_sha256&quot;: &quot;58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43&quot;,
+  &quot;source_changed&quot;: false,
+  &quot;stages&quot;: [
+    {
+      &quot;name&quot;: &quot;vm-initial&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.4451948329951847
+    },
+    {
+      &quot;name&quot;: &quot;vm-start&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 9.594826041997294
+    },
+    {
+      &quot;name&quot;: &quot;preflight&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2702685420081252
+    },
+    {
+      &quot;name&quot;: &quot;wheel-build&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.40005283399659675
+    },
+    {
+      &quot;name&quot;: &quot;upload&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.22912408300908282
+    },
+    {
+      &quot;name&quot;: &quot;install&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.4684750830056146
+    },
+    {
+      &quot;name&quot;: &quot;guest&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 31.849833792002755
+    },
+    {
+      &quot;name&quot;: &quot;remove&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.35401862500293646
+    },
+    {
+      &quot;name&quot;: &quot;vm-stop&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 2.6183262500126148
+    },
+    {
+      &quot;name&quot;: &quot;vm-final&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.18794966700079385
+    }
+  ],
+  &quot;vm_initial&quot;: &quot;Stopped&quot;,
+  &quot;guest&quot;: {
+    &quot;passed&quot;: true,
+    &quot;source&quot;: {
+      &quot;fleetweft/__init__.py&quot;: &quot;ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25&quot;,
+      &quot;fleetweft/client.py&quot;: &quot;cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9&quot;,
+      &quot;fleetweft/core.py&quot;: &quot;39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e&quot;,
+      &quot;fleetweft/net.py&quot;: &quot;66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205&quot;,
+      &quot;fleetweft/node.py&quot;: &quot;003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1&quot;,
+      &quot;fleetweft/service.py&quot;: &quot;c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067&quot;,
+      &quot;fleetweft/store.py&quot;: &quot;9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e&quot;,
+      &quot;fleetweft/worker.py&quot;: &quot;78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74&quot;,
+      &quot;pyproject.toml&quot;: &quot;0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb&quot;,
+      &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+      &quot;tests/test_core.py&quot;: &quot;0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f&quot;,
+      &quot;tools/__init__.py&quot;: &quot;4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23&quot;,
+      &quot;tools/evidence.py&quot;: &quot;a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288&quot;,
+      &quot;tools/guest.py&quot;: &quot;83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653&quot;,
+      &quot;tools/mutations.py&quot;: &quot;981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c&quot;,
+      &quot;tools/report.py&quot;: &quot;22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96&quot;,
+      &quot;tools/unit.py&quot;: &quot;d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232&quot;,
+      &quot;tools/validate_vm.py&quot;: &quot;4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5&quot;
+    },
+    &quot;cases&quot;: [
+      {
+        &quot;name&quot;: &quot;authorization_loss_partition&quot;,
+        &quot;passed&quot;: true,
+        &quot;evidence&quot;: {
+          &quot;grant_reply_loss&quot;: {
+            &quot;client_failure&quot;: {
+              &quot;exit_code&quot;: 18,
+              &quot;transport_error&quot;: &quot;RemoteDisconnected&quot;
+            },
+            &quot;forwarded_and_reply_dropped&quot;: {
+              &quot;path&quot;: &quot;/grant&quot;,
+              &quot;upstream_result&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              }
+            }
+          },
+          &quot;accept_reply_loss&quot;: {
+            &quot;client_failure&quot;: {
+              &quot;exit_code&quot;: 18,
+              &quot;transport_error&quot;: &quot;RemoteDisconnected&quot;
+            },
+            &quot;forwarded_and_reply_dropped&quot;: {
+              &quot;path&quot;: &quot;/accept&quot;,
+              &quot;upstream_result&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 1,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;,
+                &quot;phase&quot;: &quot;STAGED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;d8df1bb6b81caba579c10e215f86cacd&quot;,
+                  &quot;port&quot;: 37097,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;generation&quot;: 1,
+                &quot;revision&quot;: 1,
+                &quot;committed&quot;: &quot;v1&quot;
+              }
+            }
+          },
+          &quot;before&quot;: {
+            &quot;generation&quot;: 1,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;40aa7d07a1581ddcba96955b0a4cedfb&quot;,
+              &quot;cancel_requested&quot;: false,
+              &quot;challenge_ns&quot;: 10720141045,
+              &quot;needs_reconcile&quot;: false,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: false,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+            },
+            &quot;last&quot;: null,
+            &quot;quiesced&quot;: false
+          },
+          &quot;partition_client&quot;: {
+            &quot;exit_code&quot;: 18,
+            &quot;transport_error&quot;: &quot;URLError&quot;
+          },
+          &quot;local_during_partition&quot;: {
+            &quot;release&quot;: &quot;v1&quot;,
+            &quot;worker&quot;: &quot;d8df1bb6b81caba579c10e215f86cacd&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v1&quot;,
+              &quot;worker&quot;: &quot;d8df1bb6b81caba579c10e215f86cacd&quot;,
+              &quot;port&quot;: 37097,
+              &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+            },
+            &quot;incarnation&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+          },
+          &quot;paused&quot;: {
+            &quot;generation&quot;: 1,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;40aa7d07a1581ddcba96955b0a4cedfb&quot;,
+              &quot;cancel_requested&quot;: false,
+              &quot;challenge_ns&quot;: 10720141045,
+              &quot;needs_reconcile&quot;: false,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: true,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+            },
+            &quot;last&quot;: null,
+            &quot;quiesced&quot;: false
+          },
+          &quot;new_plan_rejected&quot;: 1,
+          &quot;cancel_requested&quot;: {
+            &quot;generation&quot;: 1,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;40aa7d07a1581ddcba96955b0a4cedfb&quot;,
+              &quot;cancel_requested&quot;: true,
+              &quot;challenge_ns&quot;: 10720141045,
+              &quot;needs_reconcile&quot;: false,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: true,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+            },
+            &quot;last&quot;: null,
+            &quot;quiesced&quot;: false
+          },
+          &quot;restored&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 1,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;baseline&quot;: &quot;v1&quot;,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;incarnation&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;,
+            &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v1&quot;,
+              &quot;worker&quot;: &quot;fb301e78444c7e439a2ad9dcc8d0e3d2&quot;,
+              &quot;port&quot;: 42009,
+              &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+            },
+            &quot;generation&quot;: 1,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v1&quot;
+          },
+          &quot;settled&quot;: {
+            &quot;generation&quot;: 1,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: null,
+            &quot;paused&quot;: true,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f0d3493ac8cbf1d3c2628befb930b963&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;,
+              &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;fb301e78444c7e439a2ad9dcc8d0e3d2&quot;,
+                &quot;port&quot;: 42009,
+                &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+              },
+              &quot;generation&quot;: 1,
+              &quot;revision&quot;: 2,
+              &quot;committed&quot;: &quot;v1&quot;
+            },
+            &quot;quiesced&quot;: true
+          },
+          &quot;after&quot;: {
+            &quot;release&quot;: &quot;v1&quot;,
+            &quot;worker&quot;: &quot;fb301e78444c7e439a2ad9dcc8d0e3d2&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v1&quot;,
+              &quot;worker&quot;: &quot;fb301e78444c7e439a2ad9dcc8d0e3d2&quot;,
+              &quot;port&quot;: 42009,
+              &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+            },
+            &quot;incarnation&quot;: &quot;af4c34c6f111600fb58ea3a37f7a4278&quot;
+          }
+        }
+      },
+      {
+        &quot;name&quot;: &quot;delayed_executor&quot;,
+        &quot;passed&quot;: true,
+        &quot;evidence&quot;: {
+          &quot;preflight&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 1,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;4e5a2d1ba930a0c9139d16a2b6f41151&quot;,
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;baseline&quot;: &quot;v1&quot;,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;,
+            &quot;phase&quot;: &quot;COMMITTED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;247193c9244c5b585fe6bdac10d55ff5&quot;,
+              &quot;port&quot;: 38431,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;generation&quot;: 1,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v2&quot;
+          },
+          &quot;successor&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 2,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;944ce194905d42869d15c3a2707e20b1&quot;,
+              &quot;release&quot;: &quot;v3&quot;,
+              &quot;baseline&quot;: &quot;v2&quot;,
+              &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;,
+            &quot;phase&quot;: &quot;STAGED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;247193c9244c5b585fe6bdac10d55ff5&quot;,
+              &quot;port&quot;: 38431,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;generation&quot;: 2,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v2&quot;
+          },
+          &quot;late_request_exit&quot;: 23,
+          &quot;staged_rejection&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;staged_before&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 2,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;944ce194905d42869d15c3a2707e20b1&quot;,
+              &quot;release&quot;: &quot;v3&quot;,
+              &quot;baseline&quot;: &quot;v2&quot;,
+              &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;,
+            &quot;phase&quot;: &quot;STAGED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;247193c9244c5b585fe6bdac10d55ff5&quot;,
+              &quot;port&quot;: 38431,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;generation&quot;: 2,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v2&quot;
+          },
+          &quot;staged_after&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 2,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;944ce194905d42869d15c3a2707e20b1&quot;,
+              &quot;release&quot;: &quot;v3&quot;,
+              &quot;baseline&quot;: &quot;v2&quot;,
+              &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;,
+            &quot;phase&quot;: &quot;STAGED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;247193c9244c5b585fe6bdac10d55ff5&quot;,
+              &quot;port&quot;: 38431,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;generation&quot;: 2,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v2&quot;
+          },
+          &quot;stale_ack&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;before&quot;: {
+            &quot;release&quot;: &quot;v3&quot;,
+            &quot;worker&quot;: &quot;4de50c127c067a2092590d918925a9ec&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v3&quot;,
+              &quot;worker&quot;: &quot;4de50c127c067a2092590d918925a9ec&quot;,
+              &quot;port&quot;: 37775,
+              &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;
+          },
+          &quot;after&quot;: {
+            &quot;release&quot;: &quot;v3&quot;,
+            &quot;worker&quot;: &quot;4de50c127c067a2092590d918925a9ec&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v3&quot;,
+              &quot;worker&quot;: &quot;4de50c127c067a2092590d918925a9ec&quot;,
+              &quot;port&quot;: 37775,
+              &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+            },
+            &quot;incarnation&quot;: &quot;925b6def8fc903fc3c6672b226a2fc67&quot;
+          },
+          &quot;boundary&quot;: &quot;Cached preflight before resource request; unique writer rechecks at mutation, not paused inside its critical section&quot;
+        }
+      },
+      {
+        &quot;name&quot;: &quot;canary_freshness&quot;,
+        &quot;passed&quot;: true,
+        &quot;evidence&quot;: {
+          &quot;wrong_business_result&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 1,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;2829ef43f03d6ab7d3b3288e5b61f642&quot;,
+              &quot;release&quot;: &quot;bad&quot;,
+              &quot;baseline&quot;: &quot;v1&quot;,
+              &quot;digest&quot;: &quot;66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d&quot;
+            },
+            &quot;incarnation&quot;: &quot;8e0fbd851796f98bd7984902837e1385&quot;,
+            &quot;phase&quot;: &quot;OBSERVING&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;bad&quot;,
+              &quot;worker&quot;: &quot;135f325f52c92f768d4f32cb07be151d&quot;,
+              &quot;port&quot;: 46247,
+              &quot;digest&quot;: &quot;66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d&quot;
+            },
+            &quot;generation&quot;: 1,
+            &quot;revision&quot;: 2,
+            &quot;committed&quot;: &quot;v1&quot;,
+            &quot;sequence&quot;: 1,
+            &quot;challenge&quot;: &quot;32f22c5856482824d5e79d234da05b6a&quot;,
+            &quot;input&quot;: 7,
+            &quot;result&quot;: 21
+          },
+          &quot;wrong_data_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;insufficient_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;premature_commit_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;replay_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;expired_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;old_incarnation_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;reset_observation&quot;: {
+            &quot;generation&quot;: 2,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 2,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;25e8b65ddf39fcfdca192682b06de81e&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;473a0d56ebce2a73d088a426f39b3879&quot;,
+              &quot;cancel_requested&quot;: false,
+              &quot;challenge_ns&quot;: 21932428509,
+              &quot;needs_reconcile&quot;: false,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: false,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;2829ef43f03d6ab7d3b3288e5b61f642&quot;,
+                &quot;release&quot;: &quot;bad&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d&quot;
+              },
+              &quot;incarnation&quot;: &quot;8e0fbd851796f98bd7984902837e1385&quot;,
+              &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;2e95d1671b5fa7bd8337854b29ec4908&quot;,
+                &quot;port&quot;: 36153,
+                &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+              },
+              &quot;generation&quot;: 1,
+              &quot;revision&quot;: 3,
+              &quot;committed&quot;: &quot;v1&quot;
+            },
+            &quot;quiesced&quot;: false
+          },
+          &quot;fresh_samples&quot;: [
+            {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 3,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;0bc8e9073241747d43a17afef4e5b2ff&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;,
+              &quot;phase&quot;: &quot;OBSERVING&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+                &quot;port&quot;: 45263,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 3,
+              &quot;revision&quot;: 6,
+              &quot;committed&quot;: &quot;v1&quot;,
+              &quot;sequence&quot;: 1,
+              &quot;challenge&quot;: &quot;e6ab257f0bb7a67fbfd4547f79461c0c&quot;,
+              &quot;input&quot;: 7,
+              &quot;result&quot;: 14
+            },
+            {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 3,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;0bc8e9073241747d43a17afef4e5b2ff&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;,
+              &quot;phase&quot;: &quot;OBSERVING&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+                &quot;port&quot;: 45263,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 3,
+              &quot;revision&quot;: 6,
+              &quot;committed&quot;: &quot;v1&quot;,
+              &quot;sequence&quot;: 2,
+              &quot;challenge&quot;: &quot;c16cd4c68e1c3ff3d98b2e171d9677ef&quot;,
+              &quot;input&quot;: 7,
+              &quot;result&quot;: 14
+            },
+            {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 3,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;0bc8e9073241747d43a17afef4e5b2ff&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;,
+              &quot;phase&quot;: &quot;OBSERVING&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+                &quot;port&quot;: 45263,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 3,
+              &quot;revision&quot;: 6,
+              &quot;committed&quot;: &quot;v1&quot;,
+              &quot;sequence&quot;: 3,
+              &quot;challenge&quot;: &quot;2e2b3922c70baa6347b4cd1b89979e5c&quot;,
+              &quot;input&quot;: 7,
+              &quot;result&quot;: 14
+            }
+          ],
+          &quot;committed&quot;: {
+            &quot;token&quot;: {
+              &quot;epoch&quot;: 1,
+              &quot;generation&quot;: 3,
+              &quot;node&quot;: &quot;a&quot;,
+              &quot;op&quot;: &quot;0bc8e9073241747d43a17afef4e5b2ff&quot;,
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;baseline&quot;: &quot;v1&quot;,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;incarnation&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;,
+            &quot;phase&quot;: &quot;COMMITTED&quot;,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+              &quot;port&quot;: 45263,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;generation&quot;: 3,
+            &quot;revision&quot;: 6,
+            &quot;committed&quot;: &quot;v2&quot;
+          },
+          &quot;external&quot;: {
+            &quot;release&quot;: &quot;v2&quot;,
+            &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;a42348bc5cda2383f1a68ac3c1dca1d4&quot;,
+              &quot;port&quot;: 45263,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;incarnation&quot;: &quot;8090fe628a149d3e3124acc468c7f118&quot;
+          }
+        }
+      },
+      {
+        &quot;name&quot;: &quot;crash_recovery&quot;,
+        &quot;passed&quot;: true,
+        &quot;evidence&quot;: {
+          &quot;node_boundaries&quot;: [
+            {
+              &quot;point&quot;: &quot;staged&quot;,
+              &quot;before_phase&quot;: &quot;STAGED&quot;,
+              &quot;before_committed&quot;: &quot;v1&quot;,
+              &quot;actual_before&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;fedf3dd0e29db9e12a9fd167cf8ee451&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;fedf3dd0e29db9e12a9fd167cf8ee451&quot;,
+                  &quot;port&quot;: 43685,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;513c24270b3b8065ddcc6cbf05e72989&quot;
+              },
+              &quot;unit_before&quot;: {
+                &quot;MainPID&quot;: &quot;2245&quot;,
+                &quot;Result&quot;: &quot;success&quot;,
+                &quot;ExecMainStatus&quot;: &quot;0&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;active&quot;,
+                &quot;SubState&quot;: &quot;running&quot;,
+                &quot;InvocationID&quot;: &quot;fdd674afa8384fe8afce20343628e45a&quot;
+              },
+              &quot;unit_failed&quot;: {
+                &quot;MainPID&quot;: &quot;0&quot;,
+                &quot;Result&quot;: &quot;signal&quot;,
+                &quot;ExecMainStatus&quot;: &quot;9&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;failed&quot;,
+                &quot;SubState&quot;: &quot;failed&quot;,
+                &quot;InvocationID&quot;: &quot;fdd674afa8384fe8afce20343628e45a&quot;
+              },
+              &quot;children_retired&quot;: true,
+              &quot;after&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 2,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;c03a32cda4bf34a7a237dd261c1f46d3&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;9007b79239d5fe6a0fc4e838f1ac2b0c&quot;,
+                &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;c230ccbf9942e8807294c41c539dbf1a&quot;,
+                  &quot;port&quot;: 36081,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;generation&quot;: 2,
+                &quot;revision&quot;: 3,
+                &quot;committed&quot;: &quot;v1&quot;
+              },
+              &quot;settled&quot;: {
+                &quot;generation&quot;: 2,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: true,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;9007b79239d5fe6a0fc4e838f1ac2b0c&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 2,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;c03a32cda4bf34a7a237dd261c1f46d3&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;9007b79239d5fe6a0fc4e838f1ac2b0c&quot;,
+                  &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v1&quot;,
+                    &quot;worker&quot;: &quot;c230ccbf9942e8807294c41c539dbf1a&quot;,
+                    &quot;port&quot;: 36081,
+                    &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                  },
+                  &quot;generation&quot;: 2,
+                  &quot;revision&quot;: 3,
+                  &quot;committed&quot;: &quot;v1&quot;
+                },
+                &quot;quiesced&quot;: true
+              },
+              &quot;external_after&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;c230ccbf9942e8807294c41c539dbf1a&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;c230ccbf9942e8807294c41c539dbf1a&quot;,
+                  &quot;port&quot;: 36081,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;9007b79239d5fe6a0fc4e838f1ac2b0c&quot;
+              }
+            },
+            {
+              &quot;point&quot;: &quot;before_route&quot;,
+              &quot;before_phase&quot;: &quot;ACTIVATING&quot;,
+              &quot;before_committed&quot;: &quot;v1&quot;,
+              &quot;actual_before&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;98074dedeba0d3f3c1bfd7b9d3581f88&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;98074dedeba0d3f3c1bfd7b9d3581f88&quot;,
+                  &quot;port&quot;: 43387,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;f2103c443b7f1cd9d300661ab64fbd29&quot;
+              },
+              &quot;unit_before&quot;: {
+                &quot;MainPID&quot;: &quot;2426&quot;,
+                &quot;Result&quot;: &quot;success&quot;,
+                &quot;ExecMainStatus&quot;: &quot;0&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;active&quot;,
+                &quot;SubState&quot;: &quot;running&quot;,
+                &quot;InvocationID&quot;: &quot;5be4d21551bd49fd86028e354889b50d&quot;
+              },
+              &quot;unit_failed&quot;: {
+                &quot;MainPID&quot;: &quot;0&quot;,
+                &quot;Result&quot;: &quot;signal&quot;,
+                &quot;ExecMainStatus&quot;: &quot;9&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;failed&quot;,
+                &quot;SubState&quot;: &quot;failed&quot;,
+                &quot;InvocationID&quot;: &quot;5be4d21551bd49fd86028e354889b50d&quot;
+              },
+              &quot;children_retired&quot;: true,
+              &quot;after&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 2,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;fbdbc820c92e4c68a0c486feb2528871&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;0b8dc940c1711190a727f62b265ddca7&quot;,
+                &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;565a6382319e35ad890a9890d63f29a4&quot;,
+                  &quot;port&quot;: 36615,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;generation&quot;: 2,
+                &quot;revision&quot;: 3,
+                &quot;committed&quot;: &quot;v1&quot;
+              },
+              &quot;settled&quot;: {
+                &quot;generation&quot;: 2,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: true,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;0b8dc940c1711190a727f62b265ddca7&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 2,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;fbdbc820c92e4c68a0c486feb2528871&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;0b8dc940c1711190a727f62b265ddca7&quot;,
+                  &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v1&quot;,
+                    &quot;worker&quot;: &quot;565a6382319e35ad890a9890d63f29a4&quot;,
+                    &quot;port&quot;: 36615,
+                    &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                  },
+                  &quot;generation&quot;: 2,
+                  &quot;revision&quot;: 3,
+                  &quot;committed&quot;: &quot;v1&quot;
+                },
+                &quot;quiesced&quot;: true
+              },
+              &quot;external_after&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;565a6382319e35ad890a9890d63f29a4&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;565a6382319e35ad890a9890d63f29a4&quot;,
+                  &quot;port&quot;: 36615,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;0b8dc940c1711190a727f62b265ddca7&quot;
+              }
+            },
+            {
+              &quot;point&quot;: &quot;after_route&quot;,
+              &quot;before_phase&quot;: &quot;ACTIVATING&quot;,
+              &quot;before_committed&quot;: &quot;v1&quot;,
+              &quot;actual_before&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;bf5b2774f11b953389a354bc20eee101&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;worker&quot;: &quot;bf5b2774f11b953389a354bc20eee101&quot;,
+                  &quot;port&quot;: 37645,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;6b150c2652da8be3e437fd98f24ef26f&quot;
+              },
+              &quot;unit_before&quot;: {
+                &quot;MainPID&quot;: &quot;2610&quot;,
+                &quot;Result&quot;: &quot;success&quot;,
+                &quot;ExecMainStatus&quot;: &quot;0&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;active&quot;,
+                &quot;SubState&quot;: &quot;running&quot;,
+                &quot;InvocationID&quot;: &quot;dbe58800c738433090e68494f45f8403&quot;
+              },
+              &quot;unit_failed&quot;: {
+                &quot;MainPID&quot;: &quot;0&quot;,
+                &quot;Result&quot;: &quot;signal&quot;,
+                &quot;ExecMainStatus&quot;: &quot;9&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;failed&quot;,
+                &quot;SubState&quot;: &quot;failed&quot;,
+                &quot;InvocationID&quot;: &quot;dbe58800c738433090e68494f45f8403&quot;
+              },
+              &quot;children_retired&quot;: true,
+              &quot;after&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 2,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;b8802707136507214e10d8a14914f9cb&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;1c2e35d074c49fe8993c2ef39f136696&quot;,
+                &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;b920e79342847414d30c8d2fec4dbc66&quot;,
+                  &quot;port&quot;: 37465,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;generation&quot;: 2,
+                &quot;revision&quot;: 3,
+                &quot;committed&quot;: &quot;v1&quot;
+              },
+              &quot;settled&quot;: {
+                &quot;generation&quot;: 2,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: true,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;1c2e35d074c49fe8993c2ef39f136696&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 2,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;b8802707136507214e10d8a14914f9cb&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;1c2e35d074c49fe8993c2ef39f136696&quot;,
+                  &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v1&quot;,
+                    &quot;worker&quot;: &quot;b920e79342847414d30c8d2fec4dbc66&quot;,
+                    &quot;port&quot;: 37465,
+                    &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                  },
+                  &quot;generation&quot;: 2,
+                  &quot;revision&quot;: 3,
+                  &quot;committed&quot;: &quot;v1&quot;
+                },
+                &quot;quiesced&quot;: true
+              },
+              &quot;external_after&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;b920e79342847414d30c8d2fec4dbc66&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;b920e79342847414d30c8d2fec4dbc66&quot;,
+                  &quot;port&quot;: 37465,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;1c2e35d074c49fe8993c2ef39f136696&quot;
+              }
+            },
+            {
+              &quot;point&quot;: &quot;before_commit&quot;,
+              &quot;before_phase&quot;: &quot;OBSERVING&quot;,
+              &quot;before_committed&quot;: &quot;v1&quot;,
+              &quot;actual_before&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;b72a6493724e7160ca91a4d3647ad1e6&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;worker&quot;: &quot;b72a6493724e7160ca91a4d3647ad1e6&quot;,
+                  &quot;port&quot;: 37365,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;b4bfa1dd264a42394cfd5f79bfd52794&quot;
+              },
+              &quot;unit_before&quot;: {
+                &quot;MainPID&quot;: &quot;2792&quot;,
+                &quot;Result&quot;: &quot;success&quot;,
+                &quot;ExecMainStatus&quot;: &quot;0&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;active&quot;,
+                &quot;SubState&quot;: &quot;running&quot;,
+                &quot;InvocationID&quot;: &quot;6323fda9b136486cbd73833f5a4ff086&quot;
+              },
+              &quot;unit_failed&quot;: {
+                &quot;MainPID&quot;: &quot;0&quot;,
+                &quot;Result&quot;: &quot;signal&quot;,
+                &quot;ExecMainStatus&quot;: &quot;9&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;failed&quot;,
+                &quot;SubState&quot;: &quot;failed&quot;,
+                &quot;InvocationID&quot;: &quot;6323fda9b136486cbd73833f5a4ff086&quot;
+              },
+              &quot;children_retired&quot;: true,
+              &quot;after&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 2,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;93ad1223328124e60b2fdad12ad7b9a6&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;6315b4e9cc8bfb631c6a0429568d6358&quot;,
+                &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;0301f462f758902d717e1580a588888a&quot;,
+                  &quot;port&quot;: 42919,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;generation&quot;: 2,
+                &quot;revision&quot;: 4,
+                &quot;committed&quot;: &quot;v1&quot;
+              },
+              &quot;settled&quot;: {
+                &quot;generation&quot;: 2,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: true,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;6315b4e9cc8bfb631c6a0429568d6358&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 2,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;93ad1223328124e60b2fdad12ad7b9a6&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;6315b4e9cc8bfb631c6a0429568d6358&quot;,
+                  &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v1&quot;,
+                    &quot;worker&quot;: &quot;0301f462f758902d717e1580a588888a&quot;,
+                    &quot;port&quot;: 42919,
+                    &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                  },
+                  &quot;generation&quot;: 2,
+                  &quot;revision&quot;: 4,
+                  &quot;committed&quot;: &quot;v1&quot;
+                },
+                &quot;quiesced&quot;: true
+              },
+              &quot;external_after&quot;: {
+                &quot;release&quot;: &quot;v1&quot;,
+                &quot;worker&quot;: &quot;0301f462f758902d717e1580a588888a&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v1&quot;,
+                  &quot;worker&quot;: &quot;0301f462f758902d717e1580a588888a&quot;,
+                  &quot;port&quot;: 42919,
+                  &quot;digest&quot;: &quot;4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260&quot;
+                },
+                &quot;incarnation&quot;: &quot;6315b4e9cc8bfb631c6a0429568d6358&quot;
+              }
+            },
+            {
+              &quot;point&quot;: &quot;after_commit&quot;,
+              &quot;before_phase&quot;: &quot;COMMITTED&quot;,
+              &quot;before_committed&quot;: &quot;v2&quot;,
+              &quot;actual_before&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;c9c292b59e17fcd9b6717b3fd3be5117&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;worker&quot;: &quot;c9c292b59e17fcd9b6717b3fd3be5117&quot;,
+                  &quot;port&quot;: 40283,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;2da88706f92d6f499ecf233df30aa4fd&quot;
+              },
+              &quot;unit_before&quot;: {
+                &quot;MainPID&quot;: &quot;3005&quot;,
+                &quot;Result&quot;: &quot;success&quot;,
+                &quot;ExecMainStatus&quot;: &quot;0&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;active&quot;,
+                &quot;SubState&quot;: &quot;running&quot;,
+                &quot;InvocationID&quot;: &quot;ad6d9ff0c2d54832a969adbf639b6e96&quot;
+              },
+              &quot;unit_failed&quot;: {
+                &quot;MainPID&quot;: &quot;0&quot;,
+                &quot;Result&quot;: &quot;signal&quot;,
+                &quot;ExecMainStatus&quot;: &quot;9&quot;,
+                &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+                &quot;User&quot;: &quot;fleetweft-probe&quot;,
+                &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+                &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+                &quot;ActiveState&quot;: &quot;failed&quot;,
+                &quot;SubState&quot;: &quot;failed&quot;,
+                &quot;InvocationID&quot;: &quot;ad6d9ff0c2d54832a969adbf639b6e96&quot;
+              },
+              &quot;children_retired&quot;: true,
+              &quot;after&quot;: {
+                &quot;token&quot;: {
+                  &quot;epoch&quot;: 1,
+                  &quot;generation&quot;: 2,
+                  &quot;node&quot;: &quot;a&quot;,
+                  &quot;op&quot;: &quot;3cb8c733fc74cef1bcbc1f64580a4f63&quot;,
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;baseline&quot;: &quot;v1&quot;,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;ed52043d6c752596ad51fd602092f041&quot;,
+                &quot;phase&quot;: &quot;COMMITTED&quot;,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;worker&quot;: &quot;82ee9af6a0dd2f18b3889f96e1c6c39d&quot;,
+                  &quot;port&quot;: 42027,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;generation&quot;: 2,
+                &quot;revision&quot;: 4,
+                &quot;committed&quot;: &quot;v2&quot;
+              },
+              &quot;settled&quot;: {
+                &quot;generation&quot;: 2,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: true,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;ed52043d6c752596ad51fd602092f041&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 2,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;3cb8c733fc74cef1bcbc1f64580a4f63&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;ed52043d6c752596ad51fd602092f041&quot;,
+                  &quot;phase&quot;: &quot;COMMITTED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;worker&quot;: &quot;82ee9af6a0dd2f18b3889f96e1c6c39d&quot;,
+                    &quot;port&quot;: 42027,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;generation&quot;: 2,
+                  &quot;revision&quot;: 4,
+                  &quot;committed&quot;: &quot;v2&quot;
+                },
+                &quot;quiesced&quot;: true
+              },
+              &quot;external_after&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;82ee9af6a0dd2f18b3889f96e1c6c39d&quot;,
+                &quot;challenge&quot;: &quot;external-probe&quot;,
+                &quot;result&quot;: 14,
+                &quot;healthy&quot;: true,
+                &quot;route&quot;: {
+                  &quot;release&quot;: &quot;v2&quot;,
+                  &quot;worker&quot;: &quot;82ee9af6a0dd2f18b3889f96e1c6c39d&quot;,
+                  &quot;port&quot;: 42027,
+                  &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                },
+                &quot;incarnation&quot;: &quot;ed52043d6c752596ad51fd602092f041&quot;
+              }
+            }
+          ],
+          &quot;finish_reply_loss&quot;: {
+            &quot;client_failure&quot;: {
+              &quot;exit_code&quot;: 18,
+              &quot;transport_error&quot;: &quot;RemoteDisconnected&quot;
+            },
+            &quot;forwarded_and_reply_dropped&quot;: {
+              &quot;path&quot;: &quot;/finish&quot;,
+              &quot;upstream_result&quot;: {
+                &quot;generation&quot;: 1,
+                &quot;epoch&quot;: 1,
+                &quot;active&quot;: null,
+                &quot;paused&quot;: false,
+                &quot;agents&quot;: {
+                  &quot;a&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+                },
+                &quot;last&quot;: {
+                  &quot;token&quot;: {
+                    &quot;epoch&quot;: 1,
+                    &quot;generation&quot;: 1,
+                    &quot;node&quot;: &quot;a&quot;,
+                    &quot;op&quot;: &quot;52e13b554b7b8af01b2a3de286e09630&quot;,
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;baseline&quot;: &quot;v1&quot;,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;,
+                  &quot;phase&quot;: &quot;COMMITTED&quot;,
+                  &quot;route&quot;: {
+                    &quot;release&quot;: &quot;v2&quot;,
+                    &quot;worker&quot;: &quot;9f68e1115a8c79632adeeaf07fd4318d&quot;,
+                    &quot;port&quot;: 46649,
+                    &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+                  },
+                  &quot;generation&quot;: 1,
+                  &quot;revision&quot;: 2,
+                  &quot;committed&quot;: &quot;v2&quot;
+                },
+                &quot;quiesced&quot;: true
+              }
+            }
+          },
+          &quot;finish_retry&quot;: {
+            &quot;generation&quot;: 1,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: null,
+            &quot;paused&quot;: false,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;52e13b554b7b8af01b2a3de286e09630&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;,
+              &quot;phase&quot;: &quot;COMMITTED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;9f68e1115a8c79632adeeaf07fd4318d&quot;,
+                &quot;port&quot;: 46649,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 1,
+              &quot;revision&quot;: 2,
+              &quot;committed&quot;: &quot;v2&quot;
+            },
+            &quot;quiesced&quot;: true
+          },
+          &quot;controller_before&quot;: {
+            &quot;generation&quot;: 2,
+            &quot;epoch&quot;: 1,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 2,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f94c45af9a2d31e64101b31890313c90&quot;,
+                &quot;release&quot;: &quot;v3&quot;,
+                &quot;baseline&quot;: &quot;v2&quot;,
+                &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;93a76dfe29c207aea5672018ee5c6a80&quot;,
+              &quot;cancel_requested&quot;: false,
+              &quot;challenge_ns&quot;: 39701745840,
+              &quot;needs_reconcile&quot;: false,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: false,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;52e13b554b7b8af01b2a3de286e09630&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;,
+              &quot;phase&quot;: &quot;COMMITTED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;9f68e1115a8c79632adeeaf07fd4318d&quot;,
+                &quot;port&quot;: 46649,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 1,
+              &quot;revision&quot;: 2,
+              &quot;committed&quot;: &quot;v2&quot;
+            },
+            &quot;quiesced&quot;: false
+          },
+          &quot;controller_after&quot;: {
+            &quot;generation&quot;: 2,
+            &quot;epoch&quot;: 2,
+            &quot;active&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 2,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f94c45af9a2d31e64101b31890313c90&quot;,
+                &quot;release&quot;: &quot;v3&quot;,
+                &quot;baseline&quot;: &quot;v2&quot;,
+                &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+              },
+              &quot;binding&quot;: null,
+              &quot;evidence&quot;: null,
+              &quot;challenge&quot;: &quot;93a76dfe29c207aea5672018ee5c6a80&quot;,
+              &quot;cancel_requested&quot;: false,
+              &quot;challenge_ns&quot;: 39701745840,
+              &quot;needs_reconcile&quot;: true,
+              &quot;commit_authorized&quot;: false
+            },
+            &quot;paused&quot;: false,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 1,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;52e13b554b7b8af01b2a3de286e09630&quot;,
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;baseline&quot;: &quot;v1&quot;,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;,
+              &quot;phase&quot;: &quot;COMMITTED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;9f68e1115a8c79632adeeaf07fd4318d&quot;,
+                &quot;port&quot;: 46649,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 1,
+              &quot;revision&quot;: 2,
+              &quot;committed&quot;: &quot;v2&quot;
+            },
+            &quot;quiesced&quot;: false
+          },
+          &quot;new_plan_rejected&quot;: {
+            &quot;exit_code&quot;: 17,
+            &quot;http_status&quot;: 409
+          },
+          &quot;settled&quot;: {
+            &quot;generation&quot;: 2,
+            &quot;epoch&quot;: 2,
+            &quot;active&quot;: null,
+            &quot;paused&quot;: true,
+            &quot;agents&quot;: {
+              &quot;a&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+            },
+            &quot;last&quot;: {
+              &quot;token&quot;: {
+                &quot;epoch&quot;: 1,
+                &quot;generation&quot;: 2,
+                &quot;node&quot;: &quot;a&quot;,
+                &quot;op&quot;: &quot;f94c45af9a2d31e64101b31890313c90&quot;,
+                &quot;release&quot;: &quot;v3&quot;,
+                &quot;baseline&quot;: &quot;v2&quot;,
+                &quot;digest&quot;: &quot;bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868&quot;
+              },
+              &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;,
+              &quot;phase&quot;: &quot;FAILED_RESTORED&quot;,
+              &quot;route&quot;: {
+                &quot;release&quot;: &quot;v2&quot;,
+                &quot;worker&quot;: &quot;1e38e515dbfea1c769008cb358ef701a&quot;,
+                &quot;port&quot;: 44357,
+                &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+              },
+              &quot;generation&quot;: 2,
+              &quot;revision&quot;: 3,
+              &quot;committed&quot;: &quot;v2&quot;
+            },
+            &quot;quiesced&quot;: true
+          },
+          &quot;external&quot;: {
+            &quot;release&quot;: &quot;v2&quot;,
+            &quot;worker&quot;: &quot;1e38e515dbfea1c769008cb358ef701a&quot;,
+            &quot;challenge&quot;: &quot;external-probe&quot;,
+            &quot;result&quot;: 14,
+            &quot;healthy&quot;: true,
+            &quot;route&quot;: {
+              &quot;release&quot;: &quot;v2&quot;,
+              &quot;worker&quot;: &quot;1e38e515dbfea1c769008cb358ef701a&quot;,
+              &quot;port&quot;: 44357,
+              &quot;digest&quot;: &quot;1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14&quot;
+            },
+            &quot;incarnation&quot;: &quot;e8b49f2bf2182d9ea2a7be1da2e917ba&quot;
+          }
+        }
+      }
+    ],
+    &quot;scope&quot;: {
+      &quot;isolated_linux_vm&quot;: true,
+      &quot;systemd&quot;: true,
+      &quot;power_loss_tested&quot;: false,
+      &quot;vm_reboot_tested&quot;: false,
+      &quot;full_fleet_scheduler_tested&quot;: false,
+      &quot;tls_tested&quot;: false,
+      &quot;signatures_tested&quot;: false
+    },
+    &quot;installed&quot;: {
+      &quot;origin&quot;: &quot;/opt/fleetweft-exploration/venv/lib/python3.12/site-packages/fleetweft&quot;,
+      &quot;hashes&quot;: {
+        &quot;fleetweft/net.py&quot;: &quot;66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205&quot;,
+        &quot;fleetweft/service.py&quot;: &quot;c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067&quot;,
+        &quot;fleetweft/worker.py&quot;: &quot;78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74&quot;,
+        &quot;fleetweft/core.py&quot;: &quot;39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e&quot;,
+        &quot;fleetweft/node.py&quot;: &quot;003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1&quot;,
+        &quot;fleetweft/client.py&quot;: &quot;cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9&quot;,
+        &quot;fleetweft/__init__.py&quot;: &quot;ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25&quot;,
+        &quot;fleetweft/store.py&quot;: &quot;9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e&quot;
+      }
+    },
+    &quot;environment&quot;: {
+      &quot;kernel&quot;: &quot;6.8.0-117-generic&quot;,
+      &quot;systemd&quot;: &quot;systemd 255 (255.4-1ubuntu8.15)&quot;,
+      &quot;python&quot;: &quot;3.12.3&quot;,
+      &quot;architecture&quot;: &quot;aarch64&quot;,
+      &quot;units&quot;: {
+        &quot;fleetweft-probe-controller.service&quot;: {
+          &quot;MainPID&quot;: &quot;1664&quot;,
+          &quot;Result&quot;: &quot;success&quot;,
+          &quot;ExecMainStatus&quot;: &quot;0&quot;,
+          &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+          &quot;User&quot;: &quot;fleetweft-probe&quot;,
+          &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+          &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_ctl&quot;,
+          &quot;ActiveState&quot;: &quot;active&quot;,
+          &quot;SubState&quot;: &quot;running&quot;,
+          &quot;InvocationID&quot;: &quot;a0a8f739343d4be3b117dafcf5c8a9d2&quot;
+        },
+        &quot;fleetweft-probe-node.service&quot;: {
+          &quot;MainPID&quot;: &quot;1665&quot;,
+          &quot;Result&quot;: &quot;success&quot;,
+          &quot;ExecMainStatus&quot;: &quot;0&quot;,
+          &quot;CapabilityBoundingSet&quot;: &quot;&quot;,
+          &quot;User&quot;: &quot;fleetweft-probe&quot;,
+          &quot;NoNewPrivileges&quot;: &quot;yes&quot;,
+          &quot;NetworkNamespacePath&quot;: &quot;/run/netns/fw_node&quot;,
+          &quot;ActiveState&quot;: &quot;active&quot;,
+          &quot;SubState&quot;: &quot;running&quot;,
+          &quot;InvocationID&quot;: &quot;ea2b2f5b2fd54b01a98d4621d3a862a1&quot;
+        }
+      }
+    },
+    &quot;unit_tests&quot;: {
+      &quot;passed&quot;: true,
+      &quot;tests&quot;: 15,
+      &quot;test_ids&quot;: [
+        &quot;tests.test_core.Contracts.test_canary_requires_samples&quot;,
+        &quot;tests.test_core.Contracts.test_cancel_does_not_accept_false_restore&quot;,
+        &quot;tests.test_core.Contracts.test_cancel_requires_target_confirmation&quot;,
+        &quot;tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation&quot;,
+        &quot;tests.test_core.Contracts.test_commit_requires_fresh_observation&quot;,
+        &quot;tests.test_core.Contracts.test_delayed_registration_cannot_replace_new_incarnation&quot;,
+        &quot;tests.test_core.Contracts.test_duplicate_and_wrong_data_are_rejected&quot;,
+        &quot;tests.test_core.Contracts.test_expired_challenge_rejected&quot;,
+        &quot;tests.test_core.Contracts.test_incarnation_change_discards_observation&quot;,
+        &quot;tests.test_core.Contracts.test_old_incarnation_cannot_settle&quot;,
+        &quot;tests.test_core.Contracts.test_old_report_cannot_finish_successor&quot;,
+        &quot;tests.test_core.Contracts.test_pause_keeps_unknown_occupancy&quot;,
+        &quot;tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence&quot;,
+        &quot;tests.test_core.Contracts.test_retry_has_same_capability&quot;,
+        &quot;tests.test_core.Contracts.test_stale_report_does_not_free_slot&quot;
+      ],
+      &quot;failures&quot;: 0,
+      &quot;errors&quot;: 0,
+      &quot;skipped&quot;: 0,
+      &quot;platform&quot;: &quot;Linux&quot;,
+      &quot;python&quot;: &quot;3.12.3&quot;,
+      &quot;seconds&quot;: 0.09352212499999979,
+      &quot;source&quot;: {
+        &quot;fleetweft/__init__.py&quot;: &quot;ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25&quot;,
+        &quot;fleetweft/client.py&quot;: &quot;cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9&quot;,
+        &quot;fleetweft/core.py&quot;: &quot;39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e&quot;,
+        &quot;fleetweft/net.py&quot;: &quot;66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205&quot;,
+        &quot;fleetweft/node.py&quot;: &quot;003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1&quot;,
+        &quot;fleetweft/service.py&quot;: &quot;c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067&quot;,
+        &quot;fleetweft/store.py&quot;: &quot;9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e&quot;,
+        &quot;fleetweft/worker.py&quot;: &quot;78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74&quot;,
+        &quot;pyproject.toml&quot;: &quot;0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb&quot;,
+        &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+        &quot;tests/test_core.py&quot;: &quot;0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f&quot;,
+        &quot;tools/__init__.py&quot;: &quot;4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23&quot;,
+        &quot;tools/evidence.py&quot;: &quot;a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288&quot;,
+        &quot;tools/guest.py&quot;: &quot;83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653&quot;,
+        &quot;tools/mutations.py&quot;: &quot;981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c&quot;,
+        &quot;tools/report.py&quot;: &quot;22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96&quot;,
+        &quot;tools/unit.py&quot;: &quot;d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232&quot;,
+        &quot;tools/validate_vm.py&quot;: &quot;4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5&quot;
+      },
+      &quot;source_sha256&quot;: &quot;58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43&quot;
+    },
+    &quot;cleanup_processes_retired&quot;: true,
+    &quot;root_firewall_unchanged&quot;: true,
+    &quot;cleanup_namespaces_removed&quot;: true
+  },
+  &quot;snapshot_removed&quot;: true,
+  &quot;vm_final&quot;: &quot;Stopped&quot;,
+  &quot;controls&quot;: [
+    {
+      &quot;name&quot;: &quot;timeout&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;source&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;missing-case&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;free-unknown-slot&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;accept-new-during-partition&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;old-switch-accepted&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;old-valid-phase-switch&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;old-switch-changed-route&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;bad-canary-accepted&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;commit-gate-bypassed&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;old-canary-accepted&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;uncommitted-recovery-wrong&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;committed-recovery-wrong&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;stale-epoch&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;cleanup&quot;,
+      &quot;rejected&quot;: true
+    },
+    {
+      &quot;name&quot;: &quot;power-loss-claim&quot;,
+      &quot;rejected&quot;: true
+    }
+  ]
+}</pre>

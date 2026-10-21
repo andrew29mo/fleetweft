@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "name": "stale-incarnation",
+      "test": "test_old_incarnation_cannot_settle",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "wrong-canary-data",
+      "test": "test_duplicate_and_wrong_data_are_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "expired-challenge",
+      "test": "test_expired_challenge_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "commit-bypass",
+      "test": "test_commit_cannot_bypass_controller_observation",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "forget-reconciliation",
+      "test": "test_restart_requires_reconciliation_and_resets_evidence",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    }
+  ],
+  "source": {
+    "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+    "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+    "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
+    "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+    "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+    "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+    "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+    "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+    "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+    "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
+    "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
+    "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
+    "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+    "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
+    "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+  }
+}

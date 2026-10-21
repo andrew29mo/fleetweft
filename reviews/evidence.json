@@ -1,0 +1,1656 @@
+{
+  "passed": true,
+  "run_id": "765bd7248cef5f62",
+  "recorded_at_utc": "2026-10-21T11:36:14.007071+00:00",
+  "source": {
+    "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+    "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+    "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
+    "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+    "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+    "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+    "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+    "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+    "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+    "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
+    "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
+    "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
+    "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+    "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
+    "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+  },
+  "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43",
+  "source_changed": false,
+  "stages": [
+    {
+      "name": "vm-initial",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.4451948329951847
+    },
+    {
+      "name": "vm-start",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.594826041997294
+    },
+    {
+      "name": "preflight",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.2702685420081252
+    },
+    {
+      "name": "wheel-build",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.40005283399659675
+    },
+    {
+      "name": "upload",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.22912408300908282
+    },
+    {
+      "name": "install",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.4684750830056146
+    },
+    {
+      "name": "guest",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 31.849833792002755
+    },
+    {
+      "name": "remove",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.35401862500293646
+    },
+    {
+      "name": "vm-stop",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 2.6183262500126148
+    },
+    {
+      "name": "vm-final",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.18794966700079385
+    }
+  ],
+  "vm_initial": "Stopped",
+  "guest": {
+    "passed": true,
+    "source": {
+      "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+      "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+      "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
+      "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+      "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+      "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+      "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+      "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+      "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
+      "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+      "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+      "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
+      "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
+      "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
+      "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+      "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
+      "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+    },
+    "cases": [
+      {
+        "name": "authorization_loss_partition",
+        "passed": true,
+        "evidence": {
+          "grant_reply_loss": {
+            "client_failure": {
+              "exit_code": 18,
+              "transport_error": "RemoteDisconnected"
+            },
+            "forwarded_and_reply_dropped": {
+              "path": "/grant",
+              "upstream_result": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              }
+            }
+          },
+          "accept_reply_loss": {
+            "client_failure": {
+              "exit_code": 18,
+              "transport_error": "RemoteDisconnected"
+            },
+            "forwarded_and_reply_dropped": {
+              "path": "/accept",
+              "upstream_result": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 1,
+                  "node": "a",
+                  "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+                "phase": "STAGED",
+                "route": {
+                  "release": "v1",
+                  "worker": "d8df1bb6b81caba579c10e215f86cacd",
+                  "port": 37097,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "generation": 1,
+                "revision": 1,
+                "committed": "v1"
+              }
+            }
+          },
+          "before": {
+            "generation": 1,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "cancel_requested": false,
+              "challenge_ns": 10720141045,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": false,
+            "agents": {
+              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+            },
+            "last": null,
+            "quiesced": false
+          },
+          "partition_client": {
+            "exit_code": 18,
+            "transport_error": "URLError"
+          },
+          "local_during_partition": {
+            "release": "v1",
+            "worker": "d8df1bb6b81caba579c10e215f86cacd",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v1",
+              "worker": "d8df1bb6b81caba579c10e215f86cacd",
+              "port": 37097,
+              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+            },
+            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278"
+          },
+          "paused": {
+            "generation": 1,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "cancel_requested": false,
+              "challenge_ns": 10720141045,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": true,
+            "agents": {
+              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+            },
+            "last": null,
+            "quiesced": false
+          },
+          "new_plan_rejected": 1,
+          "cancel_requested": {
+            "generation": 1,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "cancel_requested": true,
+              "challenge_ns": 10720141045,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": true,
+            "agents": {
+              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+            },
+            "last": null,
+            "quiesced": false
+          },
+          "restored": {
+            "token": {
+              "epoch": 1,
+              "generation": 1,
+              "node": "a",
+              "op": "f0d3493ac8cbf1d3c2628befb930b963",
+              "release": "v2",
+              "baseline": "v1",
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+            "phase": "FAILED_RESTORED",
+            "route": {
+              "release": "v1",
+              "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
+              "port": 42009,
+              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+            },
+            "generation": 1,
+            "revision": 2,
+            "committed": "v1"
+          },
+          "settled": {
+            "generation": 1,
+            "epoch": 1,
+            "active": null,
+            "paused": true,
+            "agents": {
+              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+              "phase": "FAILED_RESTORED",
+              "route": {
+                "release": "v1",
+                "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
+                "port": 42009,
+                "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+              },
+              "generation": 1,
+              "revision": 2,
+              "committed": "v1"
+            },
+            "quiesced": true
+          },
+          "after": {
+            "release": "v1",
+            "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v1",
+              "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
+              "port": 42009,
+              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+            },
+            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278"
+          }
+        }
+      },
+      {
+        "name": "delayed_executor",
+        "passed": true,
+        "evidence": {
+          "preflight": {
+            "token": {
+              "epoch": 1,
+              "generation": 1,
+              "node": "a",
+              "op": "4e5a2d1ba930a0c9139d16a2b6f41151",
+              "release": "v2",
+              "baseline": "v1",
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "phase": "COMMITTED",
+            "route": {
+              "release": "v2",
+              "worker": "247193c9244c5b585fe6bdac10d55ff5",
+              "port": 38431,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "generation": 1,
+            "revision": 2,
+            "committed": "v2"
+          },
+          "successor": {
+            "token": {
+              "epoch": 1,
+              "generation": 2,
+              "node": "a",
+              "op": "944ce194905d42869d15c3a2707e20b1",
+              "release": "v3",
+              "baseline": "v2",
+              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "phase": "STAGED",
+            "route": {
+              "release": "v2",
+              "worker": "247193c9244c5b585fe6bdac10d55ff5",
+              "port": 38431,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "generation": 2,
+            "revision": 2,
+            "committed": "v2"
+          },
+          "late_request_exit": 23,
+          "staged_rejection": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "staged_before": {
+            "token": {
+              "epoch": 1,
+              "generation": 2,
+              "node": "a",
+              "op": "944ce194905d42869d15c3a2707e20b1",
+              "release": "v3",
+              "baseline": "v2",
+              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "phase": "STAGED",
+            "route": {
+              "release": "v2",
+              "worker": "247193c9244c5b585fe6bdac10d55ff5",
+              "port": 38431,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "generation": 2,
+            "revision": 2,
+            "committed": "v2"
+          },
+          "staged_after": {
+            "token": {
+              "epoch": 1,
+              "generation": 2,
+              "node": "a",
+              "op": "944ce194905d42869d15c3a2707e20b1",
+              "release": "v3",
+              "baseline": "v2",
+              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "phase": "STAGED",
+            "route": {
+              "release": "v2",
+              "worker": "247193c9244c5b585fe6bdac10d55ff5",
+              "port": 38431,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "generation": 2,
+            "revision": 2,
+            "committed": "v2"
+          },
+          "stale_ack": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "before": {
+            "release": "v3",
+            "worker": "4de50c127c067a2092590d918925a9ec",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v3",
+              "worker": "4de50c127c067a2092590d918925a9ec",
+              "port": 37775,
+              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67"
+          },
+          "after": {
+            "release": "v3",
+            "worker": "4de50c127c067a2092590d918925a9ec",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v3",
+              "worker": "4de50c127c067a2092590d918925a9ec",
+              "port": 37775,
+              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+            },
+            "incarnation": "925b6def8fc903fc3c6672b226a2fc67"
+          },
+          "boundary": "Cached preflight before resource request; unique writer rechecks at mutation, not paused inside its critical section"
+        }
+      },
+      {
+        "name": "canary_freshness",
+        "passed": true,
+        "evidence": {
+          "wrong_business_result": {
+            "token": {
+              "epoch": 1,
+              "generation": 1,
+              "node": "a",
+              "op": "2829ef43f03d6ab7d3b3288e5b61f642",
+              "release": "bad",
+              "baseline": "v1",
+              "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+            },
+            "incarnation": "8e0fbd851796f98bd7984902837e1385",
+            "phase": "OBSERVING",
+            "route": {
+              "release": "bad",
+              "worker": "135f325f52c92f768d4f32cb07be151d",
+              "port": 46247,
+              "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+            },
+            "generation": 1,
+            "revision": 2,
+            "committed": "v1",
+            "sequence": 1,
+            "challenge": "32f22c5856482824d5e79d234da05b6a",
+            "input": 7,
+            "result": 21
+          },
+          "wrong_data_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "insufficient_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "premature_commit_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "replay_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "expired_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "old_incarnation_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "reset_observation": {
+            "generation": 2,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 2,
+                "node": "a",
+                "op": "25e8b65ddf39fcfdca192682b06de81e",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "473a0d56ebce2a73d088a426f39b3879",
+              "cancel_requested": false,
+              "challenge_ns": 21932428509,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": false,
+            "agents": {
+              "a": "8090fe628a149d3e3124acc468c7f118"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "2829ef43f03d6ab7d3b3288e5b61f642",
+                "release": "bad",
+                "baseline": "v1",
+                "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+              },
+              "incarnation": "8e0fbd851796f98bd7984902837e1385",
+              "phase": "FAILED_RESTORED",
+              "route": {
+                "release": "v1",
+                "worker": "2e95d1671b5fa7bd8337854b29ec4908",
+                "port": 36153,
+                "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+              },
+              "generation": 1,
+              "revision": 3,
+              "committed": "v1"
+            },
+            "quiesced": false
+          },
+          "fresh_samples": [
+            {
+              "token": {
+                "epoch": 1,
+                "generation": 3,
+                "node": "a",
+                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "phase": "OBSERVING",
+              "route": {
+                "release": "v2",
+                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+                "port": 45263,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 3,
+              "revision": 6,
+              "committed": "v1",
+              "sequence": 1,
+              "challenge": "e6ab257f0bb7a67fbfd4547f79461c0c",
+              "input": 7,
+              "result": 14
+            },
+            {
+              "token": {
+                "epoch": 1,
+                "generation": 3,
+                "node": "a",
+                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "phase": "OBSERVING",
+              "route": {
+                "release": "v2",
+                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+                "port": 45263,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 3,
+              "revision": 6,
+              "committed": "v1",
+              "sequence": 2,
+              "challenge": "c16cd4c68e1c3ff3d98b2e171d9677ef",
+              "input": 7,
+              "result": 14
+            },
+            {
+              "token": {
+                "epoch": 1,
+                "generation": 3,
+                "node": "a",
+                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "phase": "OBSERVING",
+              "route": {
+                "release": "v2",
+                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+                "port": 45263,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 3,
+              "revision": 6,
+              "committed": "v1",
+              "sequence": 3,
+              "challenge": "2e2b3922c70baa6347b4cd1b89979e5c",
+              "input": 7,
+              "result": 14
+            }
+          ],
+          "committed": {
+            "token": {
+              "epoch": 1,
+              "generation": 3,
+              "node": "a",
+              "op": "0bc8e9073241747d43a17afef4e5b2ff",
+              "release": "v2",
+              "baseline": "v1",
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "incarnation": "8090fe628a149d3e3124acc468c7f118",
+            "phase": "COMMITTED",
+            "route": {
+              "release": "v2",
+              "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+              "port": 45263,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "generation": 3,
+            "revision": 6,
+            "committed": "v2"
+          },
+          "external": {
+            "release": "v2",
+            "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v2",
+              "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+              "port": 45263,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "incarnation": "8090fe628a149d3e3124acc468c7f118"
+          }
+        }
+      },
+      {
+        "name": "crash_recovery",
+        "passed": true,
+        "evidence": {
+          "node_boundaries": [
+            {
+              "point": "staged",
+              "before_phase": "STAGED",
+              "before_committed": "v1",
+              "actual_before": {
+                "release": "v1",
+                "worker": "fedf3dd0e29db9e12a9fd167cf8ee451",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "fedf3dd0e29db9e12a9fd167cf8ee451",
+                  "port": 43685,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "513c24270b3b8065ddcc6cbf05e72989"
+              },
+              "unit_before": {
+                "MainPID": "2245",
+                "Result": "success",
+                "ExecMainStatus": "0",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "active",
+                "SubState": "running",
+                "InvocationID": "fdd674afa8384fe8afce20343628e45a"
+              },
+              "unit_failed": {
+                "MainPID": "0",
+                "Result": "signal",
+                "ExecMainStatus": "9",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "failed",
+                "SubState": "failed",
+                "InvocationID": "fdd674afa8384fe8afce20343628e45a"
+              },
+              "children_retired": true,
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 2,
+                  "node": "a",
+                  "op": "c03a32cda4bf34a7a237dd261c1f46d3",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v1",
+                  "worker": "c230ccbf9942e8807294c41c539dbf1a",
+                  "port": 36081,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "generation": 2,
+                "revision": 3,
+                "committed": "v1"
+              },
+              "settled": {
+                "generation": 2,
+                "epoch": 1,
+                "active": null,
+                "paused": true,
+                "agents": {
+                  "a": "9007b79239d5fe6a0fc4e838f1ac2b0c"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 2,
+                    "node": "a",
+                    "op": "c03a32cda4bf34a7a237dd261c1f46d3",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c",
+                  "phase": "FAILED_RESTORED",
+                  "route": {
+                    "release": "v1",
+                    "worker": "c230ccbf9942e8807294c41c539dbf1a",
+                    "port": 36081,
+                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  },
+                  "generation": 2,
+                  "revision": 3,
+                  "committed": "v1"
+                },
+                "quiesced": true
+              },
+              "external_after": {
+                "release": "v1",
+                "worker": "c230ccbf9942e8807294c41c539dbf1a",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "c230ccbf9942e8807294c41c539dbf1a",
+                  "port": 36081,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c"
+              }
+            },
+            {
+              "point": "before_route",
+              "before_phase": "ACTIVATING",
+              "before_committed": "v1",
+              "actual_before": {
+                "release": "v1",
+                "worker": "98074dedeba0d3f3c1bfd7b9d3581f88",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "98074dedeba0d3f3c1bfd7b9d3581f88",
+                  "port": 43387,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "f2103c443b7f1cd9d300661ab64fbd29"
+              },
+              "unit_before": {
+                "MainPID": "2426",
+                "Result": "success",
+                "ExecMainStatus": "0",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "active",
+                "SubState": "running",
+                "InvocationID": "5be4d21551bd49fd86028e354889b50d"
+              },
+              "unit_failed": {
+                "MainPID": "0",
+                "Result": "signal",
+                "ExecMainStatus": "9",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "failed",
+                "SubState": "failed",
+                "InvocationID": "5be4d21551bd49fd86028e354889b50d"
+              },
+              "children_retired": true,
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 2,
+                  "node": "a",
+                  "op": "fbdbc820c92e4c68a0c486feb2528871",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "0b8dc940c1711190a727f62b265ddca7",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v1",
+                  "worker": "565a6382319e35ad890a9890d63f29a4",
+                  "port": 36615,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "generation": 2,
+                "revision": 3,
+                "committed": "v1"
+              },
+              "settled": {
+                "generation": 2,
+                "epoch": 1,
+                "active": null,
+                "paused": true,
+                "agents": {
+                  "a": "0b8dc940c1711190a727f62b265ddca7"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 2,
+                    "node": "a",
+                    "op": "fbdbc820c92e4c68a0c486feb2528871",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "0b8dc940c1711190a727f62b265ddca7",
+                  "phase": "FAILED_RESTORED",
+                  "route": {
+                    "release": "v1",
+                    "worker": "565a6382319e35ad890a9890d63f29a4",
+                    "port": 36615,
+                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  },
+                  "generation": 2,
+                  "revision": 3,
+                  "committed": "v1"
+                },
+                "quiesced": true
+              },
+              "external_after": {
+                "release": "v1",
+                "worker": "565a6382319e35ad890a9890d63f29a4",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "565a6382319e35ad890a9890d63f29a4",
+                  "port": 36615,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "0b8dc940c1711190a727f62b265ddca7"
+              }
+            },
+            {
+              "point": "after_route",
+              "before_phase": "ACTIVATING",
+              "before_committed": "v1",
+              "actual_before": {
+                "release": "v2",
+                "worker": "bf5b2774f11b953389a354bc20eee101",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "bf5b2774f11b953389a354bc20eee101",
+                  "port": 37645,
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "6b150c2652da8be3e437fd98f24ef26f"
+              },
+              "unit_before": {
+                "MainPID": "2610",
+                "Result": "success",
+                "ExecMainStatus": "0",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "active",
+                "SubState": "running",
+                "InvocationID": "dbe58800c738433090e68494f45f8403"
+              },
+              "unit_failed": {
+                "MainPID": "0",
+                "Result": "signal",
+                "ExecMainStatus": "9",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "failed",
+                "SubState": "failed",
+                "InvocationID": "dbe58800c738433090e68494f45f8403"
+              },
+              "children_retired": true,
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 2,
+                  "node": "a",
+                  "op": "b8802707136507214e10d8a14914f9cb",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "1c2e35d074c49fe8993c2ef39f136696",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v1",
+                  "worker": "b920e79342847414d30c8d2fec4dbc66",
+                  "port": 37465,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "generation": 2,
+                "revision": 3,
+                "committed": "v1"
+              },
+              "settled": {
+                "generation": 2,
+                "epoch": 1,
+                "active": null,
+                "paused": true,
+                "agents": {
+                  "a": "1c2e35d074c49fe8993c2ef39f136696"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 2,
+                    "node": "a",
+                    "op": "b8802707136507214e10d8a14914f9cb",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "1c2e35d074c49fe8993c2ef39f136696",
+                  "phase": "FAILED_RESTORED",
+                  "route": {
+                    "release": "v1",
+                    "worker": "b920e79342847414d30c8d2fec4dbc66",
+                    "port": 37465,
+                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  },
+                  "generation": 2,
+                  "revision": 3,
+                  "committed": "v1"
+                },
+                "quiesced": true
+              },
+              "external_after": {
+                "release": "v1",
+                "worker": "b920e79342847414d30c8d2fec4dbc66",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "b920e79342847414d30c8d2fec4dbc66",
+                  "port": 37465,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "1c2e35d074c49fe8993c2ef39f136696"
+              }
+            },
+            {
+              "point": "before_commit",
+              "before_phase": "OBSERVING",
+              "before_committed": "v1",
+              "actual_before": {
+                "release": "v2",
+                "worker": "b72a6493724e7160ca91a4d3647ad1e6",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "b72a6493724e7160ca91a4d3647ad1e6",
+                  "port": 37365,
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "b4bfa1dd264a42394cfd5f79bfd52794"
+              },
+              "unit_before": {
+                "MainPID": "2792",
+                "Result": "success",
+                "ExecMainStatus": "0",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "active",
+                "SubState": "running",
+                "InvocationID": "6323fda9b136486cbd73833f5a4ff086"
+              },
+              "unit_failed": {
+                "MainPID": "0",
+                "Result": "signal",
+                "ExecMainStatus": "9",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "failed",
+                "SubState": "failed",
+                "InvocationID": "6323fda9b136486cbd73833f5a4ff086"
+              },
+              "children_retired": true,
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 2,
+                  "node": "a",
+                  "op": "93ad1223328124e60b2fdad12ad7b9a6",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "6315b4e9cc8bfb631c6a0429568d6358",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v1",
+                  "worker": "0301f462f758902d717e1580a588888a",
+                  "port": 42919,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "generation": 2,
+                "revision": 4,
+                "committed": "v1"
+              },
+              "settled": {
+                "generation": 2,
+                "epoch": 1,
+                "active": null,
+                "paused": true,
+                "agents": {
+                  "a": "6315b4e9cc8bfb631c6a0429568d6358"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 2,
+                    "node": "a",
+                    "op": "93ad1223328124e60b2fdad12ad7b9a6",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "6315b4e9cc8bfb631c6a0429568d6358",
+                  "phase": "FAILED_RESTORED",
+                  "route": {
+                    "release": "v1",
+                    "worker": "0301f462f758902d717e1580a588888a",
+                    "port": 42919,
+                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  },
+                  "generation": 2,
+                  "revision": 4,
+                  "committed": "v1"
+                },
+                "quiesced": true
+              },
+              "external_after": {
+                "release": "v1",
+                "worker": "0301f462f758902d717e1580a588888a",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "0301f462f758902d717e1580a588888a",
+                  "port": 42919,
+                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                },
+                "incarnation": "6315b4e9cc8bfb631c6a0429568d6358"
+              }
+            },
+            {
+              "point": "after_commit",
+              "before_phase": "COMMITTED",
+              "before_committed": "v2",
+              "actual_before": {
+                "release": "v2",
+                "worker": "c9c292b59e17fcd9b6717b3fd3be5117",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "c9c292b59e17fcd9b6717b3fd3be5117",
+                  "port": 40283,
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "2da88706f92d6f499ecf233df30aa4fd"
+              },
+              "unit_before": {
+                "MainPID": "3005",
+                "Result": "success",
+                "ExecMainStatus": "0",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "active",
+                "SubState": "running",
+                "InvocationID": "ad6d9ff0c2d54832a969adbf639b6e96"
+              },
+              "unit_failed": {
+                "MainPID": "0",
+                "Result": "signal",
+                "ExecMainStatus": "9",
+                "CapabilityBoundingSet": "",
+                "User": "fleetweft-probe",
+                "NoNewPrivileges": "yes",
+                "NetworkNamespacePath": "/run/netns/fw_node",
+                "ActiveState": "failed",
+                "SubState": "failed",
+                "InvocationID": "ad6d9ff0c2d54832a969adbf639b6e96"
+              },
+              "children_retired": true,
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 2,
+                  "node": "a",
+                  "op": "3cb8c733fc74cef1bcbc1f64580a4f63",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "ed52043d6c752596ad51fd602092f041",
+                "phase": "COMMITTED",
+                "route": {
+                  "release": "v2",
+                  "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
+                  "port": 42027,
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "generation": 2,
+                "revision": 4,
+                "committed": "v2"
+              },
+              "settled": {
+                "generation": 2,
+                "epoch": 1,
+                "active": null,
+                "paused": true,
+                "agents": {
+                  "a": "ed52043d6c752596ad51fd602092f041"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 2,
+                    "node": "a",
+                    "op": "3cb8c733fc74cef1bcbc1f64580a4f63",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "ed52043d6c752596ad51fd602092f041",
+                  "phase": "COMMITTED",
+                  "route": {
+                    "release": "v2",
+                    "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
+                    "port": 42027,
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "generation": 2,
+                  "revision": 4,
+                  "committed": "v2"
+                },
+                "quiesced": true
+              },
+              "external_after": {
+                "release": "v2",
+                "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
+                  "port": 42027,
+                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                },
+                "incarnation": "ed52043d6c752596ad51fd602092f041"
+              }
+            }
+          ],
+          "finish_reply_loss": {
+            "client_failure": {
+              "exit_code": 18,
+              "transport_error": "RemoteDisconnected"
+            },
+            "forwarded_and_reply_dropped": {
+              "path": "/finish",
+              "upstream_result": {
+                "generation": 1,
+                "epoch": 1,
+                "active": null,
+                "paused": false,
+                "agents": {
+                  "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+                },
+                "last": {
+                  "token": {
+                    "epoch": 1,
+                    "generation": 1,
+                    "node": "a",
+                    "op": "52e13b554b7b8af01b2a3de286e09630",
+                    "release": "v2",
+                    "baseline": "v1",
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+                  "phase": "COMMITTED",
+                  "route": {
+                    "release": "v2",
+                    "worker": "9f68e1115a8c79632adeeaf07fd4318d",
+                    "port": 46649,
+                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  },
+                  "generation": 1,
+                  "revision": 2,
+                  "committed": "v2"
+                },
+                "quiesced": true
+              }
+            }
+          },
+          "finish_retry": {
+            "generation": 1,
+            "epoch": 1,
+            "active": null,
+            "paused": false,
+            "agents": {
+              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "phase": "COMMITTED",
+              "route": {
+                "release": "v2",
+                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
+                "port": 46649,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 1,
+              "revision": 2,
+              "committed": "v2"
+            },
+            "quiesced": true
+          },
+          "controller_before": {
+            "generation": 2,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 2,
+                "node": "a",
+                "op": "f94c45af9a2d31e64101b31890313c90",
+                "release": "v3",
+                "baseline": "v2",
+                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "93a76dfe29c207aea5672018ee5c6a80",
+              "cancel_requested": false,
+              "challenge_ns": 39701745840,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": false,
+            "agents": {
+              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "phase": "COMMITTED",
+              "route": {
+                "release": "v2",
+                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
+                "port": 46649,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 1,
+              "revision": 2,
+              "committed": "v2"
+            },
+            "quiesced": false
+          },
+          "controller_after": {
+            "generation": 2,
+            "epoch": 2,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 2,
+                "node": "a",
+                "op": "f94c45af9a2d31e64101b31890313c90",
+                "release": "v3",
+                "baseline": "v2",
+                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              },
+              "binding": null,
+              "evidence": null,
+              "challenge": "93a76dfe29c207aea5672018ee5c6a80",
+              "cancel_requested": false,
+              "challenge_ns": 39701745840,
+              "needs_reconcile": true,
+              "commit_authorized": false
+            },
+            "paused": false,
+            "agents": {
+              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 1,
+                "node": "a",
+                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "phase": "COMMITTED",
+              "route": {
+                "release": "v2",
+                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
+                "port": 46649,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 1,
+              "revision": 2,
+              "committed": "v2"
+            },
+            "quiesced": false
+          },
+          "new_plan_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
+          "settled": {
+            "generation": 2,
+            "epoch": 2,
+            "active": null,
+            "paused": true,
+            "agents": {
+              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 2,
+                "node": "a",
+                "op": "f94c45af9a2d31e64101b31890313c90",
+                "release": "v3",
+                "baseline": "v2",
+                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              },
+              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "phase": "FAILED_RESTORED",
+              "route": {
+                "release": "v2",
+                "worker": "1e38e515dbfea1c769008cb358ef701a",
+                "port": 44357,
+                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              },
+              "generation": 2,
+              "revision": 3,
+              "committed": "v2"
+            },
+            "quiesced": true
+          },
+          "external": {
+            "release": "v2",
+            "worker": "1e38e515dbfea1c769008cb358ef701a",
+            "challenge": "external-probe",
+            "result": 14,
+            "healthy": true,
+            "route": {
+              "release": "v2",
+              "worker": "1e38e515dbfea1c769008cb358ef701a",
+              "port": 44357,
+              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+            },
+            "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+          }
+        }
+      }
+    ],
+    "scope": {
+      "isolated_linux_vm": true,
+      "systemd": true,
+      "power_loss_tested": false,
+      "vm_reboot_tested": false,
+      "full_fleet_scheduler_tested": false,
+      "tls_tested": false,
+      "signatures_tested": false
+    },
+    "installed": {
+      "origin": "/opt/fleetweft-exploration/venv/lib/python3.12/site-packages/fleetweft",
+      "hashes": {
+        "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+        "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+        "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+        "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
+        "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+        "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+        "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+        "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e"
+      }
+    },
+    "environment": {
+      "kernel": "6.8.0-117-generic",
+      "systemd": "systemd 255 (255.4-1ubuntu8.15)",
+      "python": "3.12.3",
+      "architecture": "aarch64",
+      "units": {
+        "fleetweft-probe-controller.service": {
+          "MainPID": "1664",
+          "Result": "success",
+          "ExecMainStatus": "0",
+          "CapabilityBoundingSet": "",
+          "User": "fleetweft-probe",
+          "NoNewPrivileges": "yes",
+          "NetworkNamespacePath": "/run/netns/fw_ctl",
+          "ActiveState": "active",
+          "SubState": "running",
+          "InvocationID": "a0a8f739343d4be3b117dafcf5c8a9d2"
+        },
+        "fleetweft-probe-node.service": {
+          "MainPID": "1665",
+          "Result": "success",
+          "ExecMainStatus": "0",
+          "CapabilityBoundingSet": "",
+          "User": "fleetweft-probe",
+          "NoNewPrivileges": "yes",
+          "NetworkNamespacePath": "/run/netns/fw_node",
+          "ActiveState": "active",
+          "SubState": "running",
+          "InvocationID": "ea2b2f5b2fd54b01a98d4621d3a862a1"
+        }
+      }
+    },
+    "unit_tests": {
+      "passed": true,
+      "tests": 15,
+      "test_ids": [
+        "tests.test_core.Contracts.test_canary_requires_samples",
+        "tests.test_core.Contracts.test_cancel_does_not_accept_false_restore",
+        "tests.test_core.Contracts.test_cancel_requires_target_confirmation",
+        "tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation",
+        "tests.test_core.Contracts.test_commit_requires_fresh_observation",
+        "tests.test_core.Contracts.test_delayed_registration_cannot_replace_new_incarnation",
+        "tests.test_core.Contracts.test_duplicate_and_wrong_data_are_rejected",
+        "tests.test_core.Contracts.test_expired_challenge_rejected",
+        "tests.test_core.Contracts.test_incarnation_change_discards_observation",
+        "tests.test_core.Contracts.test_old_incarnation_cannot_settle",
+        "tests.test_core.Contracts.test_old_report_cannot_finish_successor",
+        "tests.test_core.Contracts.test_pause_keeps_unknown_occupancy",
+        "tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence",
+        "tests.test_core.Contracts.test_retry_has_same_capability",
+        "tests.test_core.Contracts.test_stale_report_does_not_free_slot"
+      ],
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "platform": "Linux",
+      "python": "3.12.3",
+      "seconds": 0.09352212499999979,
+      "source": {
+        "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+        "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+        "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
+        "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+        "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+        "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+        "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+        "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+        "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
+        "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+        "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+        "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
+        "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
+        "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
+        "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+        "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
+        "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+      },
+      "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43"
+    },
+    "cleanup_processes_retired": true,
+    "root_firewall_unchanged": true,
+    "cleanup_namespaces_removed": true
+  },
+  "snapshot_removed": true,
+  "vm_final": "Stopped",
+  "controls": [
+    {
+      "name": "timeout",
+      "rejected": true
+    },
+    {
+      "name": "source",
+      "rejected": true
+    },
+    {
+      "name": "missing-case",
+      "rejected": true
+    },
+    {
+      "name": "free-unknown-slot",
+      "rejected": true
+    },
+    {
+      "name": "accept-new-during-partition",
+      "rejected": true
+    },
+    {
+      "name": "old-switch-accepted",
+      "rejected": true
+    },
+    {
+      "name": "old-valid-phase-switch",
+      "rejected": true
+    },
+    {
+      "name": "old-switch-changed-route",
+      "rejected": true
+    },
+    {
+      "name": "bad-canary-accepted",
+      "rejected": true
+    },
+    {
+      "name": "commit-gate-bypassed",
+      "rejected": true
+    },
+    {
+      "name": "old-canary-accepted",
+      "rejected": true
+    },
+    {
+      "name": "uncommitted-recovery-wrong",
+      "rejected": true
+    },
+    {
+      "name": "committed-recovery-wrong",
+      "rejected": true
+    },
+    {
+      "name": "stale-epoch",
+      "rejected": true
+    },
+    {
+      "name": "cleanup",
+      "rejected": true
+    },
+    {
+      "name": "power-loss-claim",
+      "rejected": true
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "scope": "Development snapshots, not comparable performance trials. Build/setup/readiness failures remain failures. Raw logs remain local/private.",
+  "runs": [
+    {
+      "attempt": "a",
+      "run_id": "17ce28a290825fd5",
+      "source_sha256": "f9ed5b41f8ebf087e46783b45a4ebdd25197cf473643a2a6dd7e855b1e641125",
+      "passed": false,
+      "completed_cases": [],
+      "error": "RuntimeError: wheel-build failed or timed out",
+      "guest_error": null,
+      "snapshot_removed": false,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": null,
+        "root_firewall_unchanged": null,
+        "cleanup_namespaces_removed": null
+      }
+    },
+    {
+      "attempt": "b",
+      "run_id": "f653d0714e166779",
+      "source_sha256": "cd0a3a8f52ebfaafc02f1163938b4c71e315e66f6057ce028291af877d9c4c3b",
+      "passed": false,
+      "completed_cases": [],
+      "error": "AssertionError: ",
+      "guest_error": "RuntimeError: ['systemctl', 'reset-failed', 'fleetweft-probe-node.service']: Failed to reset failed state of unit fleetweft-probe-node.service: Unit fleetweft-probe-node.service not loaded.\nFailed to reset failed state of unit fleetweft-probe-controller.service: Unit fleetweft-probe-controller.service not loaded.\n",
+      "snapshot_removed": true,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": true,
+        "root_firewall_unchanged": true,
+        "cleanup_namespaces_removed": true
+      }
+    },
+    {
+      "attempt": "c",
+      "run_id": "3d94beef5bcfc9e3",
+      "source_sha256": "5b214c6046e2fb7f6500d4d167453cd47a00583eae00448cbd0468ba41319194",
+      "passed": false,
+      "completed_cases": [],
+      "error": "AssertionError: ",
+      "guest_error": "RuntimeError: ['ip', 'netns', 'exec']: ",
+      "snapshot_removed": true,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": true,
+        "root_firewall_unchanged": true,
+        "cleanup_namespaces_removed": true
+      }
+    },
+    {
+      "attempt": "d",
+      "run_id": "065e81235ae29410",
+      "source_sha256": "a1aff494f26f2310b0f4d4f0d90b9f77729fc1c6e12de1a16ba86be596c3fae7",
+      "passed": false,
+      "completed_cases": [
+        "authorization_loss_partition",
+        "delayed_executor"
+      ],
+      "error": "AssertionError: ",
+      "guest_error": "RuntimeError: ['ip', 'netns', 'exec']: {\"transport_error\": \"URLError\"}\n",
+      "snapshot_removed": true,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": true,
+        "root_firewall_unchanged": true,
+        "cleanup_namespaces_removed": true
+      }
+    },
+    {
+      "attempt": "e",
+      "run_id": "765bd7248cef5f62",
+      "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43",
+      "passed": true,
+      "completed_cases": [
+        "authorization_loss_partition",
+        "delayed_executor",
+        "canary_freshness",
+        "crash_recovery"
+      ],
+      "error": null,
+      "guest_error": null,
+      "snapshot_removed": true,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": true,
+        "root_firewall_unchanged": true,
+        "cleanup_namespaces_removed": true
+      }
+    }
+  ]
+}
