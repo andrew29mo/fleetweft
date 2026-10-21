@@ -7,13 +7,14 @@ from .store import require
 class Agent(Node):
     def __init__(self, root, name, controller, artifacts, tls):
         super().__init__(root,name,controller,artifacts,tls,secure=True)
-        self.stopping=threading.Event(); self.sample=None; self.last_error=None
+        self.stopping=threading.Event(); self.sample=None; self.poll_sequence=0; self.last_error=None
 
     def tick(self):
         report=self.snapshot()
         try: probe=self.work(7,'heartbeat')
         except Exception: probe=None
-        reply=self.tls.request(self.controller,'/poll',dict(node=self.name,status=report,probe=probe,sample=self.sample))
+        self.poll_sequence+=1
+        reply=self.tls.request(self.controller,'/poll',dict(node=self.name,sequence=self.poll_sequence,status=report,probe=probe,sample=self.sample))
         command=reply['command']; self.sample=None
         if command=='idle': return
         require(command in ('accept','activate','sample','commit','cancel','refuse'),'Unknown command')

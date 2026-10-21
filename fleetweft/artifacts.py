@@ -12,6 +12,13 @@ from .store import require
 
 LIMIT = 131072
 
+def read_bounded(path, limit):
+    with Path(path).open('rb') as stream:
+        require(os.fstat(stream.fileno()).st_size<=limit, 'Oversized artifact file')
+        raw=stream.read(limit+1)
+    require(len(raw)<=limit, 'Oversized artifact file')
+    return raw
+
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()
 
@@ -86,6 +93,6 @@ class Artifacts:
 
     def path(self, release):
         target=self.root/self.catalog[release]
-        app=self.verify((target/'bundle.zip').read_bytes(),release)
-        require((target/'app.py').read_bytes()==app,'Cached payload changed')
+        app=self.verify(read_bounded(target/'bundle.zip',LIMIT),release)
+        require(read_bounded(target/'app.py',65536)==app,'Cached payload changed')
         return target/'app.py'

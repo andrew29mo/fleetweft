@@ -62,7 +62,10 @@ def main():
         v['mutations']=json.loads((out/'mutations.json').read_text())
         v['vm_initial']=state('vm-initial');assert v['vm_initial']=='Stopped';started=True
         call('vm-start',[colima,'start',a.profile,'--cpu','4','--memory','6','--disk','30','--vm-type','vz','--runtime','docker','--mount','none','--activate=false','--ssh-config=false','--ssh-agent=false','--vz-rosetta=false','--binfmt=false'],timeout=240)
-        ssh('preflight',['sudo','sh','-c','test ! -e /opt/fleetweft && test ! -e /var/lib/fleetweft && test ! -e /etc/fleetweft && test ! -e /etc/systemd/system/fleetweft-controller.service && test "$(cat /proc/1/comm)" = systemd && test -z "$(docker ps -q)"'])
+        # Run the identical full resource check before uploading anything.
+        preflight_code=(ROOT/'tools/mvp_ownership.py').read_text()+"\npreflight()\n"
+        ssh('preflight',['sudo','python3','-c',preflight_code])
+        ssh('preflight-environment',['sudo','sh','-c','test "$(cat /proc/1/comm)" = systemd && test -z "$(docker ps -q)"'])
         with tempfile.TemporaryDirectory() as tmp:
             snap=Path(tmp)
             for f in source:
@@ -97,7 +100,7 @@ def main():
             try:
                 # Guest normally cleans its fixture. On timeout, stop owned units
                 # before deleting the run snapshot; never clear unrelated paths.
-                code="import pathlib,sys,shutil,subprocess;p=pathlib.Path('/opt/fleetweft');assert (p/'owner').read_text()==sys.argv[1];s=pathlib.Path('/var/lib/fleetweft');subprocess.run([str(p/'venv/bin/python'),'-I',str(p/'source/tools/mvp_guest.py'),'cleanup'],check=True) if s.exists() else None;shutil.rmtree(p)"
+                code="import pathlib,sys,shutil,subprocess;p=pathlib.Path('/opt/fleetweft');assert (p/'owner').read_text()==sys.argv[1];s=p/'fixture-ownership.json';subprocess.run([str(p/'venv/bin/python'),'-I',str(p/'source/tools/mvp_guest.py'),'cleanup'],check=True) if s.exists() else None;shutil.rmtree(p)"
                 ssh('remove',['sudo','python3','-c',code,rid]);v['snapshot_removed']=True
             except BaseException as exc:v['cleanup_error']=str(exc)
         if started:

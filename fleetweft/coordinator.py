@@ -55,14 +55,14 @@ class Coordinator(Controller):
             s['observations']={n:dict(fresh=self.fresh(r),healthy=r['healthy'] and self.fresh(r)) for n,r in s['registry'].items()}
             a=s['active']
             s['occupancy']=None if a is None else dict(node=a['token']['node'],
-                state='ACTIVE' if self.fresh(s['registry'][a['token']['node']]) else 'UNKNOWN')
+                state='ACTIVE' if self.fresh(s['registry'][a['token']['node']]) and not a.get('restore_unverified') else 'UNKNOWN')
             return s
         if action=='enroll':
             require(s['fleet'] is None and s['active'] is None, 'Enrollment requires an unused controller')
             name=p['node']; require(name in ('a','b','c') and name not in s['registry'],'Invalid node enrollment')
             require(isinstance(p['node_uuid'],str) and len(p['node_uuid'])==32,'Invalid identity')
             s['registry'][name]=dict(node_uuid=p['node_uuid'],boot_sequence=-1,incarnation=None,
-                                      seen_ns=None,status=None,healthy=False)
+                                      seen_ns=None,status=None,healthy=False,poll_sequence=0)
             self.store.save(s); return {'enrolled':name}
         if action=='deploy':
             require(s['active'] is None and not s['paused'], 'Unsettled or paused')
@@ -118,6 +118,12 @@ class Coordinator(Controller):
         boot=report['boot_sequence']; require(type(boot) is int and boot>=r['boot_sequence'],'Stale boot sequence')
         require(boot>r['boot_sequence'] or report['incarnation']==r['incarnation'],'Reused boot identity')
         changed=report['incarnation']!=r['incarnation']
+        sequence=p['sequence']
+        require(type(sequence) is int and sequence>0 and
+                (boot>r['boot_sequence'] or sequence>r.get('poll_sequence',0)), 'Stale poll sequence')
+        if boot==r['boot_sequence'] and r['status'] is not None:
+            require(report['generation']>=r['status']['generation'] and report['revision']>=r['status']['revision'], 'Regressed node status')
+        r['poll_sequence']=sequence
         r.update(boot_sequence=boot,incarnation=report['incarnation'],seen_ns=time.monotonic_ns(),status=report,
                  healthy=bool(p.get('probe') and p['probe'].get('result')==14 and
                               p['probe'].get('route')==report['route'] and
@@ -134,12 +140,20 @@ class Coordinator(Controller):
         if a and a['token']['node']==node:
             token=a['token']; match=report['token']==token
             if match and report['phase'] in ('COMMITTED','FAILED_RESTORED'):
+                if report['phase']=='FAILED_RESTORED' and not r['healthy']:
+                    # A journal label is not verified compensation. Keep the slot
+                    # occupied through bad/missing data-plane evidence.
+                    s['paused']=True; s['fleet']['phase']='PAUSED'
+                    s['active']['restore_unverified']=True
+                    self.store.save(s)
+                    return {'command':'idle'}
                 method='reconcile' if a['needs_reconcile'] or a['cancel_requested'] else 'finish'
                 self.base(method,report)
                 s=self.store.read(); f=s['fleet']
-                success=report['phase']=='COMMITTED'
+                committed=report['phase']=='COMMITTED'
+                success=committed and r['healthy']
                 f['targets'][node]='SUCCEEDED' if success else 'FAILED'
-                f['attempts'].append(dict(node=node,token=token,result=report['phase']))
+                f['attempts'].append(dict(node=node,token=token,result=report['phase'],serving_verified=r['healthy']))
                 if success and node==f['canary'] and f['mode']=='DEPLOY':
                     f['canary_passed']=True; f['phase']='ROLLING'
                 if not success or s['paused']: f['phase']='PAUSED'; s['paused']=True

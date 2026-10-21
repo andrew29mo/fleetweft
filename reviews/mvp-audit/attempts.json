@@ -1,0 +1,54 @@
+[
+  {
+    "attempt": 1,
+    "run_id": "3944b86265b45d78",
+    "source_sha256": "7c9a24c6d164b355e10637003555feba6967f30859d18dfebfdf5fd0db5acce3",
+    "passed": false,
+    "error": "RuntimeError: preflight failed or timed out",
+    "guest_scenarios_passed": false,
+    "vm_reboot_tested": false,
+    "snapshot_removed": null,
+    "cleanup_error": null,
+    "vm_final": "Stopped",
+    "note": "Stopped before upload: systemd list-unit-files no-match exit 1 was treated as failure. No fixture resources created."
+  },
+  {
+    "attempt": 2,
+    "run_id": "ceef8fe540a18b17",
+    "source_sha256": "155a0744267f1dc1c079c174c1cb6aa1fb6883aa691c857987c51105bcc8c160",
+    "passed": false,
+    "error": "RuntimeError: preflight failed or timed out",
+    "guest_scenarios_passed": false,
+    "vm_reboot_tested": false,
+    "snapshot_removed": null,
+    "cleanup_error": null,
+    "vm_final": "Stopped",
+    "note": "Stopped before upload: systemctl show cannot query an uninstantiated template name; all instance queries were observed separately. No fixture resources created."
+  },
+  {
+    "attempt": 3,
+    "run_id": "f7364d36ce4af9a6",
+    "source_sha256": "4095d1780d9228874bded074a3bb9b7a7a6a8d7911393fb79444eb224d927573",
+    "passed": false,
+    "error": "RuntimeError: linux-unit failed or timed out",
+    "guest_scenarios_passed": true,
+    "vm_reboot_tested": false,
+    "snapshot_removed": true,
+    "cleanup_error": null,
+    "vm_final": "Stopped",
+    "note": "15 live service scenarios passed, then Linux unit suite failed because a mock topology test read real /run/netns. Cleanup succeeded; actual reboot stage was not reached."
+  },
+  {
+    "attempt": 4,
+    "run_id": "e746ebafc9d228b4",
+    "source_sha256": "aaabf9003e084bab1582e8812dc89e6124c3849f7ff602df351bb6505a893423",
+    "passed": true,
+    "error": null,
+    "guest_scenarios_passed": true,
+    "vm_reboot_tested": true,
+    "snapshot_removed": true,
+    "cleanup_error": null,
+    "vm_final": "Stopped",
+    "note": "Final complete pass, including identical platform suites, all live scenarios, actual orderly VM restart and ownership-checked cleanup."
+  }
+]

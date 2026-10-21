@@ -1,0 +1,44 @@
+[
+  {
+    "unit": "fleetweft-controller.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  },
+  {
+    "unit": "fleetweft-node@.service",
+    "rc": 1,
+    "stdout": "",
+    "stderr": "Failed to get properties: Unit name fleetweft-node@.service is neither a valid invocation ID nor unit name.\n"
+  },
+  {
+    "unit": "fleetweft-fixture.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  },
+  {
+    "unit": "fleetweft-fixture-proxy.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  },
+  {
+    "unit": "fleetweft-node@a.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  },
+  {
+    "unit": "fleetweft-node@b.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  },
+  {
+    "unit": "fleetweft-node@c.service",
+    "rc": 0,
+    "stdout": "LoadState=not-found\nFragmentPath=\nDropInPaths=\n",
+    "stderr": ""
+  }
+]

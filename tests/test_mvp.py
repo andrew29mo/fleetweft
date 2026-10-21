@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+import time
 import unittest
 import zipfile
 from fleetweft.artifacts import Artifacts,build,digest
@@ -29,6 +30,12 @@ class ArtifactTests(unittest.TestCase):
         a=self.store(); a.install(self.raw,'v1'); p=a.path('v1'); self.assertEqual(p.read_bytes(),b'print("signed")\n')
         p.chmod(0o600); p.write_bytes(b'print("changed")')
         with self.assertRaisesRegex(ValueError,'Cached payload'): a.path('v1')
+    def test_oversized_cached_bundle_is_rejected_before_read(self):
+        a=self.store(); a.install(self.raw,'v1'); p=self.cache/digest(self.raw)/'bundle.zip'
+        p.chmod(0o600)
+        with p.open('wb') as stream: stream.truncate(2*1024*1024)
+        with self.assertRaisesRegex(ValueError,'Oversized'): a.path('v1')
+
     def test_wrong_key_with_matching_digest_is_rejected(self):
         raw=build(b'print(1)','v1',self.root/'other.key')
         with self.assertRaisesRegex(ValueError,'signature'): self.store(raw).install(raw,'v1')
@@ -58,7 +65,7 @@ class FleetTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(); self.root=Path(self.tmp.name)
         self.c=Coordinator(self.root,{'v1':'1'*64,'v2':'2'*64,'v3':'3'*64},samples=2,window=0)
-        self.reports={}
+        self.reports={}; self.poll_sequences={n:0 for n in 'abc'}
         for node in 'abc':
             self.c.call('enroll',{'node':node,'node_uuid':node*32})
             self.reports[node]=dict(node_uuid=node*32,boot_sequence=1,incarnation=node+'1',token=None,
@@ -67,8 +74,8 @@ class FleetTests(unittest.TestCase):
             self.poll(node)
     def tearDown(self): self.c.store.close(); self.tmp.cleanup()
     def poll(self,node,**kw):
-        r=self.reports[node]
-        return self.c.call('poll',dict(node=node,status=copy.deepcopy(r),probe=dict(result=14,route=r['route'],incarnation=r['incarnation']),**kw),peer=node)
+        r=self.reports[node]; self.poll_sequences[node]+=1
+        return self.c.call('poll',dict(node=node,sequence=self.poll_sequences[node],status=copy.deepcopy(r),probe=dict(result=14,route=r['route'],incarnation=r['incarnation']),**kw),peer=node)
     def deploy(self): self.c.call('deploy',{'release':'v2'})
     def accept(self,node,cmd):
         r=self.reports[node]; r.update(token=cmd['token'],generation=cmd['token']['generation'],phase='STAGED')
@@ -91,11 +98,11 @@ class FleetTests(unittest.TestCase):
         self.assertEqual(self.c.call('status',{})['fleet']['phase'],'COMPLETED')
     def test_admission_requires_a_different_fresh_healthy_node(self):
         s=self.c.store.read()
-        for n in 'bc': s['registry'][n]['seen_ns']=0
+        for n in 'bc': s['registry'][n]['seen_ns']=time.monotonic_ns()-3_000_000_000
         self.c.store.save(s); self.deploy()
         self.assertEqual(self.poll('a')['command'],'idle')
         self.poll('b'); self.assertEqual(self.poll('a')['command'],'accept')
-        s=self.c.store.read(); s['registry']['a']['seen_ns']=0; self.c.store.save(s)
+        s=self.c.store.read(); s['registry']['a']['seen_ns']=time.monotonic_ns()-3_000_000_000; self.c.store.save(s)
         self.assertEqual(self.c.call('status',{})['occupancy']['state'],'UNKNOWN')
 
     def test_bad_canary_restores_and_pauses(self):
@@ -135,7 +142,7 @@ class FleetTests(unittest.TestCase):
         self.assertNotEqual(self.c.call('status',{})['fleet']['phase'],'ROLLED_BACK')
     def test_offline_ungranted_target_remains_in_original_history(self):
         self.deploy(); self.success('a'); self.success('b')
-        s=self.c.store.read(); s['registry']['c']['seen_ns']=0; self.c.store.save(s)
+        s=self.c.store.read(); s['registry']['c']['seen_ns']=time.monotonic_ns()-3_000_000_000; self.c.store.save(s)
         self.poll('a'); self.assertEqual(self.c.call('status',{})['fleet']['targets']['c'],'DEFERRED')
         self.c.call('deploy',{'release':'v3'})
         old=self.c.call('status',{})['history'][-1]

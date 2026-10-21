@@ -1,31 +1,34 @@
 # MVP validation — 2026-10-21
 
-Final run: `f519bcdfd6cd873a`.
+Final run: `e746ebafc9d228b4`.
 Executable/unit/shipping-unit/tool source SHA-256:
-`e4f127e0bc1ff972b0d2b5643a67d23561b2b39e8bed1cb96f54752079ec1d37`.
+`aaabf9003e084bab1582e8812dc89e6124c3849f7ff602df351bb6505a893423`.
 Documentation and receipts are outside that source manifest. No runtime changes
 were made after the final snapshot was taken.
 
-[Complete JSON](../reviews/mvp/evidence.json) · [Matching HTML](../reviews/mvp/report.html)
-· [macOS unit receipt](../reviews/mvp/native-unit.json) · [Linux unit receipt](../reviews/mvp/linux-unit.json)
-· [Mutation receipt](../reviews/mvp/mutations.json) · [All MVP attempts](../reviews/mvp/attempts.json)
+[Complete JSON](../reviews/mvp-audit/evidence.json) · [Matching HTML](../reviews/mvp-audit/report.html)
+· [macOS unit receipt](../reviews/mvp-audit/native-unit.json) · [Linux unit receipt](../reviews/mvp-audit/linux-unit.json)
+· [Mutation receipt](../reviews/mvp-audit/mutations.json) · [All MVP attempts](../reviews/mvp-audit/attempts.json)
 
 ## Verification result
 
-- **41/41 macOS and 41/41 Linux portable tests**, identical IDs and source hashes;
+- **68/68 macOS and 68/68 Linux portable tests**, identical IDs and source hashes;
   zero failures, errors or skips. The worker-readiness test uses a real subprocess
   with a synthetic process identity on both platforms; actual Linux identities and
   route recovery are separately exercised in the VM.
-- **11 production mutations** caught by assertion failures: stale incarnation,
+- **15 production mutations** caught by assertion failures: stale incarnation,
   wrong business result, expired challenge, missing commit decision, forgotten
   reconciliation, skipped drain, bypassed canary, replaced node identity,
-  automatic restart resume, bypassed artifact signature and non-atomic settlement.
+  automatic restart resume, bypassed artifact signature, non-atomic settlement,
+  lost approval replay, reordered polls, ignored terminal probe and unverified compensation.
   Import errors/crashes do not count as caught mutations.
-- **10 real VM scenarios** listed below; **14 corrupted-report controls** rejected.
+- **15 real VM scenarios** listed below; **22 corrupted-report controls** rejected.
   These are distinct evidence categories, not 65 interchangeable tests.
 - Installed wheel module hashes match every corresponding source module. The
   shipping controller/node units match the manifest; fixture drop-ins add only
-  namespace and topology dependencies. Each service runs as `fleetweft`, with
+  namespace and topology dependencies. Deployed unit file hashes are retained.
+  Ownership tests use mocked commands and real temporary files; the VM separately
+  proves the owned resource lifecycle, not the presence of real foreign resources. Each service runs as `fleetweft`, with
   NoNewPrivileges, empty capabilities and KillMode=control-group.
 - Cleanup confirms service MainPID=0, removed namespaces/configuration/test keys,
   unchanged root ruleset digest, removed installed snapshot and stopped VM.
@@ -47,9 +50,14 @@ No three-host, WAN, physical-device or container performance claim is made.
 | Process crash | Actual systemd agent and Controller MainPIDs receive SIGKILL; new service InvocationIDs appear and real committed v2 serves |
 | Authentication / tampering | Missing client cert and untrusted server CA fail TLS; wrong role, cross-node poll and public node mutation get exact 409; a truncated HTTPS bundle never activates |
 | Delayed command | Old token cached before mutation is invoked after a successor activates; the actual Node writer rejects it and real signed v3 worker/route remains unchanged |
+| Reordered report | An actual authenticated old A poll is rejected with 409; v3 captures every v2 baseline and rollback restores v2 |
+| Lost approval / pause | Real TLS proxy forwards and durably authorizes, drops the first reply; pause retains the grant, exact approval replay lets A settle without follower grants |
+| Lost approval / rollback | Same loss boundary; rollback waits for the authorized result and then verifies all three original baselines |
+| Failed committed worker | SIGKILL of real v2 worker after COMMITTED; HTTP 503 is observed, durable commit remains recorded, target fails and fleet pauses without followers |
+| Failed restored worker | SIGKILL after FAILED_RESTORED; failed probe keeps the exact grant UNKNOWN until actual Agent restart reconstructs a healthy baseline |
 | Measurements | All 30 fixed sequential real mTLS requests retained; expected result/version verified; per-service and worker RSS recorded separately |
 
-Additional VM restart evidence is retained separately from those ten scenarios.
+Additional VM restart evidence is retained separately from those fifteen scenarios.
 Before orderly VM stop, A actually serves candidate v3 while its durable journal
 is still ACTIVATING with committed baseline v2; B/C have committed v2. In the new
 boot, a root fixture topology unit reads the journal **before Agent startup** and
@@ -65,10 +73,10 @@ One final controlled run, not an SLO or capacity estimate:
 | Observation | Result | Definition |
 |---|---:|---|
 | Request success | 30/30 | Fixed A/B/C round-robin sequence, x=7, expected result 14 and release v2; no discarded failure |
-| Median request latency | 11.67 ms | One persistent driver; each request includes a new mTLS connection, node gateway, worker execution and full JSON response read |
-| p95 request latency | 27.42 ms | Nearest-rank p95 of all 30 measurements, not repeated-run confidence |
-| Maximum request latency | 28.87 ms | Maximum of this small sequential sample |
-| Agent SIGKILL → observed new-incarnation v2 response | 1.349 s | Starts before sending systemctl kill; includes polling/client launch overhead; not a recovery-time upper bound |
+| Median request latency | 11.74 ms | One persistent driver; each request includes a new mTLS connection, node gateway, worker execution and full JSON response read |
+| p95 request latency | 24.31 ms | Nearest-rank p95 of all 30 measurements, not repeated-run confidence |
+| Maximum request latency | 28.30 ms | Maximum of this small sequential sample |
+| Agent SIGKILL → observed new-incarnation v2 response | 1.352 s | Starts before sending systemctl kill; includes polling/client launch overhead; not a recovery-time upper bound |
 
 Driver/netns startup is outside individual request latency. The driver issues no
 concurrent load; no saturation throughput, speedup, WAN latency or statistical
@@ -79,13 +87,13 @@ RSS is `/proc/<pid>/status` VmRSS at one post-request observation, in KiB:
 
 | Process | RSS KiB |
 |---|---:|
-| Controller | 23,924 |
-| Agent A | 49,072 |
-| Agent B | 47,480 |
-| Agent C | 47,604 |
-| App worker A | 18,584 |
-| App worker B | 18,584 |
-| App worker C | 18,564 |
+| Controller | 23,604 |
+| Agent A | 49,288 |
+| Agent B | 48,376 |
+| Agent C | 47,552 |
+| App worker A | 18,576 |
+| App worker B | 18,572 |
+| App worker C | 18,576 |
 
 These are VM process RSS snapshots, not peak memory, PSS, cgroup/VM memory or a
 memory-saving comparison. Shared pages must not be interpreted as unique memory
@@ -97,20 +105,26 @@ Use the dedicated stopped VM command in README, then:
 
 ```sh
 .venv/bin/python -m tools.mvp_report results/fresh-mvp-run --current-source
-.venv/bin/python -m tools.mvp_report reviews/mvp --current-source
+.venv/bin/python -m tools.mvp_report reviews/mvp-audit --current-source
 ```
 
 The verifier checks stage outcomes/timeouts, source hashes, installed wheel,
-platform receipts, service identity, scenario ordering/results, original targets,
-reboot journal and cleanup, then compares exact regenerated HTML. A PASS flag by
+complete source-discovered test IDs, deployed unit hashes, both process restart
+identities, scenario ordering/results, original targets, reboot journal and actual
+node phases, fixed A/B/C request assignments and cleanup, then compares exact regenerated HTML. A PASS flag by
 itself cannot render a passing incomplete report. Earlier exploration reports
 must be reproduced with their matching historical revision/tooling; they predate
 this MVP and have different source and mutation manifests.
 
-All four MVP attempts are retained in the ledger. Attempt 2's VM work passed but
-its report-control exception handling failed, so the runner rejected the attempt;
-it was fixed before the final successful snapshot. Superseded passes remain
-historical observations rather than being merged with the final measurements.
+All four audit attempts are retained. Attempts 1/2 stopped before upload because
+real systemd no-match and template-query semantics differed from the mock; exact
+read-only query output is retained. Attempt 3 passed the fifteen live service
+scenarios, then the Linux unit suite caught a synthetic test reading the real
+namespace directory. That run remained failed; it never reached VM reboot. The
+test now injects its own namespace directory and has a filesystem-collision
+regression. Attempt 4 passed the complete pipeline. Cleanup/final VM status and
+all failed-attempt categories remain in the ledger; no partial run is merged into
+the final pass. The initial pre-audit MVP receipts remain archived in reviews/mvp.
 
 ## Not tested / not established
 

@@ -8,7 +8,7 @@ import signal
 import threading
 from urllib.parse import parse_qs,urlparse
 from .agent import Agent
-from .artifacts import Artifacts,build
+from .artifacts import Artifacts,build,read_bounded
 from .coordinator import Coordinator
 from .store import Store,require
 from .tls import TLS,peer_name
@@ -37,7 +37,7 @@ def run(config):
                     if path.startswith('/artifacts/'):
                         require(peer in core.store.read()['registry'],'Enrolled node required')
                         sha=path.split('/')[-1]; require(sha in config['catalog'].values(),'Unknown artifact')
-                        raw=(Path(config['bundles'])/(sha+'.zip')).read_bytes()
+                        raw=read_bounded(Path(config['bundles'])/(sha+'.zip'),131072)
                         require(len(raw)<=131072,'Oversized artifact'); return self.reply(200,raw,'application/zip')
                     result=core.call(path.lstrip('/'),body,peer)
                 else:

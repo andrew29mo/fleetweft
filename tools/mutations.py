@@ -19,7 +19,11 @@ MUTATIONS=[
     ('fleetweft/coordinator.py','lost-node-identity',"require(report['node_uuid']==r['node_uuid'],'Node state was lost or replaced')","require(True,'Node state was lost or replaced')",'tests.test_mvp.FleetTests.test_lost_node_state_rejected'),
     ('fleetweft/coordinator.py','restart-auto-resume',"s['paused']=True; s['fleet']['phase']='PAUSED'\n        self.store.save(s)","s['paused']=False; s['fleet']['phase']='PAUSED'\n        self.store.save(s)",'tests.test_mvp.FleetTests.test_controller_restart_requires_reconciliation'),
     ('fleetweft/artifacts.py','signature-bypass',"require(r.returncode==0, 'Invalid artifact signature')","require(True, 'Invalid artifact signature')",'tests.test_mvp.ArtifactTests.test_wrong_key_with_matching_digest_is_rejected'),
-    ('fleetweft/coordinator.py','non-atomic-settlement',"finally: self.store=durable","finally:\n                self.store=durable\n                durable.save(buffer.read())",'tests.test_mvp.AtomicFleetTests.test_settlement_error_keeps_durable_grant')]
+    ('fleetweft/coordinator.py','non-atomic-settlement',"finally: self.store=durable","finally:\n                self.store=durable\n                durable.save(buffer.read())",'tests.test_mvp.AtomicFleetTests.test_settlement_error_keeps_durable_grant'),
+    ('fleetweft/core.py','lost-authorized-decision',"if a['commit_authorized']:","if False:",'tests.test_audit.AuditContracts.test_authorized_reply_loss_then_pause_replays_exact_decision'),
+    ('fleetweft/coordinator.py','reordered-poll',"sequence>r.get('poll_sequence',0)","True",'tests.test_audit.AuditContracts.test_reordered_poll_cannot_change_captured_rollback_baseline'),
+    ('fleetweft/coordinator.py','ignore-terminal-probe',"success=committed and r['healthy']","success=committed",'tests.test_audit.AuditContracts.test_terminal_commit_with_failed_probe_settles_but_never_promotes'),
+    ('fleetweft/coordinator.py','unverified-compensation',"if report['phase']=='FAILED_RESTORED' and not r['healthy']:","if False:",'tests.test_audit.AuditContracts.test_unverified_restoration_keeps_occupancy_until_probe_succeeds')]
 
 
 def main():

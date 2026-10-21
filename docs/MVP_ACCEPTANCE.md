@@ -13,13 +13,16 @@ relabeled as evidence for the new scheduler or authenticated artifact path.
 | Lost authorization / network partition | STAGED A's real veth is disabled; pause does not release its grant; reconnection and confirmed compensation settle it |
 | Restart recovery | Shipping systemd agent and controller SIGKILL; changed InvocationID and independently observed serving version |
 | Actual VM restart | Different boot ID and service InvocationIDs; pre-agent journal still has pending ACTIVATING state, then A restores v2 while committed B/C reconstruct v2 |
+| Poll ordering | Same-boot old poll cannot replace a newer baseline; sequence floor survives Controller restart and resets only for a valid newer boot |
+| Lost commit decision reply | Real mTLS response loss plus pause/rollback still settles the original authorization; no new authority inferred |
+| Terminal health | Failed committed worker pauses propagation; failed restored worker retains UNKNOWN until an actual healthy baseline is reconstructed |
 | Stale executor | Cached earlier token invokes the actual Node mutation method after a successor activates; real signed backend route/result remain unchanged |
 | mTLS | Missing client certificate and untrusted server CA fail TLS; wrong-role/cross-node/public-node-mutation requests get exact HTTP 409 |
 | Signed artifacts | Production verifier tests wrong signing key, truncated bytes, payload changes, unsafe entries, platform mismatch, quota and changed cached app; actual HTTPS tampered bundle refuses and leaves baseline serving |
 | Portable tests | Identical formal Python/unit/service-file source fingerprint and test IDs on macOS/Linux; no skips/errors/failures |
 | Negative controls | Named production mutations must fail assertions, not imports/execution errors; report corruption controls reject incomplete/contradictory evidence |
 | Metrics | All fixed sequential requests retained with timing boundary; per-service and worker RSS separated; VM observations labeled |
-| Cleanup | Units MainPID=0, namespaces/config/private keys removed, root firewall digest unchanged, snapshot removed and VM stopped |
+| Cleanup | Run-specific account/unit/link/namespace ownership must match; unknown/replaced resources block cleanup. Units MainPID=0, namespaces/config/private keys removed, root firewall digest unchanged, snapshot removed and VM stopped |
 
 ## Scope of the evidence
 

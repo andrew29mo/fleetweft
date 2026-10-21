@@ -83,6 +83,11 @@ class Controller:
                     a['challenge'] = secrets.token_hex(16)
                     a['challenge_ns'] = now
                 elif action == 'authorize_commit':
+                    # A delivered durable decision cannot be revoked by pause.
+                    # Retry only that exact incarnation/route, never a new one.
+                    if a['commit_authorized']:
+                        require(not a['needs_reconcile'] and p['phase']=='OBSERVING' and p['route']==a['binding'], 'Reconcile authorized decision')
+                        return {**s, 'quiesced': False}
                     require(not a['needs_reconcile'] and not a['cancel_requested'] and not s['paused'], 'Not promotable')
                     require(p['phase']=='OBSERVING' and p['route']==a['binding'], 'Wrong live candidate')
                     e=a['evidence'];require(e is not None and e['count']>=self.samples, 'Insufficient samples')

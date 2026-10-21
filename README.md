@@ -21,9 +21,12 @@ through new, fenced operations.
 - At most one granted change, with at least one **other recently observed healthy**
   node before admission. These are separate policies, not an availability guarantee.
 - Loss of contact retains an issued grant. Pause stops admission; cancellation
-  must be confirmed locally. An offline ungranted target stays incomplete and can
+  must be confirmed by actual baseline serving evidence; an unverified restoration
+  remains UNKNOWN. A committed candidate with a failed current probe pauses the
+  fleet without hiding the durable commit fact. An offline ungranted target stays incomplete and can
   catch up to a superseding release without pretending its older rollout succeeded.
-- Higher-generation rollback, persistent node identity/boot sequence, controller
+- Higher-generation rollback, persistent node identity/boot sequence, ordered
+  poll reports, controller
   reconciliation and a single local mutation writer prevent stale operations from
   changing a successor route.
 - Bounded signed ZIP packages: RSA/SHA-256 verification through system OpenSSL,
@@ -61,6 +64,7 @@ it does not run the Linux agent backend.
 - [Deployment, credentials and CLI](docs/DEPLOYMENT.md)
 - [MVP architecture](docs/ARCHITECTURE.md)
 - [Research and trade-offs](docs/RESEARCH.md)
+- [MVP audit and regressions](docs/MVP_AUDIT.md)
 - [Earlier exploration audit](docs/AUDIT.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
 

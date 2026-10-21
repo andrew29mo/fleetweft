@@ -145,3 +145,20 @@ The portable concurrency test holds a real Node.work transport call at an Event
 until retirement enters its wait, then verifies kill happens only after release.
 The VM additionally checks real process identities and real slow HTTP responses.
 The HTTP timing observation alone does not prove overlap at every scheduling point.
+
+## Audit refinements
+
+Polls carry a strictly increasing per-boot sequence, persisted by the Controller.
+A new boot may reset sequence only after UUID/boot/incarnation validation. Same-boot
+generation and revision cannot regress. Receipt time alone cannot authorize an old
+report to replace a newer baseline. Controller restart retains the sequence floor.
+
+If a commit approval response is lost, the identical durable decision is replayed
+for the same current token/incarnation/bound route, including after pause. New
+decisions remain blocked while paused; restart reconciliation still takes priority.
+
+Terminal outcomes require both execution and serving facts. A COMMITTED journal
+with a negative current probe records the commit, settles known occupancy and
+marks the release failed/paused without promoting followers. FAILED_RESTORED with
+an unverified baseline retains UNKNOWN occupancy until a healthy recovery report.
+See MVP_AUDIT.md for the fault-injection boundaries and evidence distinctions.

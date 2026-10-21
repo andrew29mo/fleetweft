@@ -96,3 +96,16 @@ MVP verifiable; it is not an arbitrary application health language.
 - HTTPS request bodies/responses, artifact sizes, startup waits and worker drains
   are bounded. Connection/thread admission is not a hardened internet-facing DoS
   boundary; keep endpoints on a protected management network.
+
+## Audit-era protocol compatibility and recovery
+
+Agents now send ordered poll sequence numbers within each persistent boot identity.
+Upgrade controller and agents together during a stopped experiment; mixed older
+protocol versions are not supported. Do not reset state to bypass replay checks.
+
+Pause prevents new authorization; an already-persisted approval can be retried
+without losing that durable decision. If an application fails after committing,
+the commit remains recorded but the fleet pauses and the target fails. If a
+restored baseline cannot be probed, the original slot stays UNKNOWN. Reconnect or
+restart the Agent and verify its retained baseline before resuming. The MVP has no
+independent application watchdog that automatically repairs every worker failure.

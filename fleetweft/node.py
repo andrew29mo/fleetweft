@@ -208,6 +208,7 @@ class Node:
                     require(s['phase'] in ('STAGED', 'ACTIVATING', 'OBSERVING'), 'Cannot cancel committed operation')
                     self.switch(self.spawn(s['committed'])); s = self.store.read()
                     s['phase'] = 'FAILED_RESTORED'; s['revision'] += 1; self.store.save(s)
+                    self.checkpoint('after_cancel')
                     self.retire_obsolete()
                 else: raise ValueError('Unknown action')
             return self.snapshot()
