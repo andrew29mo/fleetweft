@@ -14,7 +14,12 @@ MUTATIONS=[
     ('fleetweft/core.py','expired-challenge',"require(0 <= now - a['challenge_ns'] <= 2_000_000_000, 'Expired sample challenge')","require(True, 'Expired sample challenge')",'tests.test_core.Contracts.test_expired_challenge_rejected'),
     ('fleetweft/core.py','commit-bypass',"require(a['commit_authorized'], 'Commit was not authorized')","require(True, 'Commit was not authorized')",'tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation'),
     ('fleetweft/core.py','forget-reconciliation',"s['active']['needs_reconcile'] = True","s['active']['needs_reconcile'] = False",'tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence'),
-    ('fleetweft/node.py','skip-request-drain',"while self.inflight.get(worker, 0) and time.monotonic() < deadline:","while False:",'tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired')]
+    ('fleetweft/node.py','skip-request-drain',"while self.inflight.get(worker, 0) and time.monotonic() < deadline:","while False:",'tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired'),
+    ('fleetweft/coordinator.py','fleet-canary-bypass',"([f['canary']] if f['mode']=='DEPLOY' and not f['canary_passed'] else ['a','b','c'])","['a','b','c']",'tests.test_mvp.FleetTests.test_canary_must_settle_before_other_nodes'),
+    ('fleetweft/coordinator.py','lost-node-identity',"require(report['node_uuid']==r['node_uuid'],'Node state was lost or replaced')","require(True,'Node state was lost or replaced')",'tests.test_mvp.FleetTests.test_lost_node_state_rejected'),
+    ('fleetweft/coordinator.py','restart-auto-resume',"s['paused']=True; s['fleet']['phase']='PAUSED'\n        self.store.save(s)","s['paused']=False; s['fleet']['phase']='PAUSED'\n        self.store.save(s)",'tests.test_mvp.FleetTests.test_controller_restart_requires_reconciliation'),
+    ('fleetweft/artifacts.py','signature-bypass',"require(r.returncode==0, 'Invalid artifact signature')","require(True, 'Invalid artifact signature')",'tests.test_mvp.ArtifactTests.test_wrong_key_with_matching_digest_is_rejected'),
+    ('fleetweft/coordinator.py','non-atomic-settlement',"finally: self.store=durable","finally:\n                self.store=durable\n                durable.save(buffer.read())",'tests.test_mvp.AtomicFleetTests.test_settlement_error_keeps_durable_grant')]
 
 
 def main():

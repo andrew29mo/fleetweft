@@ -1,60 +1,42 @@
-# MVP acceptance after protocol exploration
+# MVP acceptance
 
-Exploration pass is a gate to building the MVP, not a claim these conditions have
-already passed. See the evidence directory for exact tested boundaries.
+Current receipts and exact results are in [MVP validation](MVP_VALIDATION.md).
+Historical exploration evidence retains its original fingerprint and is not
+relabeled as evidence for the new scheduler or authenticated artifact path.
 
-| Requirement | Required operational evidence | Current status |
-|---|---|---|
-| Grant durability and retry | Lost grant/accept/terminal response does not duplicate a change or release an unresolved slot | Exploration |
-| Pause/cancel partition | Real network disconnection retains occupancy; reconnect, confirmed compensation and reconciliation free it | Exploration |
-| Stale executor | Cached preflight followed by a late real switch request cannot change successor HTTP output | Exploration; not a paused write inside the critical section |
-| Worker retention | Repeated successful/cancelled operations return with one worker, obsolete identities gone; deterministic pinned-request wait test plus real HTTP observation | Exploration; stalled requests may be interrupted after bounded drain |
-| Canary freshness | Wrong business result despite healthy endpoint, replay, expired challenge and old agent identity cannot commit/promote | Exploration |
-| Process crash | STAGED, before/after route, before/after commit have actual SIGKILL evidence and different committed/uncommitted recovery | Exploration |
-| Controller crash | Durable grant survives epoch change; cannot grant a successor before reconciliation | Exploration |
-| Three-node sequencing | A must pass canary before B/C activate; no hidden grants to offline nodes | Not implemented/tested |
-| Offline catch-up | Original target stays incomplete; latest compatible version only after stale operations settle | Not implemented/tested |
-| Fleet rollback | New generation restores captured per-node baseline; offline/failed restore prevents global success | Not implemented/tested |
-| Availability policy | Separate active-change and observed-health budgets; test one already-offline node | Not implemented/tested |
-| Trusted artifacts | Real signed payload, digest mismatch, truncated input, extraction limits, retained rollback copy and disk quota | Not implemented/tested |
-| Node identity | mTLS, manual enrollment, lost-state rejection and explicit re-enrollment | Not implemented/tested |
-| Service lifecycle | Installed shipping unit, agent crash and actual VM reboot, plus independently observed HTTP state | Exploration units only; VM reboot not tested |
-| Operator experience | CLI plan/pause/resume/rollback/status and honest original target history | Exploration APIs only |
+| Requirement | Evidence required and retained |
+|---|---|
+| Three-node canary | Installed services: A's actual serving samples and committed result settle before any follower grant |
+| Failure pause | Wrong business result and candidate startup failure restore baseline, retain failure and prevent follower grants |
+| Later-node failure / fleet rollback | A can commit while B fails; a disconnected C prevents global rollback success until it reconnects and verifies its baseline |
+| Offline catch-up | Original target C remains incomplete; superseding v3 reaches C without a hidden v2 grant |
+| Lost authorization / network partition | STAGED A's real veth is disabled; pause does not release its grant; reconnection and confirmed compensation settle it |
+| Restart recovery | Shipping systemd agent and controller SIGKILL; changed InvocationID and independently observed serving version |
+| Actual VM restart | Different boot ID and service InvocationIDs; pre-agent journal still has pending ACTIVATING state, then A restores v2 while committed B/C reconstruct v2 |
+| Stale executor | Cached earlier token invokes the actual Node mutation method after a successor activates; real signed backend route/result remain unchanged |
+| mTLS | Missing client certificate and untrusted server CA fail TLS; wrong-role/cross-node/public-node-mutation requests get exact HTTP 409 |
+| Signed artifacts | Production verifier tests wrong signing key, truncated bytes, payload changes, unsafe entries, platform mismatch, quota and changed cached app; actual HTTPS tampered bundle refuses and leaves baseline serving |
+| Portable tests | Identical formal Python/unit/service-file source fingerprint and test IDs on macOS/Linux; no skips/errors/failures |
+| Negative controls | Named production mutations must fail assertions, not imports/execution errors; report corruption controls reject incomplete/contradictory evidence |
+| Metrics | All fixed sequential requests retained with timing boundary; per-service and worker RSS separated; VM observations labeled |
+| Cleanup | Units MainPID=0, namespaces/config/private keys removed, root firewall digest unchanged, snapshot removed and VM stopped |
 
-## Completion conditions for the actual MVP
+## Scope of the evidence
 
-- Package one immutable stateless application with a real verified rollback copy.
-- Use three isolated same-platform Linux nodes and one Controller. Container
-  observations and VM/service observations are reported separately.
-- Persist fixed targets, canary choice, grants, occupancy and operator decisions.
-- Demonstrate one normal rollout, one failed canary, one later-node failure,
-  partially completed global rollback and an offline node returning after a newer
-  version supersedes its previous target.
-- Challenge delayed, duplicated and reordered commands and reports against actual
-  serving versions. At least one negative control must corrupt each key safety
-  decision and be caught by an assertion, not an import error.
-- Never mark a target successful using only acceptance, a stored desired version,
-  an expired timer, or a stale health observation.
-- Preserve all scheduled requests/failures/unknowns in measurements and reports.
-  No selecting only successful nodes or scenarios. Record process RSS separately
-  from cgroup/VM memory and define all timing boundaries.
-- After failure, prove controlled resources are retired and unrelated services,
-  root firewall rules and network configuration remain unchanged.
-- Require exact protocol rejection (HTTP 409), rather than counting arbitrary
-  nonzero exits, import failures, crashes or HTTP 503 as admission protection.
-- Verify actual serving release and application result on both sides of every
-  crash boundary. At after-route, the candidate must have served before SIGKILL;
-  after-commit must have a durable candidate commit before termination.
-- Keep JSON/HTML checks complete: both installed units, namespace/identity, exact
-  failure categories, canary bindings/window, worker retirement and every expected
-  mutation name/test must remain present. Missing or contradictory observations
-  cannot retain report PASS.
+Formal tests include reducer contracts and isolated worker-startup/drain tests;
+they do not individually establish complete networking behavior. VM scenarios use
+the installed wheel, matching source hashes, real signed payloads, mTLS sockets and
+shipping service units with namespace-only drop-ins. Original single-node crash
+boundary and lost-reply exploration receipts are historical; new scheduler claims
+rely on the current MVP receipts, not those old source revisions.
 
-## Excluded claims
+The stale-executor VM scenario delays a cached command **before entering** the
+mutation method. It does not pause a write inside the critical section. Linux
+workers are actual subprocesses; this is not testing firmware, containers or
+physical devices. Three namespaces do not represent independent host failures.
 
-No control-plane HA, Byzantine/compromised-node protection, persistent-data
-migrations, indefinite rollback retention, whole-fleet instantaneous cancellation,
-zero downtime, statistical canary representativeness, firmware or hardware
-qualification. VM reboot and sudden power-loss recovery remain untested until
-their own evidence is collected. An unreachable target may require explicit
-operator retirement; that is an incomplete/abandoned original target, not success.
+Orderly VM stop/start is tested separately from SIGKILL. No sudden power loss,
+corrupt-disk repair, boot-zero-gap protection, zero downtime, control-plane HA,
+statistical canary confidence, compromised-node/root resistance or application-data
+migration is claimed. The min-other-health observation can become stale; it is
+not an SLA. Unknown occupancy may require manual diagnosis and prevents progress.

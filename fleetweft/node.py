@@ -29,8 +29,13 @@ def identity(pid):
     except (FileNotFoundError, ProcessLookupError): return None
 
 
+WORKER_START_TIMEOUT = 3
+
 class Node:
-    def __init__(self, root, name, controller):
+    def __init__(self, root, name, controller, artifacts=None, tls=None, secure=False):
+        self.artifacts, self.tls = artifacts, tls
+        if secure:
+            require((Path(root)/'state.sqlite').is_file(), 'Explicit node provisioning required')
         self.name = name
         self.controller = controller
         self.store = Store(root, {'committed': 'v1', 'generation': 0, 'accepted': None,
@@ -39,6 +44,10 @@ class Node:
         self.routes = threading.Condition(); self.inflight = {}
         self.incarnation = secrets.token_hex(16)
         s = self.store.read()
+        if secure:
+            require(s.get('node_uuid') and type(s.get('boot_sequence')) is int, 'Invalid node identity')
+            s['boot_sequence'] += 1
+            self.store.save(s)
         # The state is local and trusted; no PID signaling based on PID alone.
         for i in s['children']:
             if identity(i['pid']) == i:
@@ -67,22 +76,44 @@ class Node:
 
     def spawn(self, release):
         instance = secrets.token_hex(16)
-        p = subprocess.Popen([sys.executable, '-I', '-m', 'fleetweft.worker', release, instance],
-                             stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
+        command = ([sys.executable, '-I', str(self.artifacts.path(release)), release, instance]
+                   if self.artifacts else [sys.executable, '-I', '-m', 'fleetweft.worker', release, instance])
+        p = subprocess.Popen(command,
+                             stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True,
+                             env={**os.environ, 'FLEETWEFT_NODE': self.name})
         self.children.append(p)
-        with selectors.DefaultSelector() as sel:
-            sel.register(p.stdout, selectors.EVENT_READ)
-            require(bool(sel.select(3)), 'Worker startup timeout')
-        port = json.loads(p.stdout.readline())['port']
-        i = identity(p.pid); require(i is not None, 'Worker exited')
-        s = self.store.read(); s['children'].append(i); self.store.save(s)
-        return {'release': release, 'worker': instance, 'port': port, 'digest': recipe_digest(release)}
+        try:
+            i = identity(p.pid); require(i is not None, 'Worker exited')
+            s = self.store.read(); s['children'].append(i); self.store.save(s)
+            # A byte of stdout is not a complete readiness message. Bound both
+            # time and size; readline() after select() can otherwise block forever.
+            ready = b''; deadline = time.monotonic() + WORKER_START_TIMEOUT
+            os.set_blocking(p.stdout.fileno(), False)
+            with selectors.DefaultSelector() as sel:
+                sel.register(p.stdout, selectors.EVENT_READ)
+                while b'\n' not in ready:
+                    require(time.monotonic() < deadline and len(ready) <= 1024, 'Worker startup timeout/size')
+                    require(bool(sel.select(max(0, deadline-time.monotonic()))), 'Worker startup timeout')
+                    chunk = os.read(p.stdout.fileno(), 1025-len(ready))
+                    require(bool(chunk), 'Worker exited before readiness'); ready += chunk
+            port = json.loads(ready.split(b'\n',1)[0])['port']
+            require(type(port) is int and 0 < port < 65536 and p.poll() is None, 'Invalid worker readiness')
+            return {'release': release, 'worker': instance, 'port': port,
+                    'digest': self.artifacts.catalog[release] if self.artifacts else recipe_digest(release)}
+        except BaseException:
+            if p.poll() is None: p.kill()
+            p.wait(timeout=3); p.stdout.close(); self.children.remove(p)
+            s = self.store.read()
+            s['children'] = [i for child in self.children if (i := identity(child.pid)) is not None]
+            self.store.save(s)
+            raise
 
     def snapshot(self):
         s = self.store.read()
         return {'token': s['accepted'], 'incarnation': self.incarnation, 'phase': s['phase'],
                 'route': self.route, 'generation': s['generation'], 'revision': s['revision'],
-                'committed': s['committed'], 'workers': s['children']}
+                'committed': s['committed'], 'workers': s['children'],
+                'node_uuid': s.get('node_uuid'), 'boot_sequence': s.get('boot_sequence')}
 
     def switch(self, route):
         with self.routes:
@@ -130,12 +161,18 @@ class Node:
             token = p['token']
             require(token['node'] == self.name, 'Wrong node')
             require(p['incarnation'] == self.incarnation, 'Stale incarnation')
+            if action == 'refuse':
+                require(s['phase'] in ('IDLE','COMMITTED','FAILED_RESTORED') and token['generation'] > s['generation'], 'Cannot fence grant')
+                require(token['baseline']==s['committed'], 'Baseline mismatch')
+                s.update(accepted=token,generation=token['generation'],phase='FAILED_RESTORED')
+                self.store.save(s)
+                return self.snapshot()
             if action == 'accept':
                 if s['accepted'] == token: return self.snapshot()
                 require(s['phase'] in ('IDLE', 'COMMITTED', 'FAILED_RESTORED'), 'Existing unsettled operation')
                 require(type(token['generation']) is int and token['generation'] > s['generation'], 'Stale grant')
                 require(token['baseline'] == s['committed'], 'Baseline mismatch')
-                require(token['digest'] == recipe_digest(token['release']), 'Wrong digest')
+                require(token['digest'] == (self.artifacts.catalog[token['release']] if self.artifacts else recipe_digest(token['release'])), 'Wrong digest')
                 s.update(accepted=token, generation=token['generation'], phase='STAGED')
                 self.store.save(s); self.checkpoint('staged')
             else:
@@ -158,7 +195,7 @@ class Node:
                 elif action == 'commit':
                     require(s['phase'] == 'OBSERVING', 'Not observing')
                     require(self.route['digest'] == token['digest'], 'Wrong live digest')
-                    try:approval=request(self.controller, '/authorize_commit', self.snapshot())
+                    try:approval=(self.tls.request if self.tls else request)(self.controller, '/authorize_commit', self.snapshot())
                     except HTTPError as exc:
                         if exc.code==409:raise ValueError('Controller refused commit') from None
                         raise

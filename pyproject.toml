@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fleetweft"
-version = "0.0.1"
+version = "0.1.0"
 description = "Experimental durable coordination for small edge application rollouts"
 requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-fleetweft = "fleetweft.service:main"
+fleetweft = "fleetweft.mvp:main"
 
 [tool.setuptools.packages.find]
 include = ["fleetweft*"]

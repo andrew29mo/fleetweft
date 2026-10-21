@@ -1,3 +1,7 @@
+Current three-node authenticated MVP evidence: [reviews/mvp](mvp/README.md).
+
+The following is historical exploration evidence from an earlier source revision.
+
 # Four Linux VM protocol explorations — 2026-10-21
 
 Run `ab21b5abe8753081`, executable source fingerprint:

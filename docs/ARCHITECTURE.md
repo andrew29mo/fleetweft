@@ -1,17 +1,73 @@
-# Architecture and protocol after the four explorations
+# MVP architecture and protocol
 
-## Scope
+One Controller coordinates three manually enrolled Linux ARM64 nodes running one
+trusted stateless Python HTTP app. There is one current fleet intent, one
+designated canary and one unresolved grant at a time. No HA, copied controller
+database, remote filesystem or data migration support is implied.
 
-The intended product coordinates a fixed set of three same-platform Linux nodes
-running one stateless HTTP application. First release: one Controller, no HA,
-one explicit canary, sequential changes and one active fleet intent. The current
-code is the reusable exploration core and fixed application backend; the fleet
-scheduler, artifact trust and authenticated enrollment are not implemented yet.
+`fleetweft.mvp` is the authenticated service; `fleetweft.coordinator.Coordinator`
+wraps the explored Controller protocol with fixed membership and durable fleet
+state. `fleetweft.agent.Agent` pulls one command at a time and invokes the original
+Node route writer. There is no public node mutation endpoint. Application traffic
+uses the node's read-only `/work` gateway and pinned worker route.
 
-The Controller decides who may mutate. A node's unique route writer performs
-each actual switch. Download/stage work must never receive direct gateway write
-access. Services keep journals on local storage; network-backed state, copied
-Controller databases and multiple Controller hosts are outside the first contract.
+```mermaid
+flowchart LR
+  O[Operator certificate] -->|mTLS: deploy / pause / resume / rollback| C[Controller + SQLite]
+  A[Agent A + journal + signed cache] -->|mTLS poll / authorize commit| C
+  B[Agent B + journal + signed cache] -->|mTLS poll / authorize commit| C
+  D[Agent C + journal + signed cache] -->|mTLS poll / authorize commit| C
+  C -->|known SHA-256 bundle over mTLS| A
+  C -->|known SHA-256 bundle over mTLS| B
+  C -->|known SHA-256 bundle over mTLS| D
+  A --> W[Actual signed loopback HTTP worker]
+```
+
+The Controller uses a buffered snapshot while processing each request, then makes
+one SQLite save. Core `finish/reconcile`, target result, canary decision and event
+are committed together; a failure before that save leaves the prior grant occupied.
+There are no independent stores whose success must be inferred from ordering.
+
+```mermaid
+stateDiagram-v2
+  [*] --> CANARY: immutable original targets and baselines
+  CANARY --> ROLLING: canary serving evidence and durable commit settled
+  CANARY --> PAUSED: failure / operator / restart
+  ROLLING --> PAUSED: failure / operator / restart
+  ROLLING --> CONVERGING: offline ungranted target
+  CONVERGING --> COMPLETED: all original targets settled
+  ROLLING --> COMPLETED: all original targets settled
+  CONVERGING --> SUPERSEDED_INCOMPLETE: successor with no unresolved grant
+  PAUSED --> CANARY: explicit resume, canary not passed
+  PAUSED --> ROLLING: explicit resume after reconciliation
+  PAUSED --> ROLLING_BACK: rollback requested and current grant settled
+  ROLLING_BACK --> PAUSED: failed compensation
+  ROLLING_BACK --> ROLLED_BACK: every original target verified
+```
+
+Pause/cancel cannot revoke a committed decision by forgetting it. A commit already
+authorized may still finish; rollback is a new higher-generation operation. A
+not-yet-accepted cancelled grant is durably refused/fenced at the node before its
+slot is cleared. An unreachable target cannot be assumed to have done either.
+
+On startup, the node requires provisioned state and a verifiable committed cache.
+It increments its persistent boot sequence, retires recorded old workers, and
+reconstructs the committed route. An uncommitted operation becomes restored; a
+committed one remains committed. Controller startup invalidates observations,
+retains pending grants, and pauses nonterminal fleet work for reconciliation.
+The Controller compares provisioned UUID, monotonic boot sequence and current
+incarnation before accepting reports. Delayed commands still pass through the
+Node mutation lock and exact accepted-token/incarnation checks at execution time.
+
+Signed payloads are verified before cache promotion and again before startup.
+A malformed or unauthenticated new artifact is durably refused; a failed candidate
+startup compensates via the same Node cancel path. If compensation itself fails,
+the Controller retains occupancy. New grants require one other fresh healthy
+observation; this cannot prove that node remains available after the observation.
+
+All three agents in the evidence share one VM. The fixed application, shared
+service UID, single controller, finite histories/cache and manual trust catalog
+are deliberate MVP constraints, not a production fleet security model.
 
 ## Durable operation contract
 
@@ -32,9 +88,8 @@ Controller databases and multiple Controller hosts are outside the first contrac
 6. A local durable result is then reported. A lost terminal response can be retried
    identically. Occupancy is not released by heartbeat timeout or presumed failure.
 
-The exploration HTTP endpoints assume trusted test actors and isolated networking;
-they are not an authenticated authorization scheme. Transport authentication and
-enrollment must be added before a service can rely on the identity fields.
+The MVP binds node identity fields to manually enrolled mTLS certificate roles.
+The old HTTP exploration entry point remains isolated test infrastructure only.
 
 ## Pause, cancellation and rollback
 
@@ -49,8 +104,8 @@ require an explicit next decision. Never pretend cancellation instantly stopped 
 
 A local compensation restores the baseline within the original operation and
 reports `FAILED_RESTORED`; that is not candidate success. A later fleet rollback
-will use a new, higher generation pointing to each node's captured baseline.
-Fleet-wide rollback and rollback of a currently committed node are future work.
+uses a new, higher generation pointing to each node's captured baseline.
+A target is not restored globally until that new operation has been verified.
 
 ## Recovery
 
@@ -61,15 +116,17 @@ already authorized, durably committed result, but leaves the Controller paused.
 
 On node process restart, the systemd fixture retires the unit cgroup. The runtime
 also checks recorded Linux process identities using boot ID/start ticks and pidfd
-before retiring an observed old worker. The current implementation reconstructs
-the durable committed recipe with a new worker identity. Uncommitted STAGED,
+before retiring an observed old worker. The MVP reconstructs
+the verified signed committed artifact with a new worker identity. Uncommitted STAGED,
 ACTIVATING or OBSERVING operations compensate to that committed baseline.
 
 The fixture kills the actual service MainPID. At the after-route boundary it
 observes real candidate HTTP responses while the journal still says ACTIVATING,
 then SIGKILLs without a graceful application rollback. At after-commit, committed
 state is already durable and recovery must reconstruct the candidate instead.
-These are process crashes in a running VM, not VM reboot or power-loss evidence.
+Those original exploration receipts concern process crashes. The current MVP
+also retains a separate orderly VM stop/start test with a pre-agent journal
+observation; neither establishes sudden power-loss recovery.
 
 ## Worker lifecycle
 
@@ -88,44 +145,3 @@ The portable concurrency test holds a real Node.work transport call at an Event
 until retirement enters its wait, then verifies kill happens only after release.
 The VM additionally checks real process identities and real slow HTTP responses.
 The HTTP timing observation alone does not prove overlap at every scheduling point.
-
-## Later fleet state machine
-
-```mermaid
-stateDiagram-v2
-    [*] --> PLANNED
-    PLANNED --> CANARY
-    CANARY --> ROLLING: fresh evidence and authorized commit
-    CANARY --> PAUSED: failure or unknown result
-    ROLLING --> PAUSED: failure or unknown result
-    ROLLING --> CONVERGING: admitted online nodes finished
-    CONVERGING --> COMPLETED: every original target confirmed
-    PAUSED --> QUIESCING: request settlement of issued grants
-    QUIESCING --> QUIESCED: all outstanding results reconciled
-    QUIESCED --> CANARY: resume incomplete canary
-    QUIESCED --> ROLLING: resume previously passed canary
-    QUIESCED --> ROLLING_BACK: new rollback intent
-    ROLLING_BACK --> ROLLED_BACK: every target confirmed restored
-```
-
-UNKNOWN is a node observation, not success. A deferred node that has never
-accepted a grant may eventually skip superseded compatible versions. A node with
-an unresolved grant must first settle or fence it. Latest-version catch-up and
-fleet target tracking are acceptance conditions, not current implementation claims.
-
-`max_active_changes` and `min_observed_healthy` are separate policies. The latter
-is an admission rule based on finite observations, not proof of remote availability.
-Retiring an unreachable target must preserve the original incomplete outcome and
-create a new target-set revision; it cannot turn the original rollout into success.
-
-## Runtime and trust decisions still required
-
-Shiftstead is not assumed to satisfy this backend contract: it retains a running
-rollback process and may end the rollback window on restart. The fixed backend
-demonstrates durable reconstruction of built-in releases; it does not prove that a
-general artifact backend or Shiftstead adapter can reconstruct retained versions.
-
-Use standard TLS/signature libraries and a fixed artifact-origin allowlist for the
-MVP. Pin rollback artifacts separately from cache eviction. Stateless compatible
-releases only; no database migrations, firmware, bootloader or arbitrary shell.
-Keep pending/committed identity and actual HTTP observations separate in reports.

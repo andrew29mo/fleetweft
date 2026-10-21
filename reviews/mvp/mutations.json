@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "name": "stale-incarnation",
+      "test": "tests.test_core.Contracts.test_old_incarnation_cannot_settle",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "wrong-canary-data",
+      "test": "tests.test_core.Contracts.test_duplicate_and_wrong_data_are_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "expired-challenge",
+      "test": "tests.test_core.Contracts.test_expired_challenge_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "commit-bypass",
+      "test": "tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "forget-reconciliation",
+      "test": "tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "skip-request-drain",
+      "test": "tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "fleet-canary-bypass",
+      "test": "tests.test_mvp.FleetTests.test_canary_must_settle_before_other_nodes",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "lost-node-identity",
+      "test": "tests.test_mvp.FleetTests.test_lost_node_state_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "restart-auto-resume",
+      "test": "tests.test_mvp.FleetTests.test_controller_restart_requires_reconciliation",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "signature-bypass",
+      "test": "tests.test_mvp.ArtifactTests.test_wrong_key_with_matching_digest_is_rejected",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    },
+    {
+      "name": "non-atomic-settlement",
+      "test": "tests.test_mvp.AtomicFleetTests.test_settlement_error_keeps_durable_grant",
+      "caught_by_assertion": true,
+      "exit_code": 1
+    }
+  ],
+  "source": {
+    "deploy/fleetweft-controller.service": "bfeb55a3f2c9e29cb32051205d7ec2b8eac8ee2f4b7afbd5884b17f0bf3edbdf",
+    "deploy/fleetweft-node@.service": "7876330562a15b9f6e8d86baacd0b2e4926fe2773017721066ddd62b65d06f79",
+    "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
+    "fleetweft/agent.py": "cb988aeaa2b4d56e40bb8d0f3a63b2d53db1d36b6d6a3ba397297f14fe689d70",
+    "fleetweft/artifacts.py": "859784827c6a1dc8dd30a55076950d8e9f3191973951a891402ca95c572b00a6",
+    "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
+    "fleetweft/coordinator.py": "d619de92f84a4083e0c4390fb0a524e636f420a236191f09fbd82ec33067b431",
+    "fleetweft/core.py": "3ffad62ab2f4b3aa27c92dbbc9be7abb9a28648a892fec805fef09e37b5d9837",
+    "fleetweft/mvp.py": "52860d191bbcff5e96653f6c050f929d3648c22525f7bbabf4dd8b1f88e48e58",
+    "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
+    "fleetweft/node.py": "e5814cbe4d90bb4c0abd0c65e88389b0630f37f430414680c06728a771d2517c",
+    "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
+    "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
+    "fleetweft/tls.py": "9074ad1b212df7ce25dbeb685d211261fe08da7559219b4cdedfbcaf9ec8694f",
+    "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
+    "pyproject.toml": "a29dfb9ab57536c2f01774933e4ab9d799b004d1a3cfc091ec786a69ed4839b5",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tests/test_mvp.py": "fc48bae96253d6a19babf8395ec36a87201faf668b0569ff04b13e0eb54ab48b",
+    "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+    "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
+    "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
+    "tools/evidence.py": "00b4c39aeb04e5b1154403e213de2283145657dfee99f1a3feecfac96bb15b65",
+    "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+    "tools/mutations.py": "71979e04d8e98f851a98185a023674269ba399a604d330ca73c75feef51b2c47",
+    "tools/mvp_fixture.py": "54f8fa823fa4c272acd8cccce8ad13778c671d60e08b205550a962730379e4d9",
+    "tools/mvp_guest.py": "fc33392ec4c2d1d551a5017e9a2aa23280910b459b1084dce76c3321ad4ae0df",
+    "tools/mvp_report.py": "a46eec3881f225abc64ba244165994f50a1c63478311c7902245d2f6b6a94793",
+    "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
+    "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
+    "tools/validate_mvp.py": "e67bcbabd9d692110138fcfcb812cbd6482fd1f8f8a65f1482071f19b8c5ecd9",
+    "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
+  }
+}

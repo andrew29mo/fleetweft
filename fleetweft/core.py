@@ -7,7 +7,8 @@ from .node import recipe_digest
 
 
 class Controller:
-    def __init__(self, root, samples=3, window=.05):
+    def __init__(self, root, samples=3, window=.05, digests=None):
+        self.digests = digests
         self.store = Store(root, {'generation': 0, 'epoch': 0, 'active': None,
                                   'paused': False, 'agents': {}, 'last': None})
         self.lock = threading.RLock()
@@ -27,11 +28,11 @@ class Controller:
             if action == 'plan':
                 require(s['active'] is None and not s['paused'], 'Occupied or paused')
                 require(p['node'] in s['agents'], 'Unregistered node')
-                require(p['release'] in ('v1', 'v2', 'v3', 'bad'), 'Unknown fixture release')
+                require(p['release'] in (self.digests if self.digests is not None else ('v1', 'v2', 'v3', 'bad')), 'Unknown release')
                 s['generation'] += 1
                 token = {'epoch': s['epoch'], 'generation': s['generation'],
                          'node': p['node'], 'op': secrets.token_hex(16), 'release': p['release'],
-                         'baseline': p['baseline'], 'digest': recipe_digest(p['release'])}
+                         'baseline': p['baseline'], 'digest': self.digests[p['release']] if self.digests is not None else recipe_digest(p['release'])}
                 s['active'] = {'token': token, 'binding': None, 'evidence': None,
                                'challenge': secrets.token_hex(16), 'cancel_requested': False,
                                'challenge_ns': time.monotonic_ns(),

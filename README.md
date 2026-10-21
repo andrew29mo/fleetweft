@@ -1,82 +1,87 @@
 # Fleetweft
 
-Experimental durable coordination for small edge application rollouts.
+A small, single-controller release manager for three Linux edge application nodes.
+It rolls out a signed stateless Python HTTP application through a designated
+canary, pauses on failed business checks, and restores captured per-node baselines
+through new, fenced operations.
 
-This repository currently contains **four protocol explorations**, not the full
-fleet manager. A single Controller and one agent/gateway run as separate installed
-Python services in two isolated Linux network namespaces. Real subprocess HTTP
-applications exercise the resource being changed. The later three-node scheduler
-is a specification, not an implemented feature.
+**Private MVP; no project license selected.** This is not production qualification.
 
-The name Fleetweft is provisional. The repository stays Private. No open-source
-license has been selected; no permission to redistribute is granted by this README.
+## What it implements
 
-## Implemented exploration core
+- A pull agent and mutually authenticated TLS control plane. Operators can deploy,
+  pause, resume, request rollback and inspect original target history. Nodes cannot
+  issue operator commands or impersonate another enrolled node.
+- SQLite FULL-synchronous grants, fixed rollout targets and durable commit
+  decisions. Fleet progress and grant settlement share one transaction.
+- Canary checks against the actual serving worker: result, signed bundle digest,
+  worker/route identity, rotating challenge, sample sequence, observation duration
+  and freshness must agree before commit. Experiment settings are three samples,
+  at least 150 ms, and a two-second freshness limit; not statistical confidence.
+- At most one granted change, with at least one **other recently observed healthy**
+  node before admission. These are separate policies, not an availability guarantee.
+- Loss of contact retains an issued grant. Pause stops admission; cancellation
+  must be confirmed locally. An offline ungranted target stays incomplete and can
+  catch up to a superseding release without pretending its older rollout succeeded.
+- Higher-generation rollback, persistent node identity/boot sequence, controller
+  reconciliation and a single local mutation writer prevent stale operations from
+  changing a successor route.
+- Bounded signed ZIP packages: RSA/SHA-256 verification through system OpenSSL,
+  SHA-256 content addressing, strict entries/size/platform checks, atomic cache
+  promotion and a hard cache quota. Retained baselines are not evicted automatically.
+- Shipping unprivileged systemd units, bounded worker startup and request drain,
+  process cleanup, reproducible JSON evidence and deterministic HTML reports.
 
-- SQLite FULL-synchronous grant/occupancy records, one controller owner, retry of
-  the same grant, explicit pause/cancel/reconcile semantics.
-- One local route writer: it validates operation and agent incarnation while
-  holding the mutation lock. An external executor has no direct route handle.
-- Real HTTP application samples, unpredictable rotating challenges, sample
-  sequence, recipe digest, route/worker identity and observation window checks.
-- A Controller commit decision before local COMMITTED persistence; restart
-  reconstructs a committed version, or compensates an unfinished candidate.
-- Commit/cancel retirement of obsolete workers: route borrowing and switching
-  share a lock, pinned requests get a bounded drain, then old processes are reaped.
-- Exact installed-module provenance, real systemd SIGKILL boundaries, raw JSON
-  observations, HTML, source fingerprints and corrupted-report checks.
+## Evidence and limits
 
-The bounded application backend supports only built-in `v1`, `v2`, `v3` and a
-deliberately wrong `bad` release. Its digest identifies the installed worker recipe
-and release label, **not a downloaded/signed artifact**. Canary experiment thresholds
-are three samples over at least 50 ms with a two-second freshness bound. They are
-test settings, not production recommendations or a statistical quality guarantee.
+See [MVP validation](docs/MVP_VALIDATION.md) for the exact source fingerprint,
+platform results, all scenarios, latency/RSS definitions and retained JSON/HTML.
+[Acceptance conditions](docs/MVP_ACCEPTANCE.md) distinguish implementation,
+observations and excluded claims. Earlier four-protocol exploration reports remain
+historical evidence, with their own source fingerprints.
 
-## Read first
+The supported backend is one trusted, signed, stateless Python file on the tested
+Linux ARM64 platform. The three nodes are network namespaces within one isolated
+VM, not three physical hosts. The agent and application share a Unix identity;
+signing authorizes trusted code, not sandboxing. An unresponsive/compromised node,
+CA compromise, persistent application data, HA, automatic certificate rotation,
+indefinite history/cache retention and arbitrary update plugins are outside scope.
 
-- [Architecture and protocol](docs/ARCHITECTURE.md)
-- [Revised MVP acceptance conditions](docs/MVP_ACCEPTANCE.md)
-- [Research and design decisions](docs/RESEARCH.md)
-- [Audit findings and fixes](docs/AUDIT.md)
-- [Retained experiment evidence](reviews/README.md)
+Orderly VM restart and process SIGKILL tests do not establish sudden power-loss
+durability, storage-corruption repair, boot-zero-gap protection or zero downtime.
+Requests may fail during restart or after the 2.5-second obsolete-worker drain
+expires. An unknown grant can block progress indefinitely until reconciled.
 
-## Reproduce
+## Use and reproduce
 
-Python 3.12+ is required. Runtime has no third-party Python dependencies. The
-Linux experiments additionally require systemd, iproute2, nftables and a dedicated
-stopped Colima VM. The runner creates/removes only its owned fixture resources
-and stops the VM afterward. Do not use a VM serving unrelated workloads.
+Python 3.12+, system OpenSSL and Linux systemd are required for the operational
+service. Runtime has no third-party Python packages. macOS runs portable tests;
+it does not run the Linux agent backend.
+
+- [Deployment, credentials and CLI](docs/DEPLOYMENT.md)
+- [MVP architecture](docs/ARCHITECTURE.md)
+- [Research and trade-offs](docs/RESEARCH.md)
+- [Earlier exploration audit](docs/AUDIT.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 ```sh
 python3.12 -m venv .venv
 .venv/bin/pip install build==1.3.0 setuptools==80.9.0 wheel==0.45.1
 .venv/bin/python -m unittest discover -v
-.venv/bin/python -m tools.validate_vm \
+.venv/bin/python -m tools.validate_mvp \
   --colima-home /path/to/dedicated-colima-home \
   --toolchain /path/to/pinned-colima-and-lima/bin \
-  --output results/fresh-run
-.venv/bin/python -m tools.report results/fresh-run --current-source
+  --output results/fresh-mvp-run
 ```
 
-Raw logs, SQLite state, wheels and environment-specific paths remain under ignored
-results directories. Retained JSON contains only historical experiment operations,
-not real credentials. The report is incomplete until cleanup and provenance pass.
+The runner requires an existing **stopped, dedicated** Colima VM (systemd,
+Python venv support, OpenSSL, iproute2 and nftables installed). It refuses occupied
+fixture paths, takes an immutable source/wheel snapshot, runs both platform suites,
+installs shipping services with namespace-only fixture drop-ins, restarts the VM,
+checks cleanup and stops it afterward. Timeouts/nonzero exits are failures.
+Ignored `results/` holds private logs, keys and runtime state. Only sanitized
+receipts are retained in `reviews/`; never commit test credentials or snapshots.
 
-## Boundaries
-
-Control APIs deliberately have **no authentication or TLS** and belong only in
-the harness's isolated namespaces. The fixture unit runs services as a dedicated
-unprivileged user with no capabilities; this is not application-code sandboxing.
-An authenticated control protocol and signed artifacts remain required before an
-operational MVP. Do not expose these exploration APIs as a deployment service.
-
-The experiments do not establish full fleet canary rollout, autonomous continuous
-polling, artifact download security, availability budgets, physical-device support,
-VM/host reboot recovery, power-loss durability, or malicious-agent resistance.
-Actual client connections may fail during process restart. No universal
-zero-downtime, recovery-time or throughput claim is made.
-
-Obsolete-worker drain is bounded at 2.5 seconds, after which stalled requests may
-be interrupted by retirement. No guarantee that every request survives a switch
-or cleanup failure is made. Terminal worker retention, not a memory reduction,
-is what the exploration measures.
+The old `fleetweft.service` HTTP exploration entry point is retained solely for
+historical reproduction. The `fleetweft` command uses the mTLS MVP entry point.
+Do not expose the unauthenticated exploration service.

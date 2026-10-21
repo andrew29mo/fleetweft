@@ -1,0 +1,42 @@
+[
+  {
+    "attempt": 1,
+    "run_id": "d01ae19267f6722e",
+    "source_sha256": "7c761636911e7dced8e04387aa9905586d64d2936939864d3c779e2759c5e1d1",
+    "passed": true,
+    "guest_scenarios_passed": true,
+    "verification_error": null,
+    "vm_final": "Stopped",
+    "note": "Superseded by bounded worker readiness/startup compensation and expanded validation."
+  },
+  {
+    "attempt": 2,
+    "run_id": "4f11a3a27cbfa660",
+    "source_sha256": "d6d22e69d024220d9b518e808ce1b02af73898e061a6a4aaac8df1d4c7531b9e",
+    "passed": false,
+    "guest_scenarios_passed": true,
+    "verification_error": "AssertionError",
+    "vm_final": "Stopped",
+    "note": "VM scenarios and cleanup succeeded, but report-control exception handling rejected the run. Fixed before the next snapshot."
+  },
+  {
+    "attempt": 3,
+    "run_id": "7797f541e858945f",
+    "source_sha256": "710072a99a70e5d3fb2c6e5c3a026d936db3206763968b9277427c82381b5831",
+    "passed": true,
+    "guest_scenarios_passed": true,
+    "verification_error": null,
+    "vm_final": "Stopped",
+    "note": "Passed; superseded by explicit ROLLING phase, fresh-other-node admission test and fixture operator-key isolation."
+  },
+  {
+    "attempt": 4,
+    "run_id": "f519bcdfd6cd873a",
+    "source_sha256": "e4f127e0bc1ff972b0d2b5643a67d23561b2b39e8bed1cb96f54752079ec1d37",
+    "passed": true,
+    "guest_scenarios_passed": true,
+    "verification_error": null,
+    "vm_final": "Stopped",
+    "note": "Current final MVP evidence."
+  }
+]

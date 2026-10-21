@@ -2,7 +2,7 @@
 
 These are reference materials, not claims that Fleetweft reproduces the guarantees
 of the referenced products. No third-party implementation was copied into this
-stdlib-only exploration. Tool/package licenses remain separate; an authored-source
+standard-library Python runtime (with external system OpenSSL for signatures). Tool/package licenses remain separate; an authored-source
 license has not been chosen.
 
 | Primary material | Decision informed |
@@ -29,11 +29,16 @@ license has not been chosen.
 - A local compensation remains an outcome of the same operation; fleet rollback
   uses a separate newer generation. They are not interchangeable concepts.
 
-## Still missing evidence
+## What the MVP adds, and what is still missing
 
-Actual multi-node scheduling and availability budgets, signed artifact and disk
-management, authenticated enrollment/re-enrollment, production application
-compatibility, physical-device behavior and reboot/power-loss fault models. No
-market demand, commercial advantage or measured operational savings have been
-established by these experiments. The immediate product hypothesis is a small
-stateless application fleet with intermittent control connectivity.
+The current MVP adds three-node namespace scheduling, separate observed-health and
+change-admission policies, signed bounded artifacts, mTLS/manual initial enrollment,
+real service SIGKILL and orderly VM restart evidence. See MVP_VALIDATION.md rather
+than treating an earlier exploration run as proof of those capabilities.
+
+Re-enrollment during an existing fleet, general production application
+compatibility, independent physical-host behavior, storage corruption, sudden
+power loss, full TUF metadata freshness, credential lifecycle and HA remain outside
+the evidence. No market demand, commercial advantage or operational savings have
+been established. The product hypothesis is a small trusted stateless application
+fleet with intermittent control connectivity.
