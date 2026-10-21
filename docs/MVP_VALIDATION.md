@@ -23,12 +23,13 @@ were made after the final snapshot was taken.
   lost approval replay, reordered polls, ignored terminal probe and unverified compensation.
   Import errors/crashes do not count as caught mutations.
 - **15 real VM scenarios** listed below; **22 corrupted-report controls** rejected.
-  These are distinct evidence categories, not 65 interchangeable tests.
+  These are distinct evidence categories and must not be added into one test count.
 - Installed wheel module hashes match every corresponding source module. The
   shipping controller/node units match the manifest; fixture drop-ins add only
   namespace and topology dependencies. Deployed unit file hashes are retained.
   Ownership tests use mocked commands and real temporary files; the VM separately
-  proves the owned resource lifecycle, not the presence of real foreign resources. Each service runs as `fleetweft`, with
+  proves the owned resource lifecycle, not the presence of real foreign resources.
+  Each service runs as `fleetweft`, with
   NoNewPrivileges, empty capabilities and KillMode=control-group.
 - Cleanup confirms service MainPID=0, removed namespaces/configuration/test keys,
   unchanged root ruleset digest, removed installed snapshot and stopped VM.
@@ -111,8 +112,8 @@ Use the dedicated stopped VM command in README, then:
 The verifier checks stage outcomes/timeouts, source hashes, installed wheel,
 complete source-discovered test IDs, deployed unit hashes, both process restart
 identities, scenario ordering/results, original targets, reboot journal and actual
-node phases, fixed A/B/C request assignments and cleanup, then compares exact regenerated HTML. A PASS flag by
-itself cannot render a passing incomplete report. Earlier exploration reports
+node phases, fixed A/B/C request assignments and cleanup, then compares exact
+regenerated HTML. A PASS flag by itself cannot render a passing incomplete report. Earlier exploration reports
 must be reproduced with their matching historical revision/tooling; they predate
 this MVP and have different source and mutation manifests.
 

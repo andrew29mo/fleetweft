@@ -104,8 +104,16 @@ Upgrade controller and agents together during a stopped experiment; mixed older
 protocol versions are not supported. Do not reset state to bypass replay checks.
 
 Pause prevents new authorization; an already-persisted approval can be retried
-without losing that durable decision. If an application fails after committing,
-the commit remains recorded but the fleet pauses and the target fails. If a
+without losing that durable decision. If a terminal COMMITTED report has a failed
+current probe, the commit remains recorded but the fleet pauses and the target
+fails. If a
 restored baseline cannot be probed, the original slot stays UNKNOWN. Reconnect or
 restart the Agent and verify its retained baseline before resuming. The MVP has no
 independent application watchdog that automatically repairs every worker failure.
+
+After a target has settled successfully, a later failed heartbeat updates the
+Controller's health observation but does not automatically pause the rollout or
+invalidate the historical canary result. Admission can continue when another fresh
+healthy node satisfies the configured policy. Separate monitoring and an operator
+pause/rollback are needed for faults outside the current operation's observation
+and settlement window; no continuous canary guardian is implemented.

@@ -162,3 +162,8 @@ with a negative current probe records the commit, settles known occupancy and
 marks the release failed/paused without promoting followers. FAILED_RESTORED with
 an unverified baseline retains UNKNOWN occupancy until a healthy recovery report.
 See MVP_AUDIT.md for the fault-injection boundaries and evidence distinctions.
+
+The terminal checks above apply while that operation is still being settled.
+After SUCCEEDED, later heartbeat failures update observed health for admission;
+they do not automatically revoke canary_passed, pause all work or request rollback.
+This is an operation-bounded rollout gate, not continuous fleet health supervision.

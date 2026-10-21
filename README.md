@@ -22,12 +22,13 @@ through new, fenced operations.
   node before admission. These are separate policies, not an availability guarantee.
 - Loss of contact retains an issued grant. Pause stops admission; cancellation
   must be confirmed by actual baseline serving evidence; an unverified restoration
-  remains UNKNOWN. A committed candidate with a failed current probe pauses the
-  fleet without hiding the durable commit fact. An offline ungranted target stays incomplete and can
-  catch up to a superseding release without pretending its older rollout succeeded.
+  remains UNKNOWN. At operation settlement, a committed candidate with a failed
+  current probe pauses the fleet without hiding the durable commit fact. An offline ungranted target stays
+  incomplete and can catch up to a superseding release without pretending its
+  older rollout succeeded.
 - Higher-generation rollback, persistent node identity/boot sequence, ordered
-  poll reports, controller
-  reconciliation and a single local mutation writer prevent stale operations from
+  poll reports, controller reconciliation and a single local mutation writer
+  prevent stale operations from
   changing a successor route.
 - Bounded signed ZIP packages: RSA/SHA-256 verification through system OpenSSL,
   SHA-256 content addressing, strict entries/size/platform checks, atomic cache
@@ -53,7 +54,10 @@ indefinite history/cache retention and arbitrary update plugins are outside scop
 Orderly VM restart and process SIGKILL tests do not establish sudden power-loss
 durability, storage-corruption repair, boot-zero-gap protection or zero downtime.
 Requests may fail during restart or after the 2.5-second obsolete-worker drain
-expires. An unknown grant can block progress indefinitely until reconciled.
+expires. An unknown grant can block progress indefinitely until reconciled. After a target
+settles successfully, later heartbeat failures affect health observations and new
+admission checks; they do not automatically revoke the earlier canary result or
+trigger fleet rollback. Continuous rollout monitoring requires additional design.
 
 ## Use and reproduce
 
@@ -64,6 +68,7 @@ it does not run the Linux agent backend.
 - [Deployment, credentials and CLI](docs/DEPLOYMENT.md)
 - [MVP architecture](docs/ARCHITECTURE.md)
 - [Research and trade-offs](docs/RESEARCH.md)
+- [Pre-publication review and license status](docs/PREPUBLIC_REVIEW.md)
 - [MVP audit and regressions](docs/MVP_AUDIT.md)
 - [Earlier exploration audit](docs/AUDIT.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)

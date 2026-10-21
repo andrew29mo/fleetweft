@@ -12,3 +12,15 @@ AGENTS.md
 *.pem
 .env*
 *.db
+
+# Generated credentials, package artifacts and local test output.
+*.crt
+*.csr
+*.p12
+*.pfx
+*.der
+*.whl
+.coverage
+htmlcov/
+.pytest_cache/
+*.log
