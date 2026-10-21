@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "tests": 15,
+  "tests": 21,
   "test_ids": [
     "tests.test_core.Contracts.test_canary_requires_samples",
     "tests.test_core.Contracts.test_cancel_does_not_accept_false_restore",
@@ -16,33 +16,41 @@
     "tests.test_core.Contracts.test_pause_keeps_unknown_occupancy",
     "tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence",
     "tests.test_core.Contracts.test_retry_has_same_capability",
-    "tests.test_core.Contracts.test_stale_report_does_not_free_slot"
+    "tests.test_core.Contracts.test_stale_report_does_not_free_slot",
+    "tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired",
+    "tests.test_report.ReportContracts.test_execution_errors_cannot_count_as_protocol_rejection",
+    "tests.test_report.ReportContracts.test_http_release_alone_is_not_application_correctness",
+    "tests.test_report.ReportContracts.test_incomplete_report_cannot_render_success",
+    "tests.test_report.ReportContracts.test_mutation_receipt_requires_complete_unique_controls",
+    "tests.test_report.ReportContracts.test_optimized_validation_is_refused"
   ],
   "failures": 0,
   "errors": 0,
   "skipped": 0,
   "platform": "Darwin",
   "python": "3.12.14",
-  "seconds": 0.11949562501104083,
+  "seconds": 0.14819775000796653,
   "source": {
     "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
     "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
     "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
     "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
-    "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
-    "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+    "fleetweft/node.py": "5059135437239dff9896a3deafdf0c5364e67d724494d01e230323a97ac81d21",
+    "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
     "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
-    "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+    "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
     "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+    "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
     "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
     "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
-    "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
-    "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
-    "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+    "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+    "tools/mutations.py": "8ac6da43950e921d0341837017016b04e6391f6f0261adbb4aa20bfdf592ee37",
+    "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
     "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
     "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
   },
-  "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43"
+  "source_sha256": "e7be82faaee962b6ebcba55a4cd70a0a997c6638526867b884a32fadbd49d3a7"
 }

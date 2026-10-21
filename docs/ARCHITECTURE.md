@@ -71,6 +71,24 @@ then SIGKILLs without a graceful application rollback. At after-commit, committe
 state is already durable and recovery must reconstruct the candidate instead.
 These are process crashes in a running VM, not VM reboot or power-loss evidence.
 
+## Worker lifecycle
+
+The accepted candidate and current baseline may coexist during observation.
+After commit or compensation, the runtime retires obsolete workers and removes
+their process handles and journal entries. Cancellation may briefly spawn a
+replacement baseline before retiring both earlier workers; a hard peak of two
+workers is not claimed. A successfully returned terminal operation retains one
+worker in the tested fixed backend.
+
+Request borrowing and route switching share a Condition lock. After a switch,
+no new request can borrow the retired route. Existing borrows may complete while
+the mutation owner waits up to 2.5 seconds; stalled requests can then be interrupted.
+Retirement errors propagate and must not be interpreted as confirmed cleanup.
+The portable concurrency test holds a real Node.work transport call at an Event
+until retirement enters its wait, then verifies kill happens only after release.
+The VM additionally checks real process identities and real slow HTTP responses.
+The HTTP timing observation alone does not prove overlap at every scheduling point.
+
 ## Later fleet state machine
 
 ```mermaid

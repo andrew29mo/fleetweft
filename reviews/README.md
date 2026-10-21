@@ -1,10 +1,10 @@
 # Four Linux VM protocol explorations — 2026-10-21
 
-Run `765bd7248cef5f62`, executable source fingerprint:
-`58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43`.
+Run `ab21b5abe8753081`, executable source fingerprint:
+`e7be82faaee962b6ebcba55a4cd70a0a997c6638526867b884a32fadbd49d3a7`.
 
 [Raw JSON](evidence.json) · [Exact HTML](report.html) · [macOS portable tests](native-unit.json)
-· [Production mutations](mutations.json) · [Attempt ledger](attempts.json)
+· [Production mutations](mutations.json) · [Attempt ledger](attempts.json) · [Audit fixes](../docs/AUDIT.md)
 
 ## Observed result
 
@@ -15,9 +15,9 @@ bounding set and NoNewPrivileges. The Controller and node were in separate netwo
 namespaces connected by a veth. Python 3.12.3, systemd 255, Linux 6.8.0-117-generic,
 aarch64. This is one VM, not three independent physical edge devices.
 
-The same snapshot passed **15 portable tests on macOS and 15 on Linux**, exact
-test IDs matching, no errors/failures/skips. Five production-core mutations were
-caught by assertions, not import/syntax errors. Sixteen corrupted-report controls
+The audit snapshot passed **21 portable tests on macOS and 21 on Linux**, exact
+test IDs matching, no errors/failures/skips. Six production mutations were
+caught by assertions, not import/syntax errors. Twenty-seven corrupted-report controls
 were rejected. These counts are separate: portable contracts, real service
 scenarios, mutations and report controls are not interchangeable evidence.
 
@@ -41,7 +41,15 @@ arbitrary root writers are not tested.
 
 Canary uses three real application samples over at least 50 ms, with a two-second
 challenge/commit-observation age bound. These accelerated experiment settings are
-not production thresholds or representative fleet statistics. No RSS, throughput,
+not production thresholds or representative fleet statistics. A deterministic portable Event/Condition test establishes the active-borrow drain
+ordering; its skip-drain production mutation is caught by assertion. The separate
+VM slow-HTTP observation alone does not prove the request remained active at the
+exact retirement entry. Four consecutive commit/cancel operations each returned
+with one live worker, exact obsolete identities retired, and correct external HTTP
+results. Cancellation may transiently use a third worker, and stalled requests
+may be interrupted after the 2.5-second drain bound.
+
+No RSS, throughput,
 recovery-time upper bound or speedup is claimed by this run.
 
 ## Corrections and failed attempts
@@ -51,7 +59,7 @@ before local COMMITTED. Otherwise canary rejection could arrive after the node h
 already committed. Commit authorization and a confirmed execution result remain
 separate; a lost response does not free occupancy.
 
-The ledger retains all five development attempts, not only the final passing run:
+The ledger retains all five development attempts and the audit rerun, not only the latest passing run:
 
 - A: missing setuptools in the initially reused build environment; VM stopped.
 - B: reset-failed on not-yet-loaded units was treated as a mandatory setup result.
@@ -61,6 +69,9 @@ The ledger retains all five development attempts, not only the final passing run
   remained failed.
 - E: own pinned build environment, corrected readiness at every restart and exact
   source/test receipts; all four scenarios passed.
+- Audit A: worker-retention fix, exact HTTP rejection, expanded evidence contracts,
+  deterministic portable request-drain test and added real-process/HTTP observations;
+  all four updated scenarios passed on the final identified snapshot.
 
 No failed run was promoted to PASS. Raw logs remain ignored/local. The final VM
 fixture units, dedicated user, workers, state, namespaces and uploaded source were

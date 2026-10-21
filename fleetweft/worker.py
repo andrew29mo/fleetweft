@@ -2,6 +2,7 @@
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import time
 from urllib.parse import urlparse, parse_qs
 
 
@@ -11,6 +12,10 @@ def main():
         def do_GET(self):
             q = parse_qs(urlparse(self.path).query)
             x = int(q.get('x', ['7'])[0]); challenge = q.get('challenge', [''])[0]
+            delay_ms=int(q.get('delay_ms',['0'])[0])
+            if not 0<=delay_ms<=500:
+                self.send_error(400);return
+            time.sleep(delay_ms/1000)
             value = {'release': a.release, 'worker': a.instance, 'challenge': challenge,
                      'result': x * (3 if a.release == 'bad' else 2), 'healthy': True}
             raw = json.dumps(value).encode(); self.send_response(200)

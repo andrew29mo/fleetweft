@@ -22,7 +22,9 @@ def main():
             try:
                 if parsed.path == '/work' and a.role == 'node':
                     q = parse_qs(parsed.query)
-                    value = core.work(int(q.get('x', ['7'])[0]), q.get('challenge', [''])[0])
+                    value = core.work(int(q.get('x', ['7'])[0]), q.get('challenge', [''])[0], int(q.get('delay_ms',['0'])[0]))
+                elif parsed.path == '/inflight' and a.role == 'node':
+                    with core.routes: value = dict(core.inflight)
                 else:
                     value = core.call(parsed.path.lstrip('/'), body)
                 code = 200

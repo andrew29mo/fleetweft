@@ -9,21 +9,22 @@ import tempfile
 from .evidence import ROOT,manifest
 
 MUTATIONS=[
-    ('stale-incarnation',"require(p['incarnation'] == s['agents'].get(a['token']['node']), 'Stale incarnation')","require(True, 'Stale incarnation')",'test_old_incarnation_cannot_settle'),
-    ('wrong-canary-data',"require(p['challenge'] == a['challenge'] and p['result'] == p['input'] * 2, 'Bad canary')","require(p['challenge'] == a['challenge'], 'Bad canary')",'test_duplicate_and_wrong_data_are_rejected'),
-    ('expired-challenge',"require(0 <= now - a['challenge_ns'] <= 2_000_000_000, 'Expired sample challenge')","require(True, 'Expired sample challenge')",'test_expired_challenge_rejected'),
-    ('commit-bypass',"require(a['commit_authorized'], 'Commit was not authorized')","require(True, 'Commit was not authorized')",'test_commit_cannot_bypass_controller_observation'),
-    ('forget-reconciliation',"s['active']['needs_reconcile'] = True","s['active']['needs_reconcile'] = False",'test_restart_requires_reconciliation_and_resets_evidence')]
+    ('fleetweft/core.py','stale-incarnation',"require(p['incarnation'] == s['agents'].get(a['token']['node']), 'Stale incarnation')","require(True, 'Stale incarnation')",'tests.test_core.Contracts.test_old_incarnation_cannot_settle'),
+    ('fleetweft/core.py','wrong-canary-data',"require(p['challenge'] == a['challenge'] and p['result'] == p['input'] * 2, 'Bad canary')","require(p['challenge'] == a['challenge'], 'Bad canary')",'tests.test_core.Contracts.test_duplicate_and_wrong_data_are_rejected'),
+    ('fleetweft/core.py','expired-challenge',"require(0 <= now - a['challenge_ns'] <= 2_000_000_000, 'Expired sample challenge')","require(True, 'Expired sample challenge')",'tests.test_core.Contracts.test_expired_challenge_rejected'),
+    ('fleetweft/core.py','commit-bypass',"require(a['commit_authorized'], 'Commit was not authorized')","require(True, 'Commit was not authorized')",'tests.test_core.Contracts.test_commit_cannot_bypass_controller_observation'),
+    ('fleetweft/core.py','forget-reconciliation',"s['active']['needs_reconcile'] = True","s['active']['needs_reconcile'] = False",'tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence'),
+    ('fleetweft/node.py','skip-request-drain',"while self.inflight.get(worker, 0) and time.monotonic() < deadline:","while False:",'tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired')]
 
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--output',required=True);a=p.parse_args();rows=[]
-    for name,old,new,test in MUTATIONS:
+    for file,name,old,new,test in MUTATIONS:
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             for folder in ('fleetweft','tests'):shutil.copytree(ROOT/folder,root/folder,ignore=shutil.ignore_patterns('__pycache__'))
-            path=root/'fleetweft/core.py';text=path.read_text();assert text.count(old)==1;path.write_text(text.replace(old,new))
-            result=subprocess.run([sys.executable,'-m','unittest','tests.test_core.Contracts.'+test],cwd=root,capture_output=True,text=True,timeout=10)
+            path=root/file;text=path.read_text();assert text.count(old)==1;path.write_text(text.replace(old,new))
+            result=subprocess.run([sys.executable,'-m','unittest',test],cwd=root,capture_output=True,text=True,timeout=10)
             caught=result.returncode==1 and 'FAIL:' in result.stderr and 'ERROR:' not in result.stderr
             rows.append({'name':name,'test':test,'caught_by_assertion':caught,'exit_code':result.returncode})
     value={'passed':all(r['caught_by_assertion'] for r in rows),'rows':rows,'source':manifest()}

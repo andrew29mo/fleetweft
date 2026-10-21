@@ -167,15 +167,16 @@ def authorization():
         "import json;from fleetweft.net import request;print(json.dumps(request('http://127.0.0.1:19081','/pause',{})))"]).stdout)
     assert direct['paused'] and not direct['quiesced'] and direct['active']['token'] == t
     blocked = cmd(['ip', 'netns', 'exec', 'fw_ctl', PY, '-I', '-c',
-        "from fleetweft.net import request;request('http://127.0.0.1:19081','/plan',{'node':'a','release':'v3','baseline':'v1'})"], check=False)
-    assert blocked.returncode != 0
+        "import json,sys,urllib.error\nfrom fleetweft.net import request\ntry:request('http://127.0.0.1:19081','/plan',{'node':'a','release':'v3','baseline':'v1'})\nexcept urllib.error.HTTPError as e:\n print(json.dumps({'http_status':e.code}));sys.exit(17)\nsys.exit(0)"], check=False)
+    rejection={'exit_code':blocked.returncode,**json.loads(blocked.stdout)}
+    assert rejection=={'exit_code':17,'http_status':409}
     cmd(['ip', '-n', 'fw_ctl', 'link', 'set', 'fc0', 'up'])
     cancel = c('/cancel', {}); assert not cancel['quiesced']
     restored = n('/cancel', accepted); settled = c('/finish', restored)
     assert settled['quiesced'] and settled['last']['phase'] == 'FAILED_RESTORED'
     record('authorization_loss_partition', {'grant_reply_loss': loss, 'accept_reply_loss': accept_loss,
         'before': before, 'partition_client': partition, 'local_during_partition': local_during,
-        'paused': direct, 'new_plan_rejected': blocked.returncode, 'cancel_requested': cancel,
+        'paused': direct, 'new_plan_rejected': rejection, 'cancel_requested': cancel,
         'restored': restored, 'settled': settled, 'after': work('v1')})
 
 
@@ -207,9 +208,36 @@ sys.exit(0)
         release.touch(); os.kill(p.pid, signal.SIGCONT); p.wait(timeout=4)
         assert p.returncode == 23; stale_ack = c('/finish', preflight, fail=True); after = work('v3')
         assert before['route'] == after['route']
+        retention=[]
+        for mode,target in [('commit','v1'),('cancel','v2'),('commit','v2'),('cancel','v3')]:
+            baseline=n('/status')['committed'];a=plan(target);start_candidate(a)
+            running=n('/status');assert len(running['workers'])==2
+            if mode=='commit':observe();terminal=finish();served=target
+            else:
+                terminal=n('/cancel',running);c('/finish',terminal);c('/resume',{});served=baseline
+            assert len(terminal['workers'])==1
+            live=terminal['workers'][0];obsolete=[i for i in running['workers'] if i!=live]
+            assert obsolete and all(identity(i['pid'])!=i for i in obsolete)
+            retention.append({'mode':mode,'before_workers':running['workers'],'after':terminal,
+                              'obsolete_retired':True,'external':work(served)})
+        # A request already borrowed the candidate when cancellation retires it.
+        a=plan('v3');candidate=start_candidate(a);output=STATE/'pinned-response.json'
+        slow=subprocess.Popen(['ip','netns','exec','fw_node',PY,'-I','-c',
+            "import json,sys;from pathlib import Path;from fleetweft.net import request;Path(sys.argv[1]).write_text(json.dumps(request(sys.argv[2],'/work?x=7&challenge=pinned&delay_ms=500')))",str(output),NODE],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        try:
+            borrowed=wait(lambda:n('/inflight').get(candidate['route']['worker'],0)>0)
+            cancelled=n('/cancel',candidate);c('/finish',cancelled);c('/resume',{})
+            slow.wait(timeout=3);assert slow.returncode==0
+            response=json.loads(output.read_text())
+            assert response['worker']==candidate['route']['worker'] and response['release']=='v3' and response['result']==14
+            assert len(cancelled['workers'])==1 and not n('/inflight')
+            pinned={'borrowed_observed':borrowed,'candidate':candidate,'response':response,
+                    'after':cancelled,'external_after':work(cancelled['committed'])}
+        finally:
+            if slow.poll() is None:slow.kill();slow.wait()
         record('delayed_executor', {'preflight': preflight, 'successor': successor, 'late_request_exit': p.returncode,
             'staged_rejection':staged_rejection,'staged_before':staged_before,'staged_after':staged_after,
-            'stale_ack': stale_ack, 'before': before, 'after': after,
+            'stale_ack': stale_ack, 'before': before, 'after': after,'worker_retention':retention,'pinned_drain':pinned,
             'boundary': 'Cached preflight before resource request; unique writer rechecks at mutation, not paused inside its critical section'})
     finally:
         if p.poll() is None: os.kill(p.pid,signal.SIGCONT);p.kill();p.wait()
@@ -235,11 +263,11 @@ def canary():
     c('/register',{'node':'a','incarnation':current['incarnation'],'expected':s['incarnation']})
     old_after_restart=c('/sample',stale,fail=True);state=c('/status')
     assert state['active']['binding'] is None and state['active']['evidence'] is None
-    c('/reconcile',current);c('/resume',{});a=plan();start_candidate(a);fresh=observe();committed=finish()
+    c('/reconcile',current);c('/resume',{});a=plan();start_candidate(a);fresh=observe();observed=c('/status');committed=finish()
     record('canary_freshness',{'wrong_business_result':sample,'wrong_data_rejected':bad,'insufficient_rejected':insufficient,
         'premature_commit_rejected':premature,
         'replay_rejected':replay,'expired_rejected':expired,'old_incarnation_rejected':old_after_restart,
-        'reset_observation':state,'fresh_samples':fresh,'committed':committed,'external':work('v2')})
+        'reset_observation':state,'fresh_samples':fresh,'observed':observed,'committed':committed,'external':work('v2')})
 
 
 def crashes():

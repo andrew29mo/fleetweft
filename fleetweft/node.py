@@ -36,6 +36,7 @@ class Node:
         self.store = Store(root, {'committed': 'v1', 'generation': 0, 'accepted': None,
                                   'phase': 'IDLE', 'children': [], 'revision': 0})
         self.lock = threading.RLock(); self.children = []; self.route = None
+        self.routes = threading.Condition(); self.inflight = {}
         self.incarnation = secrets.token_hex(16)
         s = self.store.read()
         # The state is local and trusted; no PID signaling based on PID alone.
@@ -81,15 +82,46 @@ class Node:
         s = self.store.read()
         return {'token': s['accepted'], 'incarnation': self.incarnation, 'phase': s['phase'],
                 'route': self.route, 'generation': s['generation'], 'revision': s['revision'],
-                'committed': s['committed']}
+                'committed': s['committed'], 'workers': s['children']}
 
-    def work(self, x, challenge):
-        route = self.route  # Request pins one immutable backend descriptor.
-        require(route is not None, 'No route')
-        result = request('http://127.0.0.1:' + str(route['port']),
-                         '/work?' + urlencode({'x': x, 'challenge': challenge}))
-        require(result['worker'] == route['worker'] and result['release'] == route['release'], 'Wrong worker')
-        return {**result, 'route': route, 'incarnation': self.incarnation}
+    def switch(self, route):
+        with self.routes:
+            self.route = route
+
+    def retire_obsolete(self):
+        """Keep the committed worker; let previously pinned requests finish first.
+
+        A bounded drain may interrupt stalled requests. Failure is propagated,
+        never treated as proof that the old process has exited.
+        """
+        keep = self.route['worker']
+        for child in list(self.children):
+            worker = child.args[-1]
+            if worker == keep: continue
+            deadline = time.monotonic() + 2.5
+            with self.routes:
+                while self.inflight.get(worker, 0) and time.monotonic() < deadline:
+                    self.routes.wait(max(0, deadline-time.monotonic()))
+            if child.poll() is None: child.kill()
+            child.wait(timeout=3); child.stdout.close(); self.children.remove(child)
+        s = self.store.read()
+        s['children'] = [i for p in self.children if (i := identity(p.pid)) is not None]
+        self.store.save(s)
+
+    def work(self, x, challenge, delay_ms=0):
+        with self.routes:
+            route = self.route  # Borrow and switch share the same lock.
+            require(route is not None, 'No route')
+            worker = route['worker']; self.inflight[worker] = self.inflight.get(worker,0)+1
+        try:
+            result = request('http://127.0.0.1:' + str(route['port']),
+                             '/work?' + urlencode({'x': x, 'challenge': challenge,'delay_ms':delay_ms}))
+            require(result['worker'] == worker and result['release'] == route['release'], 'Wrong worker')
+            return {**result, 'route': route, 'incarnation': self.incarnation}
+        finally:
+            with self.routes:
+                self.inflight[worker] -= 1; self.routes.notify_all()
+                if not self.inflight[worker]: del self.inflight[worker]
 
     def call(self, action, p):
         with self.lock:
@@ -113,7 +145,7 @@ class Node:
                     candidate = self.spawn(token['release']); s = self.store.read()
                     s['phase'] = 'ACTIVATING'; self.store.save(s)
                     self.checkpoint('before_route')
-                    self.route = candidate
+                    self.switch(candidate)
                     self.checkpoint('after_route')
                     s['phase'] = 'OBSERVING'; s['revision'] += 1; self.store.save(s)
                 elif action == 'sample':
@@ -134,10 +166,12 @@ class Node:
                     self.checkpoint('before_commit')
                     s.update(committed=token['release'], phase='COMMITTED')
                     self.store.save(s); self.checkpoint('after_commit')
+                    self.retire_obsolete()
                 elif action == 'cancel':
                     require(s['phase'] in ('STAGED', 'ACTIVATING', 'OBSERVING'), 'Cannot cancel committed operation')
-                    self.route = self.spawn(s['committed']); s = self.store.read()
+                    self.switch(self.spawn(s['committed'])); s = self.store.read()
                     s['phase'] = 'FAILED_RESTORED'; s['revision'] += 1; self.store.save(s)
+                    self.retire_obsolete()
                 else: raise ValueError('Unknown action')
             return self.snapshot()
 

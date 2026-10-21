@@ -8,6 +8,7 @@ already passed. See the evidence directory for exact tested boundaries.
 | Grant durability and retry | Lost grant/accept/terminal response does not duplicate a change or release an unresolved slot | Exploration |
 | Pause/cancel partition | Real network disconnection retains occupancy; reconnect, confirmed compensation and reconciliation free it | Exploration |
 | Stale executor | Cached preflight followed by a late real switch request cannot change successor HTTP output | Exploration; not a paused write inside the critical section |
+| Worker retention | Repeated successful/cancelled operations return with one worker, obsolete identities gone; deterministic pinned-request wait test plus real HTTP observation | Exploration; stalled requests may be interrupted after bounded drain |
 | Canary freshness | Wrong business result despite healthy endpoint, replay, expired challenge and old agent identity cannot commit/promote | Exploration |
 | Process crash | STAGED, before/after route, before/after commit have actual SIGKILL evidence and different committed/uncommitted recovery | Exploration |
 | Controller crash | Durable grant survives epoch change; cannot grant a successor before reconciliation | Exploration |
@@ -39,6 +40,15 @@ already passed. See the evidence directory for exact tested boundaries.
   from cgroup/VM memory and define all timing boundaries.
 - After failure, prove controlled resources are retired and unrelated services,
   root firewall rules and network configuration remain unchanged.
+- Require exact protocol rejection (HTTP 409), rather than counting arbitrary
+  nonzero exits, import failures, crashes or HTTP 503 as admission protection.
+- Verify actual serving release and application result on both sides of every
+  crash boundary. At after-route, the candidate must have served before SIGKILL;
+  after-commit must have a durable candidate commit before termination.
+- Keep JSON/HTML checks complete: both installed units, namespace/identity, exact
+  failure categories, canary bindings/window, worker retirement and every expected
+  mutation name/test must remain present. Missing or contradictory observations
+  cannot retain report PASS.
 
 ## Excluded claims
 

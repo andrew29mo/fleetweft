@@ -1,89 +1,91 @@
 {
   "passed": true,
-  "run_id": "765bd7248cef5f62",
-  "recorded_at_utc": "2026-10-21T11:36:14.007071+00:00",
+  "run_id": "ab21b5abe8753081",
+  "recorded_at_utc": "2026-10-21T14:31:25.408609+00:00",
   "source": {
     "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
     "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
     "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
     "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
-    "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
-    "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+    "fleetweft/node.py": "5059135437239dff9896a3deafdf0c5364e67d724494d01e230323a97ac81d21",
+    "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
     "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
-    "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+    "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
     "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+    "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+    "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
     "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
     "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
-    "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
-    "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
-    "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+    "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+    "tools/mutations.py": "8ac6da43950e921d0341837017016b04e6391f6f0261adbb4aa20bfdf592ee37",
+    "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
     "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
     "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
   },
-  "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43",
+  "source_sha256": "e7be82faaee962b6ebcba55a4cd70a0a997c6638526867b884a32fadbd49d3a7",
   "source_changed": false,
   "stages": [
     {
       "name": "vm-initial",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.4451948329951847
+      "seconds": 0.5751704589929432
     },
     {
       "name": "vm-start",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 9.594826041997294
+      "seconds": 8.850248165996163
     },
     {
       "name": "preflight",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.2702685420081252
+      "seconds": 0.25609662500210106
     },
     {
       "name": "wheel-build",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.40005283399659675
+      "seconds": 0.4624225000006845
     },
     {
       "name": "upload",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.22912408300908282
+      "seconds": 0.2249219590012217
     },
     {
       "name": "install",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.4684750830056146
+      "seconds": 1.487615750011173
     },
     {
       "name": "guest",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 31.849833792002755
+      "seconds": 36.70244512500358
     },
     {
       "name": "remove",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.35401862500293646
+      "seconds": 0.418042624994996
     },
     {
       "name": "vm-stop",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 2.6183262500126148
+      "seconds": 2.572429457999533
     },
     {
       "name": "vm-final",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.18794966700079385
+      "seconds": 0.2845946669986006
     }
   ],
   "vm_initial": "Stopped",
@@ -94,18 +96,20 @@
       "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
       "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
       "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
-      "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
-      "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+      "fleetweft/node.py": "5059135437239dff9896a3deafdf0c5364e67d724494d01e230323a97ac81d21",
+      "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
       "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
-      "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+      "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
       "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
       "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+      "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+      "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
       "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
       "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
-      "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
-      "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
-      "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+      "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+      "tools/mutations.py": "8ac6da43950e921d0341837017016b04e6391f6f0261adbb4aa20bfdf592ee37",
+      "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
       "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
       "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
     },
@@ -125,10 +129,10 @@
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "op": "a0a340ceb38953dec8d558cd21383860",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               }
             }
           },
@@ -144,22 +148,29 @@
                   "epoch": 1,
                   "generation": 1,
                   "node": "a",
-                  "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                  "op": "a0a340ceb38953dec8d558cd21383860",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+                "incarnation": "50db7e54635c03ca8ee61da68d7dea9d",
                 "phase": "STAGED",
                 "route": {
                   "release": "v1",
-                  "worker": "d8df1bb6b81caba579c10e215f86cacd",
-                  "port": 37097,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "f588589dd427c06b644fc947f5694d2e",
+                  "port": 33969,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
                 "generation": 1,
                 "revision": 1,
-                "committed": "v1"
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 1734,
+                    "start": 979,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               }
             }
           },
@@ -171,22 +182,22 @@
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "op": "a0a340ceb38953dec8d558cd21383860",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "challenge": "4ff3bdf8897631463d400fc80aafe133",
               "cancel_requested": false,
-              "challenge_ns": 10720141045,
+              "challenge_ns": 9939785045,
               "needs_reconcile": false,
               "commit_authorized": false
             },
             "paused": false,
             "agents": {
-              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+              "a": "50db7e54635c03ca8ee61da68d7dea9d"
             },
             "last": null,
             "quiesced": false
@@ -197,17 +208,17 @@
           },
           "local_during_partition": {
             "release": "v1",
-            "worker": "d8df1bb6b81caba579c10e215f86cacd",
+            "worker": "f588589dd427c06b644fc947f5694d2e",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v1",
-              "worker": "d8df1bb6b81caba579c10e215f86cacd",
-              "port": 37097,
-              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+              "worker": "f588589dd427c06b644fc947f5694d2e",
+              "port": 33969,
+              "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
             },
-            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278"
+            "incarnation": "50db7e54635c03ca8ee61da68d7dea9d"
           },
           "paused": {
             "generation": 1,
@@ -217,27 +228,30 @@
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "op": "a0a340ceb38953dec8d558cd21383860",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "challenge": "4ff3bdf8897631463d400fc80aafe133",
               "cancel_requested": false,
-              "challenge_ns": 10720141045,
+              "challenge_ns": 9939785045,
               "needs_reconcile": false,
               "commit_authorized": false
             },
             "paused": true,
             "agents": {
-              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+              "a": "50db7e54635c03ca8ee61da68d7dea9d"
             },
             "last": null,
             "quiesced": false
           },
-          "new_plan_rejected": 1,
+          "new_plan_rejected": {
+            "exit_code": 17,
+            "http_status": 409
+          },
           "cancel_requested": {
             "generation": 1,
             "epoch": 1,
@@ -246,22 +260,22 @@
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "op": "a0a340ceb38953dec8d558cd21383860",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "40aa7d07a1581ddcba96955b0a4cedfb",
+              "challenge": "4ff3bdf8897631463d400fc80aafe133",
               "cancel_requested": true,
-              "challenge_ns": 10720141045,
+              "challenge_ns": 9939785045,
               "needs_reconcile": false,
               "commit_authorized": false
             },
             "paused": true,
             "agents": {
-              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+              "a": "50db7e54635c03ca8ee61da68d7dea9d"
             },
             "last": null,
             "quiesced": false
@@ -271,22 +285,29 @@
               "epoch": 1,
               "generation": 1,
               "node": "a",
-              "op": "f0d3493ac8cbf1d3c2628befb930b963",
+              "op": "a0a340ceb38953dec8d558cd21383860",
               "release": "v2",
               "baseline": "v1",
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
-            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+            "incarnation": "50db7e54635c03ca8ee61da68d7dea9d",
             "phase": "FAILED_RESTORED",
             "route": {
               "release": "v1",
-              "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
-              "port": 42009,
-              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+              "worker": "ca16c045fe53eef5b7caf0702d8e1cc3",
+              "port": 34807,
+              "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
             },
             "generation": 1,
             "revision": 2,
-            "committed": "v1"
+            "committed": "v1",
+            "workers": [
+              {
+                "pid": 1777,
+                "start": 1340,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "settled": {
             "generation": 1,
@@ -294,45 +315,52 @@
             "active": null,
             "paused": true,
             "agents": {
-              "a": "af4c34c6f111600fb58ea3a37f7a4278"
+              "a": "50db7e54635c03ca8ee61da68d7dea9d"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "f0d3493ac8cbf1d3c2628befb930b963",
+                "op": "a0a340ceb38953dec8d558cd21383860",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "af4c34c6f111600fb58ea3a37f7a4278",
+              "incarnation": "50db7e54635c03ca8ee61da68d7dea9d",
               "phase": "FAILED_RESTORED",
               "route": {
                 "release": "v1",
-                "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
-                "port": 42009,
-                "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                "worker": "ca16c045fe53eef5b7caf0702d8e1cc3",
+                "port": 34807,
+                "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
               },
               "generation": 1,
               "revision": 2,
-              "committed": "v1"
+              "committed": "v1",
+              "workers": [
+                {
+                  "pid": 1777,
+                  "start": 1340,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": true
           },
           "after": {
             "release": "v1",
-            "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
+            "worker": "ca16c045fe53eef5b7caf0702d8e1cc3",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v1",
-              "worker": "fb301e78444c7e439a2ad9dcc8d0e3d2",
-              "port": 42009,
-              "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+              "worker": "ca16c045fe53eef5b7caf0702d8e1cc3",
+              "port": 34807,
+              "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
             },
-            "incarnation": "af4c34c6f111600fb58ea3a37f7a4278"
+            "incarnation": "50db7e54635c03ca8ee61da68d7dea9d"
           }
         }
       },
@@ -345,44 +373,58 @@
               "epoch": 1,
               "generation": 1,
               "node": "a",
-              "op": "4e5a2d1ba930a0c9139d16a2b6f41151",
+              "op": "bf3f2f8b8c86f252a83e8b736d109156",
               "release": "v2",
               "baseline": "v1",
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890",
             "phase": "COMMITTED",
             "route": {
               "release": "v2",
-              "worker": "247193c9244c5b585fe6bdac10d55ff5",
-              "port": 38431,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "71ba38116d225c3287577dda91778247",
+              "port": 44575,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
             "generation": 1,
             "revision": 2,
-            "committed": "v2"
+            "committed": "v2",
+            "workers": [
+              {
+                "pid": 1849,
+                "start": 1500,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "successor": {
             "token": {
               "epoch": 1,
               "generation": 2,
               "node": "a",
-              "op": "944ce194905d42869d15c3a2707e20b1",
+              "op": "644d914c8aebad5a029f7af80c6ebd34",
               "release": "v3",
               "baseline": "v2",
-              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890",
             "phase": "STAGED",
             "route": {
               "release": "v2",
-              "worker": "247193c9244c5b585fe6bdac10d55ff5",
-              "port": 38431,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "71ba38116d225c3287577dda91778247",
+              "port": 44575,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
             "generation": 2,
             "revision": 2,
-            "committed": "v2"
+            "committed": "v2",
+            "workers": [
+              {
+                "pid": 1849,
+                "start": 1500,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "late_request_exit": 23,
           "staged_rejection": {
@@ -394,44 +436,58 @@
               "epoch": 1,
               "generation": 2,
               "node": "a",
-              "op": "944ce194905d42869d15c3a2707e20b1",
+              "op": "644d914c8aebad5a029f7af80c6ebd34",
               "release": "v3",
               "baseline": "v2",
-              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890",
             "phase": "STAGED",
             "route": {
               "release": "v2",
-              "worker": "247193c9244c5b585fe6bdac10d55ff5",
-              "port": 38431,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "71ba38116d225c3287577dda91778247",
+              "port": 44575,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
             "generation": 2,
             "revision": 2,
-            "committed": "v2"
+            "committed": "v2",
+            "workers": [
+              {
+                "pid": 1849,
+                "start": 1500,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "staged_after": {
             "token": {
               "epoch": 1,
               "generation": 2,
               "node": "a",
-              "op": "944ce194905d42869d15c3a2707e20b1",
+              "op": "644d914c8aebad5a029f7af80c6ebd34",
               "release": "v3",
               "baseline": "v2",
-              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67",
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890",
             "phase": "STAGED",
             "route": {
               "release": "v2",
-              "worker": "247193c9244c5b585fe6bdac10d55ff5",
-              "port": 38431,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "71ba38116d225c3287577dda91778247",
+              "port": 44575,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
             "generation": 2,
             "revision": 2,
-            "committed": "v2"
+            "committed": "v2",
+            "workers": [
+              {
+                "pid": 1849,
+                "start": 1500,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "stale_ack": {
             "exit_code": 17,
@@ -439,31 +495,363 @@
           },
           "before": {
             "release": "v3",
-            "worker": "4de50c127c067a2092590d918925a9ec",
+            "worker": "89221550988abd003ecfa088374783f9",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v3",
-              "worker": "4de50c127c067a2092590d918925a9ec",
-              "port": 37775,
-              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              "worker": "89221550988abd003ecfa088374783f9",
+              "port": 39189,
+              "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67"
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890"
           },
           "after": {
             "release": "v3",
-            "worker": "4de50c127c067a2092590d918925a9ec",
+            "worker": "89221550988abd003ecfa088374783f9",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v3",
-              "worker": "4de50c127c067a2092590d918925a9ec",
-              "port": 37775,
-              "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+              "worker": "89221550988abd003ecfa088374783f9",
+              "port": 39189,
+              "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
             },
-            "incarnation": "925b6def8fc903fc3c6672b226a2fc67"
+            "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+          },
+          "worker_retention": [
+            {
+              "mode": "commit",
+              "before_workers": [
+                {
+                  "pid": 1905,
+                  "start": 1610,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 1963,
+                  "start": 1716,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 3,
+                  "node": "a",
+                  "op": "e353f4e9cb8ffb82f5a56246127f55b8",
+                  "release": "v1",
+                  "baseline": "v3",
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+                "phase": "COMMITTED",
+                "route": {
+                  "release": "v1",
+                  "worker": "7dde9dfe932f3412c570318fc2741caf",
+                  "port": 42397,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+                },
+                "generation": 3,
+                "revision": 4,
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 1963,
+                    "start": 1716,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
+              },
+              "obsolete_retired": true,
+              "external": {
+                "release": "v1",
+                "worker": "7dde9dfe932f3412c570318fc2741caf",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "7dde9dfe932f3412c570318fc2741caf",
+                  "port": 42397,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+              }
+            },
+            {
+              "mode": "cancel",
+              "before_workers": [
+                {
+                  "pid": 1963,
+                  "start": 1716,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2017,
+                  "start": 1816,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 4,
+                  "node": "a",
+                  "op": "4c48305a362038c44f0a482b3f94d772",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v1",
+                  "worker": "8ca6e2fe41f87c3f6e929e15f34a19cc",
+                  "port": 39529,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+                },
+                "generation": 4,
+                "revision": 6,
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 2024,
+                    "start": 1829,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
+              },
+              "obsolete_retired": true,
+              "external": {
+                "release": "v1",
+                "worker": "8ca6e2fe41f87c3f6e929e15f34a19cc",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v1",
+                  "worker": "8ca6e2fe41f87c3f6e929e15f34a19cc",
+                  "port": 39529,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+              }
+            },
+            {
+              "mode": "commit",
+              "before_workers": [
+                {
+                  "pid": 2024,
+                  "start": 1829,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2044,
+                  "start": 1864,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 5,
+                  "node": "a",
+                  "op": "2c62346a93c33ceb2ffe72ef1ac40ad8",
+                  "release": "v2",
+                  "baseline": "v1",
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+                "phase": "COMMITTED",
+                "route": {
+                  "release": "v2",
+                  "worker": "59ca96457138b27e930bcba7e3065176",
+                  "port": 44663,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "generation": 5,
+                "revision": 7,
+                "committed": "v2",
+                "workers": [
+                  {
+                    "pid": 2044,
+                    "start": 1864,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
+              },
+              "obsolete_retired": true,
+              "external": {
+                "release": "v2",
+                "worker": "59ca96457138b27e930bcba7e3065176",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "59ca96457138b27e930bcba7e3065176",
+                  "port": 44663,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+              }
+            },
+            {
+              "mode": "cancel",
+              "before_workers": [
+                {
+                  "pid": 2044,
+                  "start": 1864,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2098,
+                  "start": 1965,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
+              "after": {
+                "token": {
+                  "epoch": 1,
+                  "generation": 6,
+                  "node": "a",
+                  "op": "d9e9d93cb04740413df76c48b5ee0e94",
+                  "release": "v3",
+                  "baseline": "v2",
+                  "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+                "phase": "FAILED_RESTORED",
+                "route": {
+                  "release": "v2",
+                  "worker": "1a76c43c4611ceb6794aa526240da231",
+                  "port": 37163,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "generation": 6,
+                "revision": 9,
+                "committed": "v2",
+                "workers": [
+                  {
+                    "pid": 2105,
+                    "start": 1976,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
+              },
+              "obsolete_retired": true,
+              "external": {
+                "release": "v2",
+                "worker": "1a76c43c4611ceb6794aa526240da231",
+                "challenge": "external-probe",
+                "result": 14,
+                "healthy": true,
+                "route": {
+                  "release": "v2",
+                  "worker": "1a76c43c4611ceb6794aa526240da231",
+                  "port": 37163,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+                },
+                "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+              }
+            }
+          ],
+          "pinned_drain": {
+            "borrowed_observed": true,
+            "candidate": {
+              "token": {
+                "epoch": 1,
+                "generation": 7,
+                "node": "a",
+                "op": "a103d44febccbf0d20c32529c77c4351",
+                "release": "v3",
+                "baseline": "v2",
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
+              },
+              "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+              "phase": "OBSERVING",
+              "route": {
+                "release": "v3",
+                "worker": "a6fa3dc271785a67558b54a6f77df358",
+                "port": 39045,
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
+              },
+              "generation": 7,
+              "revision": 10,
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 2105,
+                  "start": 1976,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2123,
+                  "start": 2012,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
+            },
+            "response": {
+              "release": "v3",
+              "worker": "a6fa3dc271785a67558b54a6f77df358",
+              "challenge": "pinned",
+              "result": 14,
+              "healthy": true,
+              "route": {
+                "release": "v3",
+                "worker": "a6fa3dc271785a67558b54a6f77df358",
+                "port": 39045,
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
+              },
+              "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+            },
+            "after": {
+              "token": {
+                "epoch": 1,
+                "generation": 7,
+                "node": "a",
+                "op": "a103d44febccbf0d20c32529c77c4351",
+                "release": "v3",
+                "baseline": "v2",
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
+              },
+              "incarnation": "1eb0d641ba1414899d16adf2e4654890",
+              "phase": "FAILED_RESTORED",
+              "route": {
+                "release": "v2",
+                "worker": "296de1a013ee902dc3e458219b1e074e",
+                "port": 33941,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+              },
+              "generation": 7,
+              "revision": 11,
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 2135,
+                  "start": 2031,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
+            },
+            "external_after": {
+              "release": "v2",
+              "worker": "296de1a013ee902dc3e458219b1e074e",
+              "challenge": "external-probe",
+              "result": 14,
+              "healthy": true,
+              "route": {
+                "release": "v2",
+                "worker": "296de1a013ee902dc3e458219b1e074e",
+                "port": 33941,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+              },
+              "incarnation": "1eb0d641ba1414899d16adf2e4654890"
+            }
           },
           "boundary": "Cached preflight before resource request; unique writer rechecks at mutation, not paused inside its critical section"
         }
@@ -477,24 +865,36 @@
               "epoch": 1,
               "generation": 1,
               "node": "a",
-              "op": "2829ef43f03d6ab7d3b3288e5b61f642",
+              "op": "0a93bfae67f304430430087ab7083bf9",
               "release": "bad",
               "baseline": "v1",
-              "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+              "digest": "4e101f30f63b3be98cd68f9718c308ceae21ad0379803020c72747d6e61b4264"
             },
-            "incarnation": "8e0fbd851796f98bd7984902837e1385",
+            "incarnation": "90713b6051826d055a0d102e47fa954f",
             "phase": "OBSERVING",
             "route": {
               "release": "bad",
-              "worker": "135f325f52c92f768d4f32cb07be151d",
-              "port": 46247,
-              "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+              "worker": "de9ac1a794548dea713058291b3dabcf",
+              "port": 33533,
+              "digest": "4e101f30f63b3be98cd68f9718c308ceae21ad0379803020c72747d6e61b4264"
             },
             "generation": 1,
             "revision": 2,
             "committed": "v1",
+            "workers": [
+              {
+                "pid": 2194,
+                "start": 2196,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              },
+              {
+                "pid": 2211,
+                "start": 2225,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ],
             "sequence": 1,
-            "challenge": "32f22c5856482824d5e79d234da05b6a",
+            "challenge": "94d49420dc9eef01142f5adee2f874bf",
             "input": 7,
             "result": 21
           },
@@ -530,44 +930,51 @@
                 "epoch": 1,
                 "generation": 2,
                 "node": "a",
-                "op": "25e8b65ddf39fcfdca192682b06de81e",
+                "op": "30169330b4591fb3f6489e046d6ebde0",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "473a0d56ebce2a73d088a426f39b3879",
+              "challenge": "c5e6ed2efed2f4db4e85756ddedee3db",
               "cancel_requested": false,
-              "challenge_ns": 21932428509,
+              "challenge_ns": 25454587261,
               "needs_reconcile": false,
               "commit_authorized": false
             },
             "paused": false,
             "agents": {
-              "a": "8090fe628a149d3e3124acc468c7f118"
+              "a": "a879924a578a0db6507372036342b0d0"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "2829ef43f03d6ab7d3b3288e5b61f642",
+                "op": "0a93bfae67f304430430087ab7083bf9",
                 "release": "bad",
                 "baseline": "v1",
-                "digest": "66ae5c21e0f5e6ff8d25e4996001a2a9ae99a4485c68e543919bb0c342ef059d"
+                "digest": "4e101f30f63b3be98cd68f9718c308ceae21ad0379803020c72747d6e61b4264"
               },
-              "incarnation": "8e0fbd851796f98bd7984902837e1385",
+              "incarnation": "90713b6051826d055a0d102e47fa954f",
               "phase": "FAILED_RESTORED",
               "route": {
                 "release": "v1",
-                "worker": "2e95d1671b5fa7bd8337854b29ec4908",
-                "port": 36153,
-                "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                "worker": "b6372bda18e611b84a6a0623afbad25e",
+                "port": 46037,
+                "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
               },
               "generation": 1,
               "revision": 3,
-              "committed": "v1"
+              "committed": "v1",
+              "workers": [
+                {
+                  "pid": 2232,
+                  "start": 2258,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": false
           },
@@ -577,24 +984,36 @@
                 "epoch": 1,
                 "generation": 3,
                 "node": "a",
-                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "op": "702c3dd8c3bfff11d52da9231da13273",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "incarnation": "a879924a578a0db6507372036342b0d0",
               "phase": "OBSERVING",
               "route": {
                 "release": "v2",
-                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
-                "port": 45263,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "dc6258eb194525b04efb6eddb82af781",
+                "port": 46385,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 3,
               "revision": 6,
               "committed": "v1",
+              "workers": [
+                {
+                  "pid": 2274,
+                  "start": 2538,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2297,
+                  "start": 2572,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
               "sequence": 1,
-              "challenge": "e6ab257f0bb7a67fbfd4547f79461c0c",
+              "challenge": "324a1d0af8334b4bf63339ba471833e2",
               "input": 7,
               "result": 14
             },
@@ -603,24 +1022,36 @@
                 "epoch": 1,
                 "generation": 3,
                 "node": "a",
-                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "op": "702c3dd8c3bfff11d52da9231da13273",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "incarnation": "a879924a578a0db6507372036342b0d0",
               "phase": "OBSERVING",
               "route": {
                 "release": "v2",
-                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
-                "port": 45263,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "dc6258eb194525b04efb6eddb82af781",
+                "port": 46385,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 3,
               "revision": 6,
               "committed": "v1",
+              "workers": [
+                {
+                  "pid": 2274,
+                  "start": 2538,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2297,
+                  "start": 2572,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
               "sequence": 2,
-              "challenge": "c16cd4c68e1c3ff3d98b2e171d9677ef",
+              "challenge": "20d98ab5a880f56c0c01637e2bcfee24",
               "input": 7,
               "result": 14
             },
@@ -629,63 +1060,148 @@
                 "epoch": 1,
                 "generation": 3,
                 "node": "a",
-                "op": "0bc8e9073241747d43a17afef4e5b2ff",
+                "op": "702c3dd8c3bfff11d52da9231da13273",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "8090fe628a149d3e3124acc468c7f118",
+              "incarnation": "a879924a578a0db6507372036342b0d0",
               "phase": "OBSERVING",
               "route": {
                 "release": "v2",
-                "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
-                "port": 45263,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "dc6258eb194525b04efb6eddb82af781",
+                "port": 46385,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 3,
               "revision": 6,
               "committed": "v1",
+              "workers": [
+                {
+                  "pid": 2274,
+                  "start": 2538,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                },
+                {
+                  "pid": 2297,
+                  "start": 2572,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ],
               "sequence": 3,
-              "challenge": "2e2b3922c70baa6347b4cd1b89979e5c",
+              "challenge": "f0cb2131bc3e2002e160b4695d82b19a",
               "input": 7,
               "result": 14
             }
           ],
+          "observed": {
+            "generation": 3,
+            "epoch": 1,
+            "active": {
+              "token": {
+                "epoch": 1,
+                "generation": 3,
+                "node": "a",
+                "op": "702c3dd8c3bfff11d52da9231da13273",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+              },
+              "binding": {
+                "release": "v2",
+                "worker": "dc6258eb194525b04efb6eddb82af781",
+                "port": 46385,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+              },
+              "evidence": {
+                "sequence": 3,
+                "count": 3,
+                "started_ns": 25907439469,
+                "finished_ns": 26356081261
+              },
+              "challenge": "bfb858e63e2a099f7a4620337d41b1d0",
+              "cancel_requested": false,
+              "challenge_ns": 26356081261,
+              "needs_reconcile": false,
+              "commit_authorized": false
+            },
+            "paused": false,
+            "agents": {
+              "a": "a879924a578a0db6507372036342b0d0"
+            },
+            "last": {
+              "token": {
+                "epoch": 1,
+                "generation": 2,
+                "node": "a",
+                "op": "30169330b4591fb3f6489e046d6ebde0",
+                "release": "v2",
+                "baseline": "v1",
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
+              },
+              "incarnation": "a879924a578a0db6507372036342b0d0",
+              "phase": "FAILED_RESTORED",
+              "route": {
+                "release": "v1",
+                "worker": "f7b9556cb549db6d5b665a53fae34328",
+                "port": 44653,
+                "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
+              },
+              "generation": 2,
+              "revision": 5,
+              "committed": "v1",
+              "workers": [
+                {
+                  "pid": 2274,
+                  "start": 2538,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
+            },
+            "quiesced": false
+          },
           "committed": {
             "token": {
               "epoch": 1,
               "generation": 3,
               "node": "a",
-              "op": "0bc8e9073241747d43a17afef4e5b2ff",
+              "op": "702c3dd8c3bfff11d52da9231da13273",
               "release": "v2",
               "baseline": "v1",
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
-            "incarnation": "8090fe628a149d3e3124acc468c7f118",
+            "incarnation": "a879924a578a0db6507372036342b0d0",
             "phase": "COMMITTED",
             "route": {
               "release": "v2",
-              "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
-              "port": 45263,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "dc6258eb194525b04efb6eddb82af781",
+              "port": 46385,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
             "generation": 3,
             "revision": 6,
-            "committed": "v2"
+            "committed": "v2",
+            "workers": [
+              {
+                "pid": 2297,
+                "start": 2572,
+                "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+              }
+            ]
           },
           "external": {
             "release": "v2",
-            "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
+            "worker": "dc6258eb194525b04efb6eddb82af781",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v2",
-              "worker": "a42348bc5cda2383f1a68ac3c1dca1d4",
-              "port": 45263,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "dc6258eb194525b04efb6eddb82af781",
+              "port": 46385,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
-            "incarnation": "8090fe628a149d3e3124acc468c7f118"
+            "incarnation": "a879924a578a0db6507372036342b0d0"
           }
         }
       },
@@ -700,20 +1216,20 @@
               "before_committed": "v1",
               "actual_before": {
                 "release": "v1",
-                "worker": "fedf3dd0e29db9e12a9fd167cf8ee451",
+                "worker": "8206967fda33ab656ada3692c442ad15",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "fedf3dd0e29db9e12a9fd167cf8ee451",
-                  "port": 43685,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "8206967fda33ab656ada3692c442ad15",
+                  "port": 36533,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "513c24270b3b8065ddcc6cbf05e72989"
+                "incarnation": "ff5289b5622e5e84bf88df1b89e745e7"
               },
               "unit_before": {
-                "MainPID": "2245",
+                "MainPID": "2444",
                 "Result": "success",
                 "ExecMainStatus": "0",
                 "CapabilityBoundingSet": "",
@@ -722,7 +1238,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "active",
                 "SubState": "running",
-                "InvocationID": "fdd674afa8384fe8afce20343628e45a"
+                "InvocationID": "0fdeaf089ee8497b955b4964b4b29b75"
               },
               "unit_failed": {
                 "MainPID": "0",
@@ -734,7 +1250,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "failed",
                 "SubState": "failed",
-                "InvocationID": "fdd674afa8384fe8afce20343628e45a"
+                "InvocationID": "0fdeaf089ee8497b955b4964b4b29b75"
               },
               "children_retired": true,
               "after": {
@@ -742,22 +1258,29 @@
                   "epoch": 1,
                   "generation": 2,
                   "node": "a",
-                  "op": "c03a32cda4bf34a7a237dd261c1f46d3",
+                  "op": "c992fff61976a6d58661c63b17988d1d",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c",
+                "incarnation": "f81b0696d7ed91ff9c80067a4badfbe5",
                 "phase": "FAILED_RESTORED",
                 "route": {
                   "release": "v1",
-                  "worker": "c230ccbf9942e8807294c41c539dbf1a",
-                  "port": 36081,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "5304bd8bbb4cf5eeb527155517bb8d56",
+                  "port": 37085,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
                 "generation": 2,
                 "revision": 3,
-                "committed": "v1"
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 2510,
+                    "start": 2918,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               },
               "settled": {
                 "generation": 2,
@@ -765,45 +1288,52 @@
                 "active": null,
                 "paused": true,
                 "agents": {
-                  "a": "9007b79239d5fe6a0fc4e838f1ac2b0c"
+                  "a": "f81b0696d7ed91ff9c80067a4badfbe5"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 2,
                     "node": "a",
-                    "op": "c03a32cda4bf34a7a237dd261c1f46d3",
+                    "op": "c992fff61976a6d58661c63b17988d1d",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c",
+                  "incarnation": "f81b0696d7ed91ff9c80067a4badfbe5",
                   "phase": "FAILED_RESTORED",
                   "route": {
                     "release": "v1",
-                    "worker": "c230ccbf9942e8807294c41c539dbf1a",
-                    "port": 36081,
-                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                    "worker": "5304bd8bbb4cf5eeb527155517bb8d56",
+                    "port": 37085,
+                    "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                   },
                   "generation": 2,
                   "revision": 3,
-                  "committed": "v1"
+                  "committed": "v1",
+                  "workers": [
+                    {
+                      "pid": 2510,
+                      "start": 2918,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               },
               "external_after": {
                 "release": "v1",
-                "worker": "c230ccbf9942e8807294c41c539dbf1a",
+                "worker": "5304bd8bbb4cf5eeb527155517bb8d56",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "c230ccbf9942e8807294c41c539dbf1a",
-                  "port": 36081,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "5304bd8bbb4cf5eeb527155517bb8d56",
+                  "port": 37085,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "9007b79239d5fe6a0fc4e838f1ac2b0c"
+                "incarnation": "f81b0696d7ed91ff9c80067a4badfbe5"
               }
             },
             {
@@ -812,20 +1342,20 @@
               "before_committed": "v1",
               "actual_before": {
                 "release": "v1",
-                "worker": "98074dedeba0d3f3c1bfd7b9d3581f88",
+                "worker": "250ea67e3d63be6fbad7a4c7663cfd08",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "98074dedeba0d3f3c1bfd7b9d3581f88",
-                  "port": 43387,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "250ea67e3d63be6fbad7a4c7663cfd08",
+                  "port": 36605,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "f2103c443b7f1cd9d300661ab64fbd29"
+                "incarnation": "f89afc8de7cc396b3d3c7dc7eca7f649"
               },
               "unit_before": {
-                "MainPID": "2426",
+                "MainPID": "2625",
                 "Result": "success",
                 "ExecMainStatus": "0",
                 "CapabilityBoundingSet": "",
@@ -834,7 +1364,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "active",
                 "SubState": "running",
-                "InvocationID": "5be4d21551bd49fd86028e354889b50d"
+                "InvocationID": "ba2bfec675224d46865f3d564691ab96"
               },
               "unit_failed": {
                 "MainPID": "0",
@@ -846,7 +1376,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "failed",
                 "SubState": "failed",
-                "InvocationID": "5be4d21551bd49fd86028e354889b50d"
+                "InvocationID": "ba2bfec675224d46865f3d564691ab96"
               },
               "children_retired": true,
               "after": {
@@ -854,22 +1384,29 @@
                   "epoch": 1,
                   "generation": 2,
                   "node": "a",
-                  "op": "fbdbc820c92e4c68a0c486feb2528871",
+                  "op": "56f1e94f16b268c7954c303e10639737",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "0b8dc940c1711190a727f62b265ddca7",
+                "incarnation": "ee62467e96f39acef2f448638acaf39d",
                 "phase": "FAILED_RESTORED",
                 "route": {
                   "release": "v1",
-                  "worker": "565a6382319e35ad890a9890d63f29a4",
-                  "port": 36615,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "11278c9dbf19b9d4afb381d7579362be",
+                  "port": 39859,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
                 "generation": 2,
                 "revision": 3,
-                "committed": "v1"
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 2693,
+                    "start": 3183,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               },
               "settled": {
                 "generation": 2,
@@ -877,45 +1414,52 @@
                 "active": null,
                 "paused": true,
                 "agents": {
-                  "a": "0b8dc940c1711190a727f62b265ddca7"
+                  "a": "ee62467e96f39acef2f448638acaf39d"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 2,
                     "node": "a",
-                    "op": "fbdbc820c92e4c68a0c486feb2528871",
+                    "op": "56f1e94f16b268c7954c303e10639737",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "0b8dc940c1711190a727f62b265ddca7",
+                  "incarnation": "ee62467e96f39acef2f448638acaf39d",
                   "phase": "FAILED_RESTORED",
                   "route": {
                     "release": "v1",
-                    "worker": "565a6382319e35ad890a9890d63f29a4",
-                    "port": 36615,
-                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                    "worker": "11278c9dbf19b9d4afb381d7579362be",
+                    "port": 39859,
+                    "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                   },
                   "generation": 2,
                   "revision": 3,
-                  "committed": "v1"
+                  "committed": "v1",
+                  "workers": [
+                    {
+                      "pid": 2693,
+                      "start": 3183,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               },
               "external_after": {
                 "release": "v1",
-                "worker": "565a6382319e35ad890a9890d63f29a4",
+                "worker": "11278c9dbf19b9d4afb381d7579362be",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "565a6382319e35ad890a9890d63f29a4",
-                  "port": 36615,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "11278c9dbf19b9d4afb381d7579362be",
+                  "port": 39859,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "0b8dc940c1711190a727f62b265ddca7"
+                "incarnation": "ee62467e96f39acef2f448638acaf39d"
               }
             },
             {
@@ -924,20 +1468,20 @@
               "before_committed": "v1",
               "actual_before": {
                 "release": "v2",
-                "worker": "bf5b2774f11b953389a354bc20eee101",
+                "worker": "4248dddbbb58705e497c247206ca3306",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v2",
-                  "worker": "bf5b2774f11b953389a354bc20eee101",
-                  "port": 37645,
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "worker": "4248dddbbb58705e497c247206ca3306",
+                  "port": 33179,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "6b150c2652da8be3e437fd98f24ef26f"
+                "incarnation": "21c514fc4025edf50e7b98beafa57421"
               },
               "unit_before": {
-                "MainPID": "2610",
+                "MainPID": "2808",
                 "Result": "success",
                 "ExecMainStatus": "0",
                 "CapabilityBoundingSet": "",
@@ -946,7 +1490,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "active",
                 "SubState": "running",
-                "InvocationID": "dbe58800c738433090e68494f45f8403"
+                "InvocationID": "172e1bea164348649d940101d76a441b"
               },
               "unit_failed": {
                 "MainPID": "0",
@@ -958,7 +1502,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "failed",
                 "SubState": "failed",
-                "InvocationID": "dbe58800c738433090e68494f45f8403"
+                "InvocationID": "172e1bea164348649d940101d76a441b"
               },
               "children_retired": true,
               "after": {
@@ -966,22 +1510,29 @@
                   "epoch": 1,
                   "generation": 2,
                   "node": "a",
-                  "op": "b8802707136507214e10d8a14914f9cb",
+                  "op": "db217eff5f02dad898c950af59771181",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "1c2e35d074c49fe8993c2ef39f136696",
+                "incarnation": "76b1e224c78d8ec3d203cb89809b59ed",
                 "phase": "FAILED_RESTORED",
                 "route": {
                   "release": "v1",
-                  "worker": "b920e79342847414d30c8d2fec4dbc66",
-                  "port": 37465,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "7ef72b8e00ae41e5fe59a6ea6f6114b8",
+                  "port": 46359,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
                 "generation": 2,
                 "revision": 3,
-                "committed": "v1"
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 2875,
+                    "start": 3456,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               },
               "settled": {
                 "generation": 2,
@@ -989,45 +1540,52 @@
                 "active": null,
                 "paused": true,
                 "agents": {
-                  "a": "1c2e35d074c49fe8993c2ef39f136696"
+                  "a": "76b1e224c78d8ec3d203cb89809b59ed"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 2,
                     "node": "a",
-                    "op": "b8802707136507214e10d8a14914f9cb",
+                    "op": "db217eff5f02dad898c950af59771181",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "1c2e35d074c49fe8993c2ef39f136696",
+                  "incarnation": "76b1e224c78d8ec3d203cb89809b59ed",
                   "phase": "FAILED_RESTORED",
                   "route": {
                     "release": "v1",
-                    "worker": "b920e79342847414d30c8d2fec4dbc66",
-                    "port": 37465,
-                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                    "worker": "7ef72b8e00ae41e5fe59a6ea6f6114b8",
+                    "port": 46359,
+                    "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                   },
                   "generation": 2,
                   "revision": 3,
-                  "committed": "v1"
+                  "committed": "v1",
+                  "workers": [
+                    {
+                      "pid": 2875,
+                      "start": 3456,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               },
               "external_after": {
                 "release": "v1",
-                "worker": "b920e79342847414d30c8d2fec4dbc66",
+                "worker": "7ef72b8e00ae41e5fe59a6ea6f6114b8",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "b920e79342847414d30c8d2fec4dbc66",
-                  "port": 37465,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "7ef72b8e00ae41e5fe59a6ea6f6114b8",
+                  "port": 46359,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "1c2e35d074c49fe8993c2ef39f136696"
+                "incarnation": "76b1e224c78d8ec3d203cb89809b59ed"
               }
             },
             {
@@ -1036,20 +1594,20 @@
               "before_committed": "v1",
               "actual_before": {
                 "release": "v2",
-                "worker": "b72a6493724e7160ca91a4d3647ad1e6",
+                "worker": "b20855d330f8fc83a32de0dff5b21ab7",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v2",
-                  "worker": "b72a6493724e7160ca91a4d3647ad1e6",
-                  "port": 37365,
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "worker": "b20855d330f8fc83a32de0dff5b21ab7",
+                  "port": 35057,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "b4bfa1dd264a42394cfd5f79bfd52794"
+                "incarnation": "e3a6d3d55baf1b25884f18569256b75c"
               },
               "unit_before": {
-                "MainPID": "2792",
+                "MainPID": "2986",
                 "Result": "success",
                 "ExecMainStatus": "0",
                 "CapabilityBoundingSet": "",
@@ -1058,7 +1616,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "active",
                 "SubState": "running",
-                "InvocationID": "6323fda9b136486cbd73833f5a4ff086"
+                "InvocationID": "06c67ebfcbf14eb48ea8103a42a84210"
               },
               "unit_failed": {
                 "MainPID": "0",
@@ -1070,7 +1628,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "failed",
                 "SubState": "failed",
-                "InvocationID": "6323fda9b136486cbd73833f5a4ff086"
+                "InvocationID": "06c67ebfcbf14eb48ea8103a42a84210"
               },
               "children_retired": true,
               "after": {
@@ -1078,22 +1636,29 @@
                   "epoch": 1,
                   "generation": 2,
                   "node": "a",
-                  "op": "93ad1223328124e60b2fdad12ad7b9a6",
+                  "op": "41f34b0fb6418166bd816ffd9910ab02",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "6315b4e9cc8bfb631c6a0429568d6358",
+                "incarnation": "27ca098635246ec74a64ca03404947ed",
                 "phase": "FAILED_RESTORED",
                 "route": {
                   "release": "v1",
-                  "worker": "0301f462f758902d717e1580a588888a",
-                  "port": 42919,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "6f73c8d3349d0fd2b128e089e8b8e6f1",
+                  "port": 44711,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
                 "generation": 2,
                 "revision": 4,
-                "committed": "v1"
+                "committed": "v1",
+                "workers": [
+                  {
+                    "pid": 3085,
+                    "start": 3790,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               },
               "settled": {
                 "generation": 2,
@@ -1101,45 +1666,52 @@
                 "active": null,
                 "paused": true,
                 "agents": {
-                  "a": "6315b4e9cc8bfb631c6a0429568d6358"
+                  "a": "27ca098635246ec74a64ca03404947ed"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 2,
                     "node": "a",
-                    "op": "93ad1223328124e60b2fdad12ad7b9a6",
+                    "op": "41f34b0fb6418166bd816ffd9910ab02",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "6315b4e9cc8bfb631c6a0429568d6358",
+                  "incarnation": "27ca098635246ec74a64ca03404947ed",
                   "phase": "FAILED_RESTORED",
                   "route": {
                     "release": "v1",
-                    "worker": "0301f462f758902d717e1580a588888a",
-                    "port": 42919,
-                    "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                    "worker": "6f73c8d3349d0fd2b128e089e8b8e6f1",
+                    "port": 44711,
+                    "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                   },
                   "generation": 2,
                   "revision": 4,
-                  "committed": "v1"
+                  "committed": "v1",
+                  "workers": [
+                    {
+                      "pid": 3085,
+                      "start": 3790,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               },
               "external_after": {
                 "release": "v1",
-                "worker": "0301f462f758902d717e1580a588888a",
+                "worker": "6f73c8d3349d0fd2b128e089e8b8e6f1",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v1",
-                  "worker": "0301f462f758902d717e1580a588888a",
-                  "port": 42919,
-                  "digest": "4e4dc736671a73a7bf94cf3fa8369084078e5c0292f96ec0e3e603885016a260"
+                  "worker": "6f73c8d3349d0fd2b128e089e8b8e6f1",
+                  "port": 44711,
+                  "digest": "bcaaa4a4713975fefc94e2c319e3ca6965ad76fe53462d7e37df2e2c5bb70806"
                 },
-                "incarnation": "6315b4e9cc8bfb631c6a0429568d6358"
+                "incarnation": "27ca098635246ec74a64ca03404947ed"
               }
             },
             {
@@ -1148,20 +1720,20 @@
               "before_committed": "v2",
               "actual_before": {
                 "release": "v2",
-                "worker": "c9c292b59e17fcd9b6717b3fd3be5117",
+                "worker": "e0d4297e67defd72f6526ffd46f6aeca",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v2",
-                  "worker": "c9c292b59e17fcd9b6717b3fd3be5117",
-                  "port": 40283,
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "worker": "e0d4297e67defd72f6526ffd46f6aeca",
+                  "port": 41339,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "2da88706f92d6f499ecf233df30aa4fd"
+                "incarnation": "f565d6b91ce2898a7c58f0155b0c52db"
               },
               "unit_before": {
-                "MainPID": "3005",
+                "MainPID": "3196",
                 "Result": "success",
                 "ExecMainStatus": "0",
                 "CapabilityBoundingSet": "",
@@ -1170,7 +1742,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "active",
                 "SubState": "running",
-                "InvocationID": "ad6d9ff0c2d54832a969adbf639b6e96"
+                "InvocationID": "2eae6e87d2ad4cfbb34bf3ce6d0e1b52"
               },
               "unit_failed": {
                 "MainPID": "0",
@@ -1182,7 +1754,7 @@
                 "NetworkNamespacePath": "/run/netns/fw_node",
                 "ActiveState": "failed",
                 "SubState": "failed",
-                "InvocationID": "ad6d9ff0c2d54832a969adbf639b6e96"
+                "InvocationID": "2eae6e87d2ad4cfbb34bf3ce6d0e1b52"
               },
               "children_retired": true,
               "after": {
@@ -1190,22 +1762,29 @@
                   "epoch": 1,
                   "generation": 2,
                   "node": "a",
-                  "op": "3cb8c733fc74cef1bcbc1f64580a4f63",
+                  "op": "a6382f6f7fe0d2f5b15cad6f2256e2a6",
                   "release": "v2",
                   "baseline": "v1",
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "ed52043d6c752596ad51fd602092f041",
+                "incarnation": "82b6576be01f423b892bb90625b1b12e",
                 "phase": "COMMITTED",
                 "route": {
                   "release": "v2",
-                  "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
-                  "port": 42027,
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "worker": "4c87a046e2eac9bedde4254b900d28ae",
+                  "port": 46165,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
                 "generation": 2,
                 "revision": 4,
-                "committed": "v2"
+                "committed": "v2",
+                "workers": [
+                  {
+                    "pid": 3295,
+                    "start": 4127,
+                    "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                  }
+                ]
               },
               "settled": {
                 "generation": 2,
@@ -1213,45 +1792,52 @@
                 "active": null,
                 "paused": true,
                 "agents": {
-                  "a": "ed52043d6c752596ad51fd602092f041"
+                  "a": "82b6576be01f423b892bb90625b1b12e"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 2,
                     "node": "a",
-                    "op": "3cb8c733fc74cef1bcbc1f64580a4f63",
+                    "op": "a6382f6f7fe0d2f5b15cad6f2256e2a6",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "ed52043d6c752596ad51fd602092f041",
+                  "incarnation": "82b6576be01f423b892bb90625b1b12e",
                   "phase": "COMMITTED",
                   "route": {
                     "release": "v2",
-                    "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
-                    "port": 42027,
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "worker": "4c87a046e2eac9bedde4254b900d28ae",
+                    "port": 46165,
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
                   "generation": 2,
                   "revision": 4,
-                  "committed": "v2"
+                  "committed": "v2",
+                  "workers": [
+                    {
+                      "pid": 3295,
+                      "start": 4127,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               },
               "external_after": {
                 "release": "v2",
-                "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
+                "worker": "4c87a046e2eac9bedde4254b900d28ae",
                 "challenge": "external-probe",
                 "result": 14,
                 "healthy": true,
                 "route": {
                   "release": "v2",
-                  "worker": "82ee9af6a0dd2f18b3889f96e1c6c39d",
-                  "port": 42027,
-                  "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                  "worker": "4c87a046e2eac9bedde4254b900d28ae",
+                  "port": 46165,
+                  "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                 },
-                "incarnation": "ed52043d6c752596ad51fd602092f041"
+                "incarnation": "82b6576be01f423b892bb90625b1b12e"
               }
             }
           ],
@@ -1268,29 +1854,36 @@
                 "active": null,
                 "paused": false,
                 "agents": {
-                  "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+                  "a": "aca5b8fef2c53dc62ce1b5509d97a485"
                 },
                 "last": {
                   "token": {
                     "epoch": 1,
                     "generation": 1,
                     "node": "a",
-                    "op": "52e13b554b7b8af01b2a3de286e09630",
+                    "op": "16dcf50f99d3adae6f615e873552e207",
                     "release": "v2",
                     "baseline": "v1",
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
-                  "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+                  "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485",
                   "phase": "COMMITTED",
                   "route": {
                     "release": "v2",
-                    "worker": "9f68e1115a8c79632adeeaf07fd4318d",
-                    "port": 46649,
-                    "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                    "worker": "d5206033952bf33f1189ac89cfb9b415",
+                    "port": 43147,
+                    "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
                   },
                   "generation": 1,
                   "revision": 2,
-                  "committed": "v2"
+                  "committed": "v2",
+                  "workers": [
+                    {
+                      "pid": 3369,
+                      "start": 4281,
+                      "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                    }
+                  ]
                 },
                 "quiesced": true
               }
@@ -1302,29 +1895,36 @@
             "active": null,
             "paused": false,
             "agents": {
-              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+              "a": "aca5b8fef2c53dc62ce1b5509d97a485"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "op": "16dcf50f99d3adae6f615e873552e207",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485",
               "phase": "COMMITTED",
               "route": {
                 "release": "v2",
-                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
-                "port": 46649,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "d5206033952bf33f1189ac89cfb9b415",
+                "port": 43147,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 1,
               "revision": 2,
-              "committed": "v2"
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 3369,
+                  "start": 4281,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": true
           },
@@ -1336,44 +1936,51 @@
                 "epoch": 1,
                 "generation": 2,
                 "node": "a",
-                "op": "f94c45af9a2d31e64101b31890313c90",
+                "op": "11daf53c7a1c6651683c4b18e8b4a437",
                 "release": "v3",
                 "baseline": "v2",
-                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "93a76dfe29c207aea5672018ee5c6a80",
+              "challenge": "502b8a45c2b6ba31232f37d3a22199fe",
               "cancel_requested": false,
-              "challenge_ns": 39701745840,
+              "challenge_ns": 43705849968,
               "needs_reconcile": false,
               "commit_authorized": false
             },
             "paused": false,
             "agents": {
-              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+              "a": "aca5b8fef2c53dc62ce1b5509d97a485"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "op": "16dcf50f99d3adae6f615e873552e207",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485",
               "phase": "COMMITTED",
               "route": {
                 "release": "v2",
-                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
-                "port": 46649,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "d5206033952bf33f1189ac89cfb9b415",
+                "port": 43147,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 1,
               "revision": 2,
-              "committed": "v2"
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 3369,
+                  "start": 4281,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": false
           },
@@ -1385,44 +1992,51 @@
                 "epoch": 1,
                 "generation": 2,
                 "node": "a",
-                "op": "f94c45af9a2d31e64101b31890313c90",
+                "op": "11daf53c7a1c6651683c4b18e8b4a437",
                 "release": "v3",
                 "baseline": "v2",
-                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
               },
               "binding": null,
               "evidence": null,
-              "challenge": "93a76dfe29c207aea5672018ee5c6a80",
+              "challenge": "502b8a45c2b6ba31232f37d3a22199fe",
               "cancel_requested": false,
-              "challenge_ns": 39701745840,
+              "challenge_ns": 43705849968,
               "needs_reconcile": true,
               "commit_authorized": false
             },
             "paused": false,
             "agents": {
-              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+              "a": "aca5b8fef2c53dc62ce1b5509d97a485"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 1,
                 "node": "a",
-                "op": "52e13b554b7b8af01b2a3de286e09630",
+                "op": "16dcf50f99d3adae6f615e873552e207",
                 "release": "v2",
                 "baseline": "v1",
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
-              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485",
               "phase": "COMMITTED",
               "route": {
                 "release": "v2",
-                "worker": "9f68e1115a8c79632adeeaf07fd4318d",
-                "port": 46649,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "d5206033952bf33f1189ac89cfb9b415",
+                "port": 43147,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 1,
               "revision": 2,
-              "committed": "v2"
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 3369,
+                  "start": 4281,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": false
           },
@@ -1436,45 +2050,52 @@
             "active": null,
             "paused": true,
             "agents": {
-              "a": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+              "a": "aca5b8fef2c53dc62ce1b5509d97a485"
             },
             "last": {
               "token": {
                 "epoch": 1,
                 "generation": 2,
                 "node": "a",
-                "op": "f94c45af9a2d31e64101b31890313c90",
+                "op": "11daf53c7a1c6651683c4b18e8b4a437",
                 "release": "v3",
                 "baseline": "v2",
-                "digest": "bddeef158129542b8ab393334045c90687ccee015dd64e7c1147dd31388df868"
+                "digest": "6c7202c4777b7141368e066cd1e29600700aed8c37be613f30c0b5cdf7ec4248"
               },
-              "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba",
+              "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485",
               "phase": "FAILED_RESTORED",
               "route": {
                 "release": "v2",
-                "worker": "1e38e515dbfea1c769008cb358ef701a",
-                "port": 44357,
-                "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+                "worker": "20e23eaaf4a51ac64f67791a5f21d8d7",
+                "port": 45531,
+                "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
               },
               "generation": 2,
               "revision": 3,
-              "committed": "v2"
+              "committed": "v2",
+              "workers": [
+                {
+                  "pid": 3437,
+                  "start": 4396,
+                  "boot": "6ae1ed1d-cc5d-4641-8d95-87b9ecc5956c"
+                }
+              ]
             },
             "quiesced": true
           },
           "external": {
             "release": "v2",
-            "worker": "1e38e515dbfea1c769008cb358ef701a",
+            "worker": "20e23eaaf4a51ac64f67791a5f21d8d7",
             "challenge": "external-probe",
             "result": 14,
             "healthy": true,
             "route": {
               "release": "v2",
-              "worker": "1e38e515dbfea1c769008cb358ef701a",
-              "port": 44357,
-              "digest": "1c62a49808123f2a3e486f09b59847fe245282d9e0d93a8fa33526f20c80ff14"
+              "worker": "20e23eaaf4a51ac64f67791a5f21d8d7",
+              "port": 45531,
+              "digest": "8545289a3d52dc6781f0aa0fca0c4a9ae98fe28353150f4ca307b76c82a1cecb"
             },
-            "incarnation": "e8b49f2bf2182d9ea2a7be1da2e917ba"
+            "incarnation": "aca5b8fef2c53dc62ce1b5509d97a485"
           }
         }
       }
@@ -1492,10 +2113,10 @@
       "origin": "/opt/fleetweft-exploration/venv/lib/python3.12/site-packages/fleetweft",
       "hashes": {
         "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
-        "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
-        "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+        "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
+        "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
         "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
-        "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
+        "fleetweft/node.py": "5059135437239dff9896a3deafdf0c5364e67d724494d01e230323a97ac81d21",
         "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
         "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
         "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e"
@@ -1508,7 +2129,7 @@
       "architecture": "aarch64",
       "units": {
         "fleetweft-probe-controller.service": {
-          "MainPID": "1664",
+          "MainPID": "1665",
           "Result": "success",
           "ExecMainStatus": "0",
           "CapabilityBoundingSet": "",
@@ -1517,10 +2138,10 @@
           "NetworkNamespacePath": "/run/netns/fw_ctl",
           "ActiveState": "active",
           "SubState": "running",
-          "InvocationID": "a0a8f739343d4be3b117dafcf5c8a9d2"
+          "InvocationID": "de9d5d8d5ff4459ab6b6798aae96b99a"
         },
         "fleetweft-probe-node.service": {
-          "MainPID": "1665",
+          "MainPID": "1666",
           "Result": "success",
           "ExecMainStatus": "0",
           "CapabilityBoundingSet": "",
@@ -1529,13 +2150,13 @@
           "NetworkNamespacePath": "/run/netns/fw_node",
           "ActiveState": "active",
           "SubState": "running",
-          "InvocationID": "ea2b2f5b2fd54b01a98d4621d3a862a1"
+          "InvocationID": "33ead9b34b924889a8b9d2d951cf93ae"
         }
       }
     },
     "unit_tests": {
       "passed": true,
-      "tests": 15,
+      "tests": 21,
       "test_ids": [
         "tests.test_core.Contracts.test_canary_requires_samples",
         "tests.test_core.Contracts.test_cancel_does_not_accept_false_restore",
@@ -1551,35 +2172,43 @@
         "tests.test_core.Contracts.test_pause_keeps_unknown_occupancy",
         "tests.test_core.Contracts.test_restart_requires_reconciliation_and_resets_evidence",
         "tests.test_core.Contracts.test_retry_has_same_capability",
-        "tests.test_core.Contracts.test_stale_report_does_not_free_slot"
+        "tests.test_core.Contracts.test_stale_report_does_not_free_slot",
+        "tests.test_node_retirement.RetirementContracts.test_borrowed_request_finishes_before_worker_is_retired",
+        "tests.test_report.ReportContracts.test_execution_errors_cannot_count_as_protocol_rejection",
+        "tests.test_report.ReportContracts.test_http_release_alone_is_not_application_correctness",
+        "tests.test_report.ReportContracts.test_incomplete_report_cannot_render_success",
+        "tests.test_report.ReportContracts.test_mutation_receipt_requires_complete_unique_controls",
+        "tests.test_report.ReportContracts.test_optimized_validation_is_refused"
       ],
       "failures": 0,
       "errors": 0,
       "skipped": 0,
       "platform": "Linux",
       "python": "3.12.3",
-      "seconds": 0.09352212499999979,
+      "seconds": 0.10955049999999922,
       "source": {
         "fleetweft/__init__.py": "ccb2fd01ed01c485a31ab461ea7eb2370627e61539f70d51ed1faf52febaef25",
         "fleetweft/client.py": "cfd9151ccfa1084eb3795a1694228ca58fd8d40b86bd30552425a57d7be29aa9",
         "fleetweft/core.py": "39d021dc934f88b89b14334bf02b205a6aae4c1efecac893141db7e7bc42697e",
         "fleetweft/net.py": "66105f10c7f2d027cbe445b10ea40971e8ec9c6f50b44041a0611dc171527205",
-        "fleetweft/node.py": "003caf37534c8a7e2e0de37e730c33362a35d653f19f2674aa7f8d94b45642e1",
-        "fleetweft/service.py": "c01217da7c91cfaab6a432ffb7b3b591c0602eeb62185f09a4a6ba3f982a9067",
+        "fleetweft/node.py": "5059135437239dff9896a3deafdf0c5364e67d724494d01e230323a97ac81d21",
+        "fleetweft/service.py": "8b1a5f1399eca32277880ee514b590da3e072265f59ce160ddd067bf7bf2a0ad",
         "fleetweft/store.py": "9c9e263b11048de8d496587c18e34eb582689d7eb903de6e623648cd27d0b98e",
-        "fleetweft/worker.py": "78e9ed6e4bf91f6ee5bc6757a0bd4ac3b5e0ef67c189338defc7d49762e01a74",
+        "fleetweft/worker.py": "803774891076f35b86c5731575cd35230c9a2521a70e8ed53377b106cc04a362",
         "pyproject.toml": "0ebecdb41b75451134c4b633026c0edc9875cb59d16e3f9b528ddea438d0c2bb",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/test_core.py": "0a0b92f9cd881d2860787996828cef8a5ea277dccef9a7194c5cfe76fcaf810f",
+        "tests/test_node_retirement.py": "a0293b74d15435859b29f5489265e71f531cf920767acecb72d93c2c24036510",
+        "tests/test_report.py": "7b2f73512eae0b80eadf8d43f5f9b22e930a5447772aa8613d00aac7a83edcf0",
         "tools/__init__.py": "4e1bb9b10275c50ac7ab1a3409ecda3885082fca45adc3d0b3b0b0fab197fb23",
         "tools/evidence.py": "a11cabaff1bec079fb8e9240082461e1f85f9b175e752445c46ce744823e3288",
-        "tools/guest.py": "83ade196347a13d9bcd92f5c35c8431b2957f06336978d42a5f4116808680653",
-        "tools/mutations.py": "981e58fe793ef2f826de6d9b9473fb15871cc05b69bd316f3077cccac4739a4c",
-        "tools/report.py": "22dcce75cd3b86012611ef0a43677cfca051f86550ecd9ef059dbd7a9faced96",
+        "tools/guest.py": "e2404b7d123d6bb5116b0cbbb2440d3eecb48b9b8217758f4020ee83d8673c6b",
+        "tools/mutations.py": "8ac6da43950e921d0341837017016b04e6391f6f0261adbb4aa20bfdf592ee37",
+        "tools/report.py": "928eeb104e9d8f7f8a1a3739d766e3eed0aeabd796810e850e428204803dcd79",
         "tools/unit.py": "d566195e7744caf477a288af94d9fb04ded1487a2250caf604435358e9522232",
         "tools/validate_vm.py": "4e5617c7473b3646e4a61b219a6bd0d4a585358a4e053d7ece1704e4eb3084b5"
       },
-      "source_sha256": "58902eb436bd5710253e99d58520633669c39114c66cd056a2f059870f02ae43"
+      "source_sha256": "e7be82faaee962b6ebcba55a4cd70a0a997c6638526867b884a32fadbd49d3a7"
     },
     "cleanup_processes_retired": true,
     "root_firewall_unchanged": true,
@@ -1650,6 +2279,50 @@
     },
     {
       "name": "power-loss-claim",
+      "rejected": true
+    },
+    {
+      "name": "missing-units",
+      "rejected": true
+    },
+    {
+      "name": "wrong-partition-failure",
+      "rejected": true
+    },
+    {
+      "name": "execution-error-is-not-rejection",
+      "rejected": true
+    },
+    {
+      "name": "restore-wrong-data",
+      "rejected": true
+    },
+    {
+      "name": "before-route-wrong-data",
+      "rejected": true
+    },
+    {
+      "name": "after-route-not-activated",
+      "rejected": true
+    },
+    {
+      "name": "wrong-pre-crash-phase",
+      "rejected": true
+    },
+    {
+      "name": "leaked-workers",
+      "rejected": true
+    },
+    {
+      "name": "pinned-request-wrong-worker",
+      "rejected": true
+    },
+    {
+      "name": "canary-window-too-short",
+      "rejected": true
+    },
+    {
+      "name": "unbounded-stage-time",
       "rejected": true
     }
   ]

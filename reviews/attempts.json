@@ -88,6 +88,27 @@
         "root_firewall_unchanged": true,
         "cleanup_namespaces_removed": true
       }
+    },
+    {
+      "attempt": "audit-a",
+      "run_id": "ab21b5abe8753081",
+      "source_sha256": "e7be82faaee962b6ebcba55a4cd70a0a997c6638526867b884a32fadbd49d3a7",
+      "passed": true,
+      "completed_cases": [
+        "authorization_loss_partition",
+        "delayed_executor",
+        "canary_freshness",
+        "crash_recovery"
+      ],
+      "error": null,
+      "guest_error": null,
+      "snapshot_removed": true,
+      "vm_final": "Stopped",
+      "guest_cleanup": {
+        "cleanup_processes_retired": true,
+        "root_firewall_unchanged": true,
+        "cleanup_namespaces_removed": true
+      }
     }
   ]
 }

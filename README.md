@@ -21,6 +21,8 @@ license has been selected; no permission to redistribute is granted by this READ
   sequence, recipe digest, route/worker identity and observation window checks.
 - A Controller commit decision before local COMMITTED persistence; restart
   reconstructs a committed version, or compensates an unfinished candidate.
+- Commit/cancel retirement of obsolete workers: route borrowing and switching
+  share a lock, pinned requests get a bounded drain, then old processes are reaped.
 - Exact installed-module provenance, real systemd SIGKILL boundaries, raw JSON
   observations, HTML, source fingerprints and corrupted-report checks.
 
@@ -35,6 +37,7 @@ test settings, not production recommendations or a statistical quality guarantee
 - [Architecture and protocol](docs/ARCHITECTURE.md)
 - [Revised MVP acceptance conditions](docs/MVP_ACCEPTANCE.md)
 - [Research and design decisions](docs/RESEARCH.md)
+- [Audit findings and fixes](docs/AUDIT.md)
 - [Retained experiment evidence](reviews/README.md)
 
 ## Reproduce
@@ -72,3 +75,8 @@ polling, artifact download security, availability budgets, physical-device suppo
 VM/host reboot recovery, power-loss durability, or malicious-agent resistance.
 Actual client connections may fail during process restart. No universal
 zero-downtime, recovery-time or throughput claim is made.
+
+Obsolete-worker drain is bounded at 2.5 seconds, after which stalled requests may
+be interrupted by retirement. No guarantee that every request survives a switch
+or cleanup failure is made. Terminal worker retention, not a memory reduction,
+is what the exploration measures.
